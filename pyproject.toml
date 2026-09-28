@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "venomgap"
+version = "0.1.0"
+description = "Stoichiometric antivenom coverage modelling and venom-collection siting for India"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Rahul Gunwani" }]
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "pandas>=2.1",
+    "pydantic>=2.5",
+    "biopython>=1.81",
+    "requests>=2.31",
+    "matplotlib>=3.8",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov>=4.1", "mypy>=1.8", "ruff>=0.3", "httpx>=0.27"]
+
+[project.scripts]
+venomgap = "venomgap.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "SIM", "RET", "ARG", "PTH", "RUF"]
+ignore = [
+    "N803",   # argument names: B, D, S are the symbols in the paper
+    "N806",   # local variable names: same reason
+    "RUF001", # ambiguous unicode in docstrings describing Greek symbols
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ARG001", "ARG002"]
+"src/venomgap/config.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+packages = ["venomgap"]
+mypy_path = "src"
+strict = true
+warn_unreachable = true
+disallow_untyped_defs = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["scipy.*", "matplotlib.*", "Bio.*", "pandas.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q --strict-markers"
+markers = [
+    "network: requires live network access",
+    "slow: takes more than a few seconds",
+]

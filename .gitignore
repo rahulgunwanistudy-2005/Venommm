@@ -1,0 +1,23 @@
+# Raw downloads are reproducible by the fetch scripts; derived tables are committed instead.
+data/raw/
+!data/raw/.gitkeep
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+node_modules/
+web/dist/
+web/.vite/
+
+.DS_Store
+*.swp
