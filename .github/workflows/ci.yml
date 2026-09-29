@@ -27,6 +27,10 @@ jobs:
         run: pytest -q -m "not network"
       - name: data contracts
         run: python -m venomgap.cli validate-data
+      - name: full pipeline, offline
+        run: python -m venomgap.cli pipeline
+      - name: README is generated, not retyped
+        run: python experiments/scripts/build_readme.py --check
 
   web:
     runs-on: ubuntu-latest

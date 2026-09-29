@@ -1,0 +1,500 @@
+{
+ "baseline_national_coverage": 0.6615434957839591,
+ "baseline_national_deficit": 0.3384565042160409,
+ "coverage_vs_k": [
+  {
+   "k": 0,
+   "greedy": 0.6615434957839591,
+   "greedy_local": 0.6615434957839591,
+   "weight_optimised": 0.6615434957839591,
+   "uniform_weights": 0.6615434957839591,
+   "weights_improved": false,
+   "sites": [],
+   "moves": [
+    "current Big Four immunogen"
+   ],
+   "forced_k_uniform": 0.6615434957839591,
+   "forced_k_weighted": 0.6615434957839591,
+   "forced_k_sites": []
+  },
+  {
+   "k": 1,
+   "greedy": 0.7064095397673162,
+   "greedy_local": 0.7064095397673162,
+   "weight_optimised": 0.71350131715496,
+   "forced_k_uniform": 0.7064095397673162,
+   "forced_k_weighted": 0.71350131715496,
+   "forced_k_sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "uniform_weights": 0.7064095397673162,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__WestBengal',) (0.70641)"
+   ]
+  },
+  {
+   "k": 2,
+   "greedy": 0.7064095397673162,
+   "greedy_local": 0.7064095397673162,
+   "weight_optimised": 0.71350131715496,
+   "forced_k_uniform": 0.6954268904112064,
+   "forced_k_weighted": 0.7438427941516732,
+   "forced_k_sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer"
+   ],
+   "uniform_weights": 0.7064095397673162,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__WestBengal',) (0.70641)"
+   ]
+  },
+  {
+   "k": 3,
+   "greedy": 0.7064095397673162,
+   "greedy_local": 0.7064095397673162,
+   "weight_optimised": 0.71350131715496,
+   "forced_k_uniform": 0.6899758886400532,
+   "forced_k_weighted": 0.743842794025172,
+   "forced_k_sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer",
+    "Bungarus_caeruleus__Punjab"
+   ],
+   "uniform_weights": 0.7064095397673162,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__WestBengal',) (0.70641)"
+   ]
+  },
+  {
+   "k": 4,
+   "greedy": 0.7064095397673162,
+   "greedy_local": 0.7064095397673162,
+   "weight_optimised": 0.71350131715496,
+   "forced_k_uniform": 0.7075003505950813,
+   "forced_k_weighted": 0.7513188282121624,
+   "forced_k_sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer",
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__NorthwestIndia"
+   ],
+   "uniform_weights": 0.7064095397673162,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__WestBengal',) (0.70641)"
+   ]
+  },
+  {
+   "k": 5,
+   "greedy": 0.7064095397673162,
+   "greedy_local": 0.7064095397673162,
+   "weight_optimised": 0.71350131715496,
+   "forced_k_uniform": 0.7239258564197907,
+   "forced_k_weighted": 0.7535219262467963,
+   "forced_k_sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer",
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__NorthwestIndia",
+    "Daboia_russelii__MadhyaPradesh"
+   ],
+   "uniform_weights": 0.7064095397673162,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__WestBengal',) (0.70641)"
+   ]
+  },
+  {
+   "k": 6,
+   "greedy": 0.7064095397673162,
+   "greedy_local": 0.7064095397673162,
+   "weight_optimised": 0.71350131715496,
+   "forced_k_uniform": 0.7348321328024736,
+   "forced_k_weighted": 0.7613731149711129,
+   "forced_k_sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer",
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__NorthwestIndia",
+    "Daboia_russelii__Maharashtra",
+    "Naja_naja__Punjab"
+   ],
+   "uniform_weights": 0.7064095397673162,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__WestBengal',) (0.70641)"
+   ]
+  }
+ ],
+ "turnover_k": 1,
+ "turnover_is_interior": true,
+ "turnover_is_first_descent": true,
+ "global_best_k_uniform": 6,
+ "global_best_coverage_uniform": 0.7348321328024736,
+ "turnover_basis": "Forced-k curve under uniform mixture weights: the best achievable coverage when exactly k new venoms are added to the Big Four immunogen and the vial's protein is split evenly across all of them. turnover_k is the first k after which coverage falls, not the global maximum -- coverage dips as the next venoms dilute the mixture and recovers once enough new composition is in the vial to pay for itself.",
+ "weight_reoptimisation_note": "Re-optimising the mixture weights removes the dip entirely, because the optimiser can down-weight the added venoms rather than splitting the vial evenly. That is the actionable consequence of the dilution effect: adding a venom to a polyvalent antivenom without re-balancing the mixture can make it worse, and re-balancing is what recovers the gain.",
+ "forced_k_curve": [
+  {
+   "k": 0,
+   "uniform": 0.6615434957839591,
+   "weighted": 0.6615434957839591,
+   "sites": []
+  },
+  {
+   "k": 1,
+   "uniform": 0.7064095397673162,
+   "weighted": 0.71350131715496,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ]
+  },
+  {
+   "k": 2,
+   "uniform": 0.6954268904112064,
+   "weighted": 0.7438427941516732,
+   "sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer"
+   ]
+  },
+  {
+   "k": 3,
+   "uniform": 0.6899758886400532,
+   "weighted": 0.743842794025172,
+   "sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer",
+    "Bungarus_caeruleus__Punjab"
+   ]
+  },
+  {
+   "k": 4,
+   "uniform": 0.7075003505950813,
+   "weighted": 0.7513188282121624,
+   "sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer",
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__NorthwestIndia"
+   ]
+  },
+  {
+   "k": 5,
+   "uniform": 0.7239258564197907,
+   "weighted": 0.7535219262467963,
+   "sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer",
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__NorthwestIndia",
+    "Daboia_russelii__MadhyaPradesh"
+   ]
+  },
+  {
+   "k": 6,
+   "uniform": 0.7348321328024736,
+   "weighted": 0.7613731149711129,
+   "sites": [
+    "Naja_naja__WestBengal",
+    "Echis_carinatus_sochureki__Barmer",
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__NorthwestIndia",
+    "Daboia_russelii__Maharashtra",
+    "Naja_naja__Punjab"
+   ]
+  }
+ ],
+ "best_national_coverage": 0.71350131715496,
+ "solutions": [
+  {
+   "k": 1,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "weights": [
+    0.18002465568872322
+   ],
+   "immunogen_labels": [
+    "Naja_naja__IrulaTamilNadu",
+    "Bungarus_caeruleus__IrulaTamilNadu",
+    "Daboia_russelii__IrulaTamilNadu",
+    "Echis_carinatus__IrulaTamilNadu",
+    "Naja_naja__WestBengal"
+   ],
+   "immunogen_weights": [
+    0.22209159001138606,
+    0.20945218919477607,
+    0.2258764499488483,
+    0.16255511515626647,
+    0.18002465568872322
+   ],
+   "national_coverage": 0.71350131715496,
+   "coverage_gain_vs_baseline": 0.05195782137100091,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 2,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "weights": [
+    0.18002465568872322
+   ],
+   "immunogen_labels": [
+    "Naja_naja__IrulaTamilNadu",
+    "Bungarus_caeruleus__IrulaTamilNadu",
+    "Daboia_russelii__IrulaTamilNadu",
+    "Echis_carinatus__IrulaTamilNadu",
+    "Naja_naja__WestBengal"
+   ],
+   "immunogen_weights": [
+    0.22209159001138606,
+    0.20945218919477607,
+    0.2258764499488483,
+    0.16255511515626647,
+    0.18002465568872322
+   ],
+   "national_coverage": 0.71350131715496,
+   "coverage_gain_vs_baseline": 0.05195782137100091,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 3,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "weights": [
+    0.18002465568872322
+   ],
+   "immunogen_labels": [
+    "Naja_naja__IrulaTamilNadu",
+    "Bungarus_caeruleus__IrulaTamilNadu",
+    "Daboia_russelii__IrulaTamilNadu",
+    "Echis_carinatus__IrulaTamilNadu",
+    "Naja_naja__WestBengal"
+   ],
+   "immunogen_weights": [
+    0.22209159001138606,
+    0.20945218919477607,
+    0.2258764499488483,
+    0.16255511515626647,
+    0.18002465568872322
+   ],
+   "national_coverage": 0.71350131715496,
+   "coverage_gain_vs_baseline": 0.05195782137100091,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 4,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "weights": [
+    0.18002465568872322
+   ],
+   "immunogen_labels": [
+    "Naja_naja__IrulaTamilNadu",
+    "Bungarus_caeruleus__IrulaTamilNadu",
+    "Daboia_russelii__IrulaTamilNadu",
+    "Echis_carinatus__IrulaTamilNadu",
+    "Naja_naja__WestBengal"
+   ],
+   "immunogen_weights": [
+    0.22209159001138606,
+    0.20945218919477607,
+    0.2258764499488483,
+    0.16255511515626647,
+    0.18002465568872322
+   ],
+   "national_coverage": 0.71350131715496,
+   "coverage_gain_vs_baseline": 0.05195782137100091,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 5,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "weights": [
+    0.18002465568872322
+   ],
+   "immunogen_labels": [
+    "Naja_naja__IrulaTamilNadu",
+    "Bungarus_caeruleus__IrulaTamilNadu",
+    "Daboia_russelii__IrulaTamilNadu",
+    "Echis_carinatus__IrulaTamilNadu",
+    "Naja_naja__WestBengal"
+   ],
+   "immunogen_weights": [
+    0.22209159001138606,
+    0.20945218919477607,
+    0.2258764499488483,
+    0.16255511515626647,
+    0.18002465568872322
+   ],
+   "national_coverage": 0.71350131715496,
+   "coverage_gain_vs_baseline": 0.05195782137100091,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 6,
+   "sites": [
+    "Naja_naja__WestBengal"
+   ],
+   "weights": [
+    0.18002465568872322
+   ],
+   "immunogen_labels": [
+    "Naja_naja__IrulaTamilNadu",
+    "Bungarus_caeruleus__IrulaTamilNadu",
+    "Daboia_russelii__IrulaTamilNadu",
+    "Echis_carinatus__IrulaTamilNadu",
+    "Naja_naja__WestBengal"
+   ],
+   "immunogen_weights": [
+    0.22209159001138606,
+    0.20945218919477607,
+    0.2258764499488483,
+    0.16255511515626647,
+    0.18002465568872322
+   ],
+   "national_coverage": 0.71350131715496,
+   "coverage_gain_vs_baseline": 0.05195782137100091,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  }
+ ],
+ "mixture_size_curve": {
+  "sizes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "coverages": [
+   0.2168785473548266,
+   0.41262180488361055,
+   0.550501249775897,
+   0.6382657169758581,
+   0.6295731549829118,
+   0.6114237177409554
+  ],
+  "best_sets": [
+   [
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_kaouthia__WestBengal",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Echis_carinatus_sochureki__RajasthanPooled",
+    "Naja_kaouthia__WestBengal",
+    "Naja_naja__EasternIndia"
+   ]
+  ],
+  "argmax_size": 4,
+  "peak": 0.6382657169758581,
+  "terminal": 0.6114237177409554
+ },
+ "optimality_gap": {
+  "k": 4,
+  "candidates": [
+   "Bungarus_caeruleus__Punjab",
+   "Bungarus_fasciatus__WestBengal",
+   "Bungarus_sindanus__Rajasthan",
+   "Daboia_russelii__MadhyaPradesh",
+   "Daboia_russelii__Maharashtra",
+   "Daboia_russelii__WestBengal",
+   "Daboia_russelii__WestIndia",
+   "Echis_carinatus__Maharashtra",
+   "Echis_carinatus_sochureki__Barmer",
+   "Echis_carinatus_sochureki__Pokhran",
+   "Echis_carinatus_sochureki__RajasthanPooled",
+   "Echis_carinatus_sochureki__Sam",
+   "Naja_kaouthia__ArunachalPradesh",
+   "Naja_kaouthia__WestBengal",
+   "Naja_naja__EasternIndia",
+   "Naja_naja__Karnataka",
+   "Naja_naja__Maharashtra",
+   "Naja_naja__NorthwestIndia",
+   "Naja_naja__Punjab",
+   "Naja_naja__Rajasthan"
+  ],
+  "exact_sites": [
+   "Bungarus_caeruleus__Punjab",
+   "Daboia_russelii__MadhyaPradesh",
+   "Echis_carinatus__Maharashtra",
+   "Naja_naja__NorthwestIndia"
+  ],
+  "exact_coverage": 0.6497662915596789,
+  "subsets_evaluated": 6195,
+  "heuristic_sites": [
+   "Naja_naja__NorthwestIndia",
+   "Bungarus_caeruleus__Punjab",
+   "Daboia_russelii__MadhyaPradesh",
+   "Echis_carinatus__Maharashtra"
+  ],
+  "heuristic_coverage": 0.6497662915596789,
+  "optimality_gap": 0.0,
+  "heuristic_matched_exact": true,
+  "note": "The objective is non-monotone and not submodular, so no (1 - 1/e) guarantee applies. This gap is measured on a reduced instance, not derived."
+ },
+ "submodularity_note": "The objective is non-monotone and not submodular, because adding a venom moves antibody supply away from families already covered. No (1 - 1/e) guarantee applies and none is claimed; the gap above is measured against exact enumeration on a reduced instance, not derived from theory.",
+ "disclaimer": "Research model. Not clinical guidance. Predictions are computational and require experimental validation."
+}
