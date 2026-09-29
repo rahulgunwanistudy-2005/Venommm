@@ -302,42 +302,59 @@ def figure_04_retrodiction() -> list[Path]:
 def figure_05_coverage_vs_k() -> list[Path]:
     """National coverage as collection sites are added: greedy, local search, exact."""
     opt = _load("optimisation.json")
-    curve = opt["coverage_vs_k"]
-    k = np.array([row["k"] for row in curve])
-    greedy = np.array([row["greedy"] for row in curve])
-    local = np.array([row["greedy_local"] for row in curve])
-    weighted = np.array([row["weight_optimised"] for row in curve])
+    forced = opt["forced_k_curve"]
+    k = np.array([row["k"] for row in forced])
+    uniform = np.array([row["uniform"] for row in forced])
+    weighted = np.array([row["weighted"] for row in forced])
+    unconstrained = np.array(
+        [
+            next(r["weight_optimised"] for r in opt["coverage_vs_k"] if r["k"] == kk)
+            for kk in k
+        ]
+    )
     baseline = opt["baseline_national_coverage"]
     gap = opt["optimality_gap"]
 
-    fig, ax = plt.subplots(figsize=(6.8, 4.3))
+    fig, ax = plt.subplots(figsize=(7.2, 4.4))
     ax.axhline(baseline, color=INK_MUTED, ls=":", lw=1.4)
     ax.annotate(
         f"current Big Four immunogen: {baseline:.3f}",
-        xy=(k[0], baseline), xytext=(0, 6), textcoords="offset points",
+        xy=(k[0], baseline), xytext=(4, 5), textcoords="offset points",
         fontsize=8, color=INK_2,
     )
-    ax.plot(k, greedy, color=C4, marker="^", ls="--", label="greedy")
-    ax.plot(k, local, color=C1, marker="o", label="greedy + local search")
-    ax.plot(k, weighted, color=C3, marker="D", label="+ optimised mixture weights")
-    ax.scatter(
-        [gap["k"]], [gap["exact_coverage"]], marker="*", s=220, color=CRITICAL, zorder=6,
-        label=f"exact on reduced instance (gap {gap['optimality_gap']:.4f})",
+    ax.plot(k, uniform, color=C1, marker="o", label="exactly k added, uniform vial weights")
+    ax.plot(k, weighted, color=C3, marker="D", label="exactly k added, re-optimised weights")
+    ax.plot(
+        k, unconstrained, color=C4, marker="^", ls="--",
+        label="solver free to add fewer than k",
     )
+    # The exact-enumeration check is deliberately not plotted here: it is run on a reduced
+    # instance where the mixture is built from scratch rather than added to the Big Four, so its
+    # coverage is not a point on this curve. Its result -- a solver-quality fact -- is stated
+    # instead, since plotting it on this axis would invite a comparison that is not valid.
     turnover = opt["turnover_k"]
     ax.axvline(turnover, color=CRITICAL, lw=1.0, ls="-.", alpha=0.7)
     ax.annotate(
-        f"turnover at k = {turnover}", xy=(turnover, ax.get_ylim()[0]),
-        xytext=(4, 12), textcoords="offset points", fontsize=8, color=CRITICAL,
+        f"turnover at k = {turnover}\ncoverage falls as the next\nvenoms dilute the vial",
+        xy=(turnover, float(uniform[list(k).index(turnover)])),
+        xytext=(14, -30), textcoords="offset points", fontsize=8, color=CRITICAL,
+        arrowprops={"arrowstyle": "->", "color": CRITICAL, "lw": 1.1},
     )
-    ax.set_xlabel("number of new venom collection sites k")
+    ax.set_xlabel("number of new venom collection sites k added to the Big Four immunogen")
     ax.set_ylabel("burden-weighted national coverage (fraction)")
     ax.set_xticks(k)
     ax.set_title(
         "How many collection centres does India actually need?\n"
-        "the objective is non-monotone and not submodular; no (1 - 1/e) guarantee is claimed"
+        "re-balancing the mixture is what recovers the gain from added venoms"
     )
-    ax.legend(loc="lower right", fontsize=8)
+    ax.legend(loc="lower right", fontsize=8, framealpha=0.92, facecolor=SURFACE, frameon=True)
+    ax.text(
+        0.015, 0.965,
+        f"greedy + local search matched exact enumeration on the reduced instance\n"
+        f"({gap['subsets_evaluated']:,} subsets, k \u2264 {gap['k']}): measured gap "
+        f"{gap['optimality_gap']:.4f}",
+        transform=ax.transAxes, fontsize=7.5, color=INK_MUTED, va="top",
+    )
     fig.tight_layout()
     return _save(fig, "fig05_coverage_vs_k", "Figure 5")
 

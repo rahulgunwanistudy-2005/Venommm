@@ -20,7 +20,7 @@ from numpy.typing import NDArray
 
 from venomgap.config import BIG_FOUR_SPECIES, MAX_K
 from venomgap.errors import OptimisationError
-from venomgap.model.assemble import ModelAssembly
+from venomgap.model.assemble import ImmunogenSpec, ModelAssembly
 from venomgap.optimize.objective import NationalObjective
 from venomgap.types import FittedParameters, VenomPopulation
 
@@ -62,7 +62,18 @@ def evaluate_subset(
     assembly: ModelAssembly,
     pop_ids: tuple[str, ...],
     weights: NDArray[np.float64] | None = None,
+    base: ImmunogenSpec | None = None,
 ) -> float:
+    """National coverage of a candidate set.
+
+    With `base` set, `pop_ids` are populations *added* to an existing immunogen, which is what "k
+    new collection sites" means. Without it, `pop_ids` are the whole mixture, which is the question
+    R4 asks about mixture size.
+    """
+    if base is not None:
+        return objective.national_coverage(
+            assembly.combined_immunogen(base, pop_ids, weights)
+        )
     if not pop_ids:
         return 0.0
     immunogen = assembly.immunogen_from_pop_ids(pop_ids, weights)
@@ -75,6 +86,7 @@ def greedy_sites(
     k: int,
     candidates: tuple[str, ...] | None = None,
     seed_sites: tuple[str, ...] = (),
+    base: ImmunogenSpec | None = None,
 ) -> GreedyResult:
     """Add the single best site at each step, k times.
 
@@ -85,19 +97,22 @@ def greedy_sites(
     pool = list(candidates or candidate_populations(assembly))
     chosen = list(seed_sites)
     trace: list[tuple[str, float]] = []
-    current = evaluate_subset(objective, assembly, tuple(chosen)) if chosen else 0.0
+    if base is not None:
+        current = evaluate_subset(objective, assembly, tuple(chosen), base=base)
+    else:
+        current = evaluate_subset(objective, assembly, tuple(chosen)) if chosen else 0.0
 
     for _ in range(k - len(chosen)):
         best: tuple[float, str] | None = None
         for candidate in pool:
             if candidate in chosen:
                 continue
-            value = evaluate_subset(objective, assembly, (*chosen, candidate))
+            value = evaluate_subset(objective, assembly, (*chosen, candidate), base=base)
             if best is None or value > best[0]:
                 best = (value, candidate)
         if best is None:
             break
-        if chosen and best[0] <= current + 1e-12:
+        if (chosen or base is not None) and best[0] <= current + 1e-12:
             logger.info(
                 "greedy stopped at |S| = %d: the best remaining addition (%s) would not improve "
                 "coverage (%.5f -> %.5f). This is the dilution penalty, not a solver failure.",
@@ -145,26 +160,36 @@ def best_subset_at_size(
     return improved.sites, improved.coverage
 
 
-def _greedy_exactly(
+def greedy_exactly(
     objective: NationalObjective,
     assembly: ModelAssembly,
     size: int,
     pool: tuple[str, ...],
+    base: ImmunogenSpec | None = None,
 ) -> tuple[str, ...]:
-    """Greedy growth that does not stop early, so a subset of exactly `size` is always returned."""
+    """Greedy growth that does not stop early, so a subset of exactly `size` is always returned.
+
+    The early stop in `greedy_sites` is the right behaviour when the question is "how many sites
+    should we build". It is the wrong behaviour when the question is "given that we are building
+    exactly k, which k", which is what the coverage-versus-k curve needs in order to show a
+    turnover rather than a plateau.
+    """
     chosen: list[str] = []
     for _ in range(size):
         best: tuple[float, str] | None = None
         for candidate in pool:
             if candidate in chosen:
                 continue
-            value = evaluate_subset(objective, assembly, (*chosen, candidate))
+            value = evaluate_subset(objective, assembly, (*chosen, candidate), base=base)
             if best is None or value > best[0]:
                 best = (value, candidate)
         if best is None:
             break
         chosen.append(best[1])
     return tuple(chosen)
+
+
+_greedy_exactly = greedy_exactly
 
 
 def best_subset_per_size(

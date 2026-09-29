@@ -257,13 +257,21 @@ class DistrictResult(BaseModel):
 
 
 class SitingSolution(BaseModel):
-    """A solved collection-site portfolio."""
+    """A solved collection-site portfolio.
+
+    `sites` are the *new* collection sites, which is the answer to "where do they go". The immunogen
+    they produce is the existing Big Four mixture extended by those sites, so `immunogen_labels` and
+    `immunogen_weights` describe the whole vial and are longer than `sites` by the four species
+    already in it.
+    """
 
     model_config = ConfigDict(frozen=True)
 
     k: int = Field(ge=0)
     sites: tuple[str, ...]
     weights: tuple[float, ...]
+    immunogen_labels: tuple[str, ...] = ()
+    immunogen_weights: tuple[float, ...] = ()
     national_coverage: Fraction
     coverage_gain_vs_baseline: float
     districts_moved_out_of_high_deficit: int = Field(ge=0)
@@ -273,9 +281,11 @@ class SitingSolution(BaseModel):
     @model_validator(mode="after")
     def _sites_match_weights(self) -> SitingSolution:
         if len(self.sites) != len(self.weights):
-            raise ValueError("sites and weights differ in length")
-        if self.sites and abs(sum(self.weights) - 1.0) > SIMPLEX_TOL:
-            raise ValueError("siting solution weights do not sum to 1")
+            raise ValueError("sites and their mixture shares differ in length")
+        if len(self.immunogen_labels) != len(self.immunogen_weights):
+            raise ValueError("immunogen labels and weights differ in length")
+        if self.immunogen_weights and abs(sum(self.immunogen_weights) - 1.0) > SIMPLEX_TOL:
+            raise ValueError("immunogen weights do not sum to 1")
         return self
 
 

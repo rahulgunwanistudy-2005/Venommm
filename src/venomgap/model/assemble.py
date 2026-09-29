@@ -119,6 +119,38 @@ class ModelAssembly:
             flags=tuple(dict.fromkeys(flags)),
         )
 
+    def combined_immunogen(
+        self,
+        base: ImmunogenSpec,
+        pop_ids: tuple[str, ...],
+        weights: NDArray[np.float64] | None = None,
+    ) -> ImmunogenSpec:
+        """The existing immunogen plus `k` newly collected populations.
+
+        This is what "k new collection sites" means: the Big Four mixture is not thrown away and
+        rebuilt, it is extended. Weights default to uniform across the whole enlarged mixture,
+        which is exactly where the dilution penalty bites -- every venom added takes budget share
+        from the ones already there.
+        """
+        missing = [p for p in pop_ids if p not in self.by_id]
+        if missing:
+            raise DataValidationError(f"unknown immunogen populations: {missing}")
+        if not pop_ids:
+            return base if weights is None else base.with_weights(weights)
+        added = [self.by_id[p] for p in pop_ids]
+        n = base.size + len(added)
+        flags = list(base.flags)
+        for population in added:
+            flags.extend(population.flags)
+        return ImmunogenSpec(
+            labels=(*base.labels, *pop_ids),
+            species=(*base.species, *(p.species for p in added)),
+            compositions=np.vstack([base.compositions, *[p.vector() for p in added]]),
+            weights=np.full(n, 1.0 / n) if weights is None else np.asarray(weights, float),
+            uncertainties=np.concatenate([base.uncertainties, np.zeros(len(added))]),
+            flags=tuple(dict.fromkeys(flags)),
+        )
+
     def big_four_immunogen(
         self,
         weights: NDArray[np.float64] | None = None,

@@ -11,7 +11,7 @@ import logging
 from dataclasses import dataclass
 
 from venomgap.config import LOCAL_SEARCH_MAX_ITERS
-from venomgap.model.assemble import ModelAssembly
+from venomgap.model.assemble import ImmunogenSpec, ModelAssembly
 from venomgap.optimize.greedy import candidate_populations, evaluate_subset, greedy_sites
 from venomgap.optimize.objective import NationalObjective
 
@@ -32,11 +32,12 @@ def improve_by_swaps(
     sites: tuple[str, ...],
     candidates: tuple[str, ...] | None = None,
     max_iters: int = LOCAL_SEARCH_MAX_ITERS,
+    base: ImmunogenSpec | None = None,
 ) -> LocalSearchResult:
     """Swap moves only, holding |S| fixed. Used where the mixture size is part of the question."""
     pool = list(candidates or candidate_populations(assembly))
     current = list(sites)
-    best = evaluate_subset(objective, assembly, tuple(current))
+    best = evaluate_subset(objective, assembly, tuple(current), base=base)
     moves: list[str] = []
 
     for iteration in range(max_iters):
@@ -47,7 +48,7 @@ def improve_by_swaps(
                     continue
                 trial = list(current)
                 trial[position] = candidate
-                value = evaluate_subset(objective, assembly, tuple(trial))
+                value = evaluate_subset(objective, assembly, tuple(trial), base=base)
                 if value > best + 1e-12:
                     best, current, improved = value, trial, True
                     moves.append(f"swap {incumbent} -> {candidate} ({value:.5f})")
@@ -70,6 +71,7 @@ def greedy_plus_local(
     k: int,
     candidates: tuple[str, ...] | None = None,
     max_iters: int = LOCAL_SEARCH_MAX_ITERS,
+    base: ImmunogenSpec | None = None,
 ) -> LocalSearchResult:
     """Greedy, then add / drop / swap until no single move improves the objective.
 
@@ -77,7 +79,7 @@ def greedy_plus_local(
     fall when a venom is added, the best portfolio of size at most k is sometimes smaller than k.
     """
     pool = list(candidates or candidate_populations(assembly))
-    start = greedy_sites(objective, assembly, k, tuple(pool))
+    start = greedy_sites(objective, assembly, k, tuple(pool), base=base)
     current = list(start.sites)
     best = start.coverage
     moves: list[str] = [f"greedy -> {start.sites} ({best:.5f})"]
@@ -92,7 +94,7 @@ def greedy_plus_local(
                     continue
                 trial = list(current)
                 trial[position] = candidate
-                value = evaluate_subset(objective, assembly, tuple(trial))
+                value = evaluate_subset(objective, assembly, tuple(trial), base=base)
                 if value > best + 1e-12:
                     best, current, improved = value, trial, True
                     moves.append(f"swap {incumbent} -> {candidate} ({value:.5f})")
@@ -106,17 +108,17 @@ def greedy_plus_local(
                 if candidate in current:
                     continue
                 trial = [*current, candidate]
-                value = evaluate_subset(objective, assembly, tuple(trial))
+                value = evaluate_subset(objective, assembly, tuple(trial), base=base)
                 if value > best + 1e-12:
                     best, current, improved = value, trial, True
                     moves.append(f"add {candidate} ({value:.5f})")
                     break
 
         # drop: only useful because the objective is non-monotone
-        if not improved and len(current) > 1:
+        if not improved and len(current) > (0 if base is not None else 1):
             for position, incumbent in enumerate(current):
                 trial = [s for i, s in enumerate(current) if i != position]
-                value = evaluate_subset(objective, assembly, tuple(trial))
+                value = evaluate_subset(objective, assembly, tuple(trial), base=base)
                 if value > best + 1e-12:
                     best, current, improved = value, trial, True
                     moves.append(f"drop {incumbent} ({value:.5f}) -- dilution")

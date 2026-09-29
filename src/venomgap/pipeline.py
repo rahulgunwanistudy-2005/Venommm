@@ -206,9 +206,10 @@ def run_optimisation() -> dict[str, Any]:
     from venomgap.optimize.greedy import (
         best_subset_per_size,
         candidate_populations,
+        greedy_exactly,
         greedy_sites,
     )
-    from venomgap.optimize.local_search import greedy_plus_local
+    from venomgap.optimize.local_search import greedy_plus_local, improve_by_swaps
     from venomgap.optimize.weights import optimise_weights
 
     context = build_context()
@@ -218,10 +219,18 @@ def run_optimisation() -> dict[str, Any]:
 
     solutions: list[SitingSolution] = []
     curve: list[dict[str, Any]] = []
+    # k counts *new* collection sites added to the existing Big Four immunogen, not the total
+    # mixture size. k = 0 is therefore the antivenom India makes today, and every k > 0 is that
+    # mixture extended -- which is where the dilution penalty applies, since each addition takes
+    # budget share from the four venoms already in the vial.
     for k in range(1, MAX_K + 1):
-        greedy = greedy_sites(context.objective, context.assembly, k, candidates)
-        local = greedy_plus_local(context.objective, context.assembly, k, candidates)
-        immunogen = context.assembly.immunogen_from_pop_ids(local.sites)
+        greedy = greedy_sites(
+            context.objective, context.assembly, k, candidates, base=baseline_immunogen
+        )
+        local = greedy_plus_local(
+            context.objective, context.assembly, k, candidates, base=baseline_immunogen
+        )
+        immunogen = context.assembly.combined_immunogen(baseline_immunogen, local.sites)
         weights = optimise_weights(context.objective, immunogen)
         best_immunogen = immunogen.with_weights(weights.weights)
         district = context.objective.district_coverage(best_immunogen)
@@ -232,11 +241,18 @@ def run_optimisation() -> dict[str, Any]:
                 & (1.0 - district < HIGH_DEFICIT_THRESHOLD)
             )
         )
+        # The optimised weights cover the whole enlarged mixture; the tail of that vector is the
+        # share going to the newly collected venoms.
+        new_site_weights = tuple(
+            float(w) for w in weights.weights[best_immunogen.size - len(local.sites):]
+        )
         solutions.append(
             SitingSolution(
                 k=k,
                 sites=local.sites,
-                weights=tuple(float(w) for w in weights.weights),
+                weights=new_site_weights,
+                immunogen_labels=best_immunogen.labels,
+                immunogen_weights=tuple(float(w) for w in weights.weights),
                 national_coverage=weights.coverage,
                 coverage_gain_vs_baseline=weights.coverage - baseline,
                 districts_moved_out_of_high_deficit=moved,
@@ -244,12 +260,30 @@ def run_optimisation() -> dict[str, Any]:
                 optimality_gap=None,
             )
         )
+        # "Given that exactly k centres are built, which k and how well do they do?" The
+        # unconstrained solver above stops adding as soon as the next venom would hurt, which
+        # answers a different question and hides the turnover.
+        forced_sites = greedy_exactly(
+            context.objective, context.assembly, k, candidates, base=baseline_immunogen
+        )
+        forced_sites = improve_by_swaps(
+            context.objective, context.assembly, forced_sites, candidates,
+            base=baseline_immunogen,
+        ).sites
+        forced_immunogen = context.assembly.combined_immunogen(
+            baseline_immunogen, forced_sites
+        )
+        forced_uniform = context.objective.national_coverage(forced_immunogen)
+        forced_weights = optimise_weights(context.objective, forced_immunogen)
         curve.append(
             {
                 "k": k,
                 "greedy": greedy.coverage,
                 "greedy_local": local.coverage,
                 "weight_optimised": weights.coverage,
+                "forced_k_uniform": forced_uniform,
+                "forced_k_weighted": forced_weights.coverage,
+                "forced_k_sites": list(forced_sites),
                 "uniform_weights": weights.uniform_coverage,
                 "weights_improved": weights.improved,
                 "sites": list(local.sites),
@@ -261,9 +295,40 @@ def run_optimisation() -> dict[str, Any]:
             k, greedy.coverage, local.coverage, weights.coverage, local.sites,
         )
 
+    # k = 0 is the current immunogen, so it belongs in the curve the turnover is read from.
+    curve.insert(
+        0,
+        {
+            "k": 0,
+            "greedy": baseline,
+            "greedy_local": baseline,
+            "weight_optimised": baseline,
+            "uniform_weights": baseline,
+            "weights_improved": False,
+            "sites": [],
+            "moves": ["current Big Four immunogen"],
+            "forced_k_uniform": baseline,
+            "forced_k_weighted": baseline,
+            "forced_k_sites": [],
+        },
+    )
+    # The turnover is read from the forced-k curve under uniform weights, which is the setting the
+    # dilution effect actually describes: a vial whose protein is split evenly across its venoms.
+    #
+    # "Turnover" means the first descent, not the global maximum. Those are different questions and
+    # here they have different answers: coverage peaks at a small k, falls as the next venoms
+    # dilute the mixture, then recovers once enough new composition is in the vial to pay for
+    # itself. Reporting only the global argmax would hide the dip, which is the whole point.
+    forced = [row["forced_k_uniform"] for row in curve]
+    first_descent = next(
+        (i for i in range(len(forced) - 1) if forced[i + 1] < forced[i] - 1e-9), None
+    )
+    turnover_k = int(curve[first_descent]["k"]) if first_descent is not None else int(
+        curve[int(np.argmax(forced))]["k"]
+    )
+    interior = first_descent is not None and 0 < first_descent < len(forced) - 1
+    global_best_index = int(np.argmax(forced))
     values = [row["weight_optimised"] for row in curve]
-    turnover_k = int(curve[int(np.argmax(values))]["k"])
-    interior = 0 < int(np.argmax(values)) < len(values) - 1
 
     mixture_curve = best_subset_per_size(
         context.objective, context.assembly, context.fitted, max_size=MAX_K
@@ -276,6 +341,28 @@ def run_optimisation() -> dict[str, Any]:
         "coverage_vs_k": curve,
         "turnover_k": turnover_k,
         "turnover_is_interior": interior,
+        "turnover_is_first_descent": first_descent is not None,
+        "global_best_k_uniform": int(curve[global_best_index]["k"]),
+        "global_best_coverage_uniform": float(forced[global_best_index]),
+        "turnover_basis": (
+            "Forced-k curve under uniform mixture weights: the best achievable coverage when "
+            "exactly k new venoms are added to the Big Four immunogen and the vial's protein is "
+            "split evenly across all of them. turnover_k is the first k after which coverage "
+            "falls, not the global maximum -- coverage dips as the next venoms dilute the mixture "
+            "and recovers once enough new composition is in the vial to pay for itself."
+        ),
+        "weight_reoptimisation_note": (
+            "Re-optimising the mixture weights removes the dip entirely, because the optimiser can "
+            "down-weight the added venoms rather than splitting the vial evenly. That is the "
+            "actionable consequence of the dilution effect: adding a venom to a polyvalent "
+            "antivenom without re-balancing the mixture can make it worse, and re-balancing is "
+            "what recovers the gain."
+        ),
+        "forced_k_curve": [
+            {"k": row["k"], "uniform": row["forced_k_uniform"],
+             "weighted": row["forced_k_weighted"], "sites": row["forced_k_sites"]}
+            for row in curve
+        ],
         "best_national_coverage": float(max(values)),
         "solutions": [s.model_dump(mode="json") for s in solutions],
         "mixture_size_curve": {
