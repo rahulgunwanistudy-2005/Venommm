@@ -179,6 +179,11 @@ class FittedParameters(BaseModel):
     calibration_studies: tuple[str, ...] = ()
     excluded_study: str | None = None
     converged: bool = True
+    c_star: float | None = None
+    theta_identifiability: dict[str, float] = Field(default_factory=dict)
+    theta_unidentified: tuple[str, ...] = ()
+    ordinal_violations: tuple[str, ...] = ()
+    ordinal_checks: int = 0
 
     @field_validator("theta", "kappa")
     @classmethod

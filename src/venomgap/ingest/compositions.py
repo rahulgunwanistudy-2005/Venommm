@@ -25,7 +25,7 @@ import pandas as pd
 
 from venomgap.config import COMPOSITIONS_CSV
 from venomgap.errors import DataValidationError, ProvenanceError
-from venomgap.types import Provenance, ProteomicMethod, ResultFlag, VenomPopulation
+from venomgap.types import ProteomicMethod, Provenance, ResultFlag, VenomPopulation
 
 logger = logging.getLogger(__name__)
 

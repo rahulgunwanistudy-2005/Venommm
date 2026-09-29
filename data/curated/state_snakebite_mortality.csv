@@ -1,0 +1,21 @@
+state,death_rate_2010_2014,estimated_deaths_thousands_2001_14,source_doi,source_table,accessed,note
+All other states,3.2,12.2,10.7554/eLife.54076,Table 3,2026-09-29,aggregate row in the source; every district in these states inherits it
+Andhra Pradesh,5.6,82.9,10.7554/eLife.54076,Table 3,2026-09-29,
+Assam,2.1,7.3,10.7554/eLife.54076,Table 3,2026-09-29,
+Bihar,8.9,101.9,10.7554/eLife.54076,Table 3,2026-09-29,
+Chhattisgarh,2.5,16.8,10.7554/eLife.54076,Table 3,2026-09-29,
+Gujarat,5.1,38.8,10.7554/eLife.54076,Table 3,2026-09-29,
+Haryana,1.8,9.5,10.7554/eLife.54076,Table 3,2026-09-29,
+Jammu & Kashmir,0.9,7.0,10.7554/eLife.54076,Table 3,2026-09-29,
+Jharkhand,7.1,20.1,10.7554/eLife.54076,Table 3,2026-09-29,
+Karnataka,2.9,33.0,10.7554/eLife.54076,Table 3,2026-09-29,
+Kerala,0.5,6.5,10.7554/eLife.54076,Table 3,2026-09-29,
+Madhya Pradesh,6.0,67.8,10.7554/eLife.54076,Table 3,2026-09-29,
+Maharashtra,2.6,56.0,10.7554/eLife.54076,Table 3,2026-09-29,
+Northeastern states,0.7,2.4,10.7554/eLife.54076,Table 3,2026-09-29,aggregate row in the source; every district in these states inherits it
+Odisha,5.9,40.3,10.7554/eLife.54076,Table 3,2026-09-29,
+Punjab,4.0,14.5,10.7554/eLife.54076,Table 3,2026-09-29,
+Rajasthan,5.0,52.1,10.7554/eLife.54076,Table 3,2026-09-29,
+Tamil Nadu,3.0,42.1,10.7554/eLife.54076,Table 3,2026-09-29,
+Uttar Pradesh,6.0,153.6,10.7554/eLife.54076,Table 3,2026-09-29,
+West Bengal,2.9,42.7,10.7554/eLife.54076,Table 3,2026-09-29,

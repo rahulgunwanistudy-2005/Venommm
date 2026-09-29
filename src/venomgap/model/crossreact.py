@@ -124,7 +124,7 @@ def mean_within_group_identity(group: list[ToxinSequence]) -> float | None:
     return float(np.mean(values)) if values else None
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True, slots=True, eq=False)
 class IdentityTable:
     """Mean family-level sequence identity between every pair of species with sequence data.
 
@@ -137,6 +137,9 @@ class IdentityTable:
     species: tuple[str, ...]
     within_species: dict[tuple[str, str], float]
     support: dict[tuple[str, str, str], int]
+
+    def __hash__(self) -> int:
+        return id(self)
 
     def get(self, species_a: str, species_b: str, family: str) -> float | None:
         if species_a == species_b:
@@ -315,29 +318,40 @@ def _fallback_identity(
     """Best available identity when the exact (pair, family) estimate is missing."""
     if species_a == species_b:
         return 1.0
-    pair_values = [
-        value
-        for (a, b, _), value in table.values.items()
-        if {a, b} == {species_a, species_b}
-    ]
-    if pair_values:
-        return float(np.mean(pair_values))
+    pair_mean = _pair_means(table).get(frozenset((species_a, species_b)))
+    if pair_mean is not None:
+        return pair_mean
     if same_genus:
-        # Congeners: use the mean identity observed between congeners for this family, if any.
-        congeneric = [
-            value
-            for (a, b, fam), value in table.values.items()
-            if fam == family and a.split()[0] == b.split()[0]
-        ]
-        if congeneric:
-            return float(np.mean(congeneric))
+        congeneric = _congeneric_means(table).get(family)
+        if congeneric is not None:
+            return congeneric
     return global_by_family.get(family, global_mean)
 
 
+@lru_cache(maxsize=8)
 def _global_family_means(table: IdentityTable) -> dict[str, float]:
     buckets: dict[str, list[float]] = {}
     for (_, _, family), value in table.values.items():
         buckets.setdefault(family, []).append(value)
+    return {family: float(np.mean(values)) for family, values in buckets.items()}
+
+
+@lru_cache(maxsize=8)
+def _pair_means(table: IdentityTable) -> dict[frozenset[str], float]:
+    """Mean identity over all families for each species pair: the first fallback."""
+    buckets: dict[frozenset[str], list[float]] = {}
+    for (a, b, _), value in table.values.items():
+        buckets.setdefault(frozenset((a, b)), []).append(value)
+    return {pair: float(np.mean(values)) for pair, values in buckets.items()}
+
+
+@lru_cache(maxsize=8)
+def _congeneric_means(table: IdentityTable) -> dict[str, float]:
+    """Mean identity between congeners per family: the second fallback."""
+    buckets: dict[str, list[float]] = {}
+    for (a, b, family), value in table.values.items():
+        if a.split()[0] == b.split()[0]:
+            buckets.setdefault(family, []).append(value)
     return {family: float(np.mean(values)) for family, values in buckets.items()}
 
 

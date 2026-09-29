@@ -176,13 +176,16 @@ def limiting_families(
     if denom <= EPS:
         return ()
     share = weight / denom
+    # Sort by neutralised fraction, then by how much of the deficit the family actually accounts
+    # for. The tie-break matters: where cross-reactivity is zero many families sit at exactly
+    # n_f = 0, and without it the "worst limiting family" would be decided alphabetically.
     candidates = [
-        (float(neutralised[i]), FAMILIES[i])
+        (float(neutralised[i]), -float(share[i] * (1.0 - neutralised[i])), FAMILIES[i])
         for i in range(N_FAMILIES)
         if neutralised[i] < 1.0 - 1e-9 and share[i] >= min_weighted_share
     ]
-    candidates.sort(key=lambda item: (item[0], item[1]))
-    return tuple(name for _, name in candidates)
+    candidates.sort()
+    return tuple(name for _, _, name in candidates)
 
 
 def evaluate(

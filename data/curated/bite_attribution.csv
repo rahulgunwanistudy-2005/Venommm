@@ -1,0 +1,10 @@
+species,relative_bite_share,basis,source,note
+Naja naja,0.25,big_four_equal_share,assumption,"No district-level species-attribution data exists for India. Within a district the four Big Four species share bites equally where present, and non-Big-Four species carry the lower share below. Every district result is flagged with this assumption."
+Bungarus caeruleus,0.25,big_four_equal_share,assumption,"As above."
+Daboia russelii,0.25,big_four_equal_share,assumption,"As above."
+Echis carinatus,0.25,big_four_equal_share,assumption,"As above."
+Echis carinatus sochureki,0.25,big_four_equal_share,assumption,"Treated as Echis carinatus for bite share; it is a subspecies of a Big Four species."
+Naja sagittifera,1.00,sole_local_elapid,10.3389/fphar.2021.768210,"The only cobra in the Andaman and Nicobar Islands, where mainland Naja naja is absent."
+Naja kaouthia,0.25,co_dominant_with_naja_naja,10.1371/journal.pntd.0007899,"Medically important across eastern and north-eastern India, where it co-occurs with N. naja."
+Bungarus sindanus,0.10,neglected_species,10.1371/journal.pntd.0007899,"Medically important but not in the immunogen set; a deliberately conservative share, since over-weighting a neglected species would inflate the deficit."
+Bungarus fasciatus,0.10,neglected_species,10.1371/journal.pntd.0007899,"As above."

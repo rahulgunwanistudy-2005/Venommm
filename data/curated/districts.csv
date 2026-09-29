@@ -1,0 +1,595 @@
+district_id,district,state,geo_state,lat,lon,area_km2,rural_population,rural_population_basis
+Andaman_and_Nicobar|Andaman_Islands,Andaman Islands,All other states,Andaman and Nicobar,12.60227,92.8302,5879.8,5879.8,district area (km2) used as a rural-population proxy
+Andaman_and_Nicobar|Nicobar_Islands,Nicobar Islands,All other states,Andaman and Nicobar,7.02568,93.80664,1730.1,1730.1,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Adilabad,Adilabad,Andhra Pradesh,Andhra Pradesh,19.25443,78.96673,16036.2,16036.2,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Anantapur,Anantapur,Andhra Pradesh,Andhra Pradesh,14.47509,77.57085,19229.5,19229.5,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Chittoor,Chittoor,Andhra Pradesh,Andhra Pradesh,13.4566,79.00394,15172.7,15172.7,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Cuddapah,Cuddapah,Andhra Pradesh,Andhra Pradesh,14.45075,78.7743,15152.0,15152.0,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|East_Godavari,East Godavari,Andhra Pradesh,Andhra Pradesh,17.18687,81.99925,10752.7,10752.7,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Guntur,Guntur,Andhra Pradesh,Andhra Pradesh,16.29151,80.08117,11410.0,11410.0,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Hyderabad,Hyderabad,Andhra Pradesh,Andhra Pradesh,17.38562,78.46413,178.0,178.0,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Karimnagar,Karimnagar,Andhra Pradesh,Andhra Pradesh,18.54623,79.23474,11895.8,11895.8,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Khammam,Khammam,Andhra Pradesh,Andhra Pradesh,17.59004,80.67909,16096.3,16096.3,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Krishna,Krishna,Andhra Pradesh,Andhra Pradesh,16.55047,80.79274,8615.2,8615.2,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Kurnool,Kurnool,Andhra Pradesh,Andhra Pradesh,15.52801,78.00003,17778.7,17778.7,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Mahbubnagar,Mahbubnagar,Andhra Pradesh,Andhra Pradesh,16.49343,78.14044,18371.6,18371.6,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Medak,Medak,Andhra Pradesh,Andhra Pradesh,17.88486,78.2108,9754.5,9754.5,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Nalgonda,Nalgonda,Andhra Pradesh,Andhra Pradesh,17.06189,79.28145,14091.7,14091.7,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Nellore,Nellore,Andhra Pradesh,Andhra Pradesh,14.43125,79.72226,13092.6,13092.6,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Nizamabad,Nizamabad,Andhra Pradesh,Andhra Pradesh,18.52397,78.13938,7904.9,7904.9,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Prakasam,Prakasam,Andhra Pradesh,Andhra Pradesh,15.61137,79.5095,17795.9,17795.9,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Rangareddi,Rangareddi,Andhra Pradesh,Andhra Pradesh,17.2864,78.17893,7724.7,7724.7,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Srikakulam,Srikakulam,Andhra Pradesh,Andhra Pradesh,18.57118,83.97931,6274.0,6274.0,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Vishakhapatnam,Vishakhapatnam,Andhra Pradesh,Andhra Pradesh,17.88475,82.68193,11368.7,11368.7,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Vizianagaram,Vizianagaram,Andhra Pradesh,Andhra Pradesh,18.46528,83.36385,5724.0,5724.0,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|Warangal,Warangal,Andhra Pradesh,Andhra Pradesh,17.94997,79.79166,12805.2,12805.2,district area (km2) used as a rural-population proxy
+Andhra_Pradesh|West_Godavari,West Godavari,Andhra Pradesh,Andhra Pradesh,16.88689,81.39223,7755.9,7755.9,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Changlang,Changlang,Northeastern states,Arunachal Pradesh,27.37746,96.35696,4935.3,4935.3,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|East_Kameng,East Kameng,Northeastern states,Arunachal Pradesh,27.294,93.03203,4084.1,4084.1,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|East_Siang,East Siang,Northeastern states,Arunachal Pradesh,28.11791,95.16329,3609.7,3609.7,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Kurung_Kumey,Kurung Kumey,Northeastern states,Arunachal Pradesh,28.03805,93.31778,5710.5,5710.5,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Lohit,Lohit,Northeastern states,Arunachal Pradesh,27.98846,96.59096,10364.0,10364.0,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Lower_Dibang_Valley,Lower Dibang Valley,Northeastern states,Arunachal Pradesh,28.36396,95.8178,5552.8,5552.8,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Lower_Subansiri,Lower Subansiri,Northeastern states,Arunachal Pradesh,27.67111,93.87235,3781.0,3781.0,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Papum_Pare,Papum Pare,Northeastern states,Arunachal Pradesh,27.2746,93.58823,3526.0,3526.0,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Tawang,Tawang,Northeastern states,Arunachal Pradesh,27.65625,91.91421,2175.0,2175.0,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Tirap,Tirap,Northeastern states,Arunachal Pradesh,26.95494,95.45145,2114.1,2114.1,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Upper_Dibang_Valley,Upper Dibang Valley,Northeastern states,Arunachal Pradesh,28.9551,95.94282,7497.9,7497.9,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Upper_Siang,Upper Siang,Northeastern states,Arunachal Pradesh,28.82835,94.90819,7001.3,7001.3,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|Upper_Subansiri,Upper Subansiri,Northeastern states,Arunachal Pradesh,28.29168,93.93247,6398.7,6398.7,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|West_Kameng,West Kameng,Northeastern states,Arunachal Pradesh,27.43337,92.51392,7343.9,7343.9,district area (km2) used as a rural-population proxy
+Arunachal_Pradesh|West_Siang,West Siang,Northeastern states,Arunachal Pradesh,28.31414,94.50828,7782.1,7782.1,district area (km2) used as a rural-population proxy
+Assam|Barpeta,Barpeta,Assam,Assam,26.43871,91.02565,3231.1,3231.1,district area (km2) used as a rural-population proxy
+Assam|Bongaigaon,Bongaigaon,Assam,Assam,26.48985,90.64636,2301.2,2301.2,district area (km2) used as a rural-population proxy
+Assam|Cachar,Cachar,Assam,Assam,24.81378,92.85752,3774.9,3774.9,district area (km2) used as a rural-population proxy
+Assam|Darrang,Darrang,Assam,Assam,26.60622,92.02641,3561.9,3561.9,district area (km2) used as a rural-population proxy
+Assam|Dhemaji,Dhemaji,Assam,Assam,27.59036,94.78022,2532.6,2532.6,district area (km2) used as a rural-population proxy
+Assam|Dhuburi,Dhuburi,Assam,Assam,26.1039,90.0297,2760.9,2760.9,district area (km2) used as a rural-population proxy
+Assam|Dibrugarh,Dibrugarh,Assam,Assam,27.37142,95.05491,3385.6,3385.6,district area (km2) used as a rural-population proxy
+Assam|Goalpara,Goalpara,Assam,Assam,26.04803,90.6087,1897.9,1897.9,district area (km2) used as a rural-population proxy
+Assam|Golaghat,Golaghat,Assam,Assam,26.47876,93.83687,3519.9,3519.9,district area (km2) used as a rural-population proxy
+Assam|Hailakandi,Hailakandi,Assam,Assam,24.4965,92.58903,1331.8,1331.8,district area (km2) used as a rural-population proxy
+Assam|Jorhat,Jorhat,Assam,Assam,26.79525,94.27415,2832.8,2832.8,district area (km2) used as a rural-population proxy
+Assam|Kamrup,Kamrup,Assam,Assam,26.13554,91.53532,4333.4,4333.4,district area (km2) used as a rural-population proxy
+Assam|Karbi_Anglong,Karbi Anglong,Assam,Assam,26.15864,93.40706,10401.9,10401.9,district area (km2) used as a rural-population proxy
+Assam|Karimganj,Karimganj,Assam,Assam,24.57871,92.38083,1809.9,1809.9,district area (km2) used as a rural-population proxy
+Assam|Kokrajhar,Kokrajhar,Assam,Assam,26.58319,90.19664,3269.2,3269.2,district area (km2) used as a rural-population proxy
+Assam|Lakhimpur,Lakhimpur,Assam,Assam,27.17435,94.13502,2946.7,2946.7,district area (km2) used as a rural-population proxy
+Assam|Marigaon,Marigaon,Assam,Assam,26.28572,92.2802,1551.1,1551.1,district area (km2) used as a rural-population proxy
+Assam|Nagaon,Nagaon,Assam,Assam,26.22553,92.84166,3983.5,3983.5,district area (km2) used as a rural-population proxy
+Assam|Nalbari,Nalbari,Assam,Assam,26.52997,91.43511,2255.6,2255.6,district area (km2) used as a rural-population proxy
+Assam|North_Cachar_Hills,North Cachar Hills,Assam,Assam,25.3801,93.03395,4901.9,4901.9,district area (km2) used as a rural-population proxy
+Assam|Sibsagar,Sibsagar,Assam,Assam,27.01229,94.81927,2628.8,2628.8,district area (km2) used as a rural-population proxy
+Assam|Sonitpur,Sonitpur,Assam,Assam,26.78258,92.92733,5277.7,5277.7,district area (km2) used as a rural-population proxy
+Assam|Tinsukia,Tinsukia,Assam,Assam,27.58427,95.62552,3785.9,3785.9,district area (km2) used as a rural-population proxy
+Bihar|Araria,Araria,Bihar,Bihar,26.20081,87.34623,2814.7,2814.7,district area (km2) used as a rural-population proxy
+Bihar|Aurangabad,Aurangabad,Bihar,Bihar,24.79362,84.40448,3277.4,3277.4,district area (km2) used as a rural-population proxy
+Bihar|Banka,Banka,Bihar,Bihar,24.85193,86.83422,3087.1,3087.1,district area (km2) used as a rural-population proxy
+Bihar|Begusarai,Begusarai,Bihar,Bihar,25.4956,86.12361,1936.4,1936.4,district area (km2) used as a rural-population proxy
+Bihar|Bhabua,Bhabua,Bihar,Bihar,24.99273,83.59853,3346.0,3346.0,district area (km2) used as a rural-population proxy
+Bihar|Bhagalpur,Bhagalpur,Bihar,Bihar,25.26925,87.07726,2556.6,2556.6,district area (km2) used as a rural-population proxy
+Bihar|Bhojpur,Bhojpur,Bihar,Bihar,25.4704,84.53556,2370.3,2370.3,district area (km2) used as a rural-population proxy
+Bihar|Buxar,Buxar,Bihar,Bihar,25.49316,84.0935,1707.3,1707.3,district area (km2) used as a rural-population proxy
+Bihar|Darbhanga,Darbhanga,Bihar,Bihar,26.11468,86.01744,2285.7,2285.7,district area (km2) used as a rural-population proxy
+Bihar|Gaya,Gaya,Bihar,Bihar,24.69868,84.92838,4958.8,4958.8,district area (km2) used as a rural-population proxy
+Bihar|Gopalganj,Gopalganj,Bihar,Bihar,26.44506,84.36829,2037.5,2037.5,district area (km2) used as a rural-population proxy
+Bihar|Jamui,Jamui,Bihar,Bihar,24.78549,86.28855,3078.8,3078.8,district area (km2) used as a rural-population proxy
+Bihar|Jehanabad,Jehanabad,Bihar,Bihar,25.15891,84.88103,1602.8,1602.8,district area (km2) used as a rural-population proxy
+Bihar|Katihar,Katihar,Bihar,Bihar,25.54516,87.63888,3057.6,3057.6,district area (km2) used as a rural-population proxy
+Bihar|Khagaria,Khagaria,Bihar,Bihar,25.51226,86.59624,1489.2,1489.2,district area (km2) used as a rural-population proxy
+Bihar|Kishanganj,Kishanganj,Bihar,Bihar,26.29534,87.92909,1931.1,1931.1,district area (km2) used as a rural-population proxy
+Bihar|Lakhisarai,Lakhisarai,Bihar,Bihar,25.15974,86.12817,1334.5,1334.5,district area (km2) used as a rural-population proxy
+Bihar|Madhepura,Madhepura,Bihar,Bihar,25.82608,86.88931,1835.4,1835.4,district area (km2) used as a rural-population proxy
+Bihar|Madhubani,Madhubani,Bihar,Bihar,26.40622,86.2118,3435.7,3435.7,district area (km2) used as a rural-population proxy
+Bihar|Munger,Munger,Bihar,Bihar,25.21114,86.52696,1367.7,1367.7,district area (km2) used as a rural-population proxy
+Bihar|Muzaffarpur,Muzaffarpur,Bihar,Bihar,26.15253,85.32246,3181.3,3181.3,district area (km2) used as a rural-population proxy
+Bihar|Nalanda,Nalanda,Bihar,Bihar,25.22129,85.44841,2333.7,2333.7,district area (km2) used as a rural-population proxy
+Bihar|Nawada,Nawada,Bihar,Bihar,24.81099,85.58706,2482.3,2482.3,district area (km2) used as a rural-population proxy
+Bihar|Pashchim_Champaran,Pashchim Champaran,Bihar,Bihar,27.0795,84.33677,5222.4,5222.4,district area (km2) used as a rural-population proxy
+Bihar|Patna,Patna,Bihar,Bihar,25.45724,85.21433,3200.5,3200.5,district area (km2) used as a rural-population proxy
+Bihar|Purba_Champaran,Purba Champaran,Bihar,Bihar,26.62073,84.91641,3984.2,3984.2,district area (km2) used as a rural-population proxy
+Bihar|Purnia,Purnia,Bihar,Bihar,25.81612,87.40051,3240.9,3240.9,district area (km2) used as a rural-population proxy
+Bihar|Rohtas,Rohtas,Bihar,Bihar,24.98066,84.01974,3862.9,3862.9,district area (km2) used as a rural-population proxy
+Bihar|Saharsa,Saharsa,Bihar,Bihar,25.81692,86.58261,1686.3,1686.3,district area (km2) used as a rural-population proxy
+Bihar|Samastipur,Samastipur,Bihar,Bihar,25.77766,85.89603,2901.3,2901.3,district area (km2) used as a rural-population proxy
+Bihar|Saran,Saran,Bihar,Bihar,25.9062,84.81698,2641.1,2641.1,district area (km2) used as a rural-population proxy
+Bihar|Sheikhpura,Sheikhpura,Bihar,Bihar,25.13155,85.8146,603.2,603.2,district area (km2) used as a rural-population proxy
+Bihar|Sheohar,Sheohar,Bihar,Bihar,26.48483,85.32268,573.6,573.6,district area (km2) used as a rural-population proxy
+Bihar|Sitamarhi,Sitamarhi,Bihar,Bihar,26.59656,85.55698,2051.1,2051.1,district area (km2) used as a rural-population proxy
+Bihar|Siwan,Siwan,Bihar,Bihar,26.16285,84.3808,2221.8,2221.8,district area (km2) used as a rural-population proxy
+Bihar|Supaul,Supaul,Bihar,Bihar,26.24679,86.79186,2383.4,2383.4,district area (km2) used as a rural-population proxy
+Bihar|Vaishali,Vaishali,Bihar,Bihar,25.76302,85.36203,2006.5,2006.5,district area (km2) used as a rural-population proxy
+Chandigarh|Chandigarh,Chandigarh,All other states,Chandigarh,30.73384,76.76828,117.8,117.8,district area (km2) used as a rural-population proxy
+Chhattisgarh|Bastar,Bastar,Chhattisgarh,Chhattisgarh,19.43649,81.57269,14941.0,14941.0,district area (km2) used as a rural-population proxy
+Chhattisgarh|Bilaspur,Bilaspur,Chhattisgarh,Chhattisgarh,22.3499,81.95392,8331.3,8331.3,district area (km2) used as a rural-population proxy
+Chhattisgarh|Dantewada,Dantewada,Chhattisgarh,Chhattisgarh,18.65467,81.05166,17018.3,17018.3,district area (km2) used as a rural-population proxy
+Chhattisgarh|Dhamtari,Dhamtari,Chhattisgarh,Chhattisgarh,20.55308,81.80335,4060.3,4060.3,district area (km2) used as a rural-population proxy
+Chhattisgarh|Durg,Durg,Chhattisgarh,Chhattisgarh,21.18944,81.34669,8606.5,8606.5,district area (km2) used as a rural-population proxy
+Chhattisgarh|Janjgir-Champa,Janjgir-Champa,Chhattisgarh,Chhattisgarh,21.92443,82.73065,3871.3,3871.3,district area (km2) used as a rural-population proxy
+Chhattisgarh|Jashpur,Jashpur,Chhattisgarh,Chhattisgarh,22.79876,83.85864,5817.4,5817.4,district area (km2) used as a rural-population proxy
+Chhattisgarh|Kanker,Kanker,Chhattisgarh,Chhattisgarh,20.13414,81.12119,7153.1,7153.1,district area (km2) used as a rural-population proxy
+Chhattisgarh|Kawardha,Kawardha,Chhattisgarh,Chhattisgarh,22.09115,81.21613,4218.4,4218.4,district area (km2) used as a rural-population proxy
+Chhattisgarh|Korba,Korba,Chhattisgarh,Chhattisgarh,22.53216,82.60388,6608.7,6608.7,district area (km2) used as a rural-population proxy
+Chhattisgarh|Koriya,Koriya,Chhattisgarh,Chhattisgarh,23.46927,82.22876,6629.5,6629.5,district area (km2) used as a rural-population proxy
+Chhattisgarh|Mahasamund,Mahasamund,Chhattisgarh,Chhattisgarh,21.20321,82.60366,4750.1,4750.1,district area (km2) used as a rural-population proxy
+Chhattisgarh|Raigarh,Raigarh,Chhattisgarh,Chhattisgarh,22.08296,83.29894,7077.7,7077.7,district area (km2) used as a rural-population proxy
+Chhattisgarh|Raipur,Raipur,Chhattisgarh,Chhattisgarh,21.06883,82.1669,12440.3,12440.3,district area (km2) used as a rural-population proxy
+Chhattisgarh|Raj_Nandgaon,Raj Nandgaon,Chhattisgarh,Chhattisgarh,21.03842,80.81231,8059.7,8059.7,district area (km2) used as a rural-population proxy
+Chhattisgarh|Surguja,Surguja,Chhattisgarh,Chhattisgarh,23.3577,83.2117,15748.4,15748.4,district area (km2) used as a rural-population proxy
+Dadra_and_Nagar_Haveli|Dadra_and_Nagar_Haveli,Dadra and Nagar Haveli,All other states,Dadra and Nagar Haveli,20.19474,73.0809,491.2,491.2,district area (km2) used as a rural-population proxy
+Daman_and_Diu|Daman,Daman,All other states,Daman and Diu,20.4141,72.84214,15.6,15.6,district area (km2) used as a rural-population proxy
+Daman_and_Diu|Junagadh,Junagadh,All other states,Daman and Diu,20.84042,70.78685,539.9,539.9,district area (km2) used as a rural-population proxy
+Delhi|Delhi,Delhi,All other states,Delhi,28.64652,77.10898,1499.0,1499.0,district area (km2) used as a rural-population proxy
+Goa|North_Goa,North Goa,All other states,Goa,15.55096,73.98406,1706.1,1706.1,district area (km2) used as a rural-population proxy
+Goa|South_Goa,South Goa,All other states,Goa,15.19525,74.12066,1989.8,1989.8,district area (km2) used as a rural-population proxy
+Gujarat|Ahmadabad,Ahmadabad,Gujarat,Gujarat,22.72728,72.20327,7726.6,7726.6,district area (km2) used as a rural-population proxy
+Gujarat|Amreli,Amreli,Gujarat,Gujarat,21.42118,71.26355,7349.2,7349.2,district area (km2) used as a rural-population proxy
+Gujarat|Anand,Anand,Gujarat,Gujarat,22.45235,72.79519,2875.5,2875.5,district area (km2) used as a rural-population proxy
+Gujarat|Banas_Kantha,Banas Kantha,Gujarat,Gujarat,24.28102,72.03945,10601.5,10601.5,district area (km2) used as a rural-population proxy
+Gujarat|Bharuch,Bharuch,Gujarat,Gujarat,21.78761,72.92333,5429.8,5429.8,district area (km2) used as a rural-population proxy
+Gujarat|Bhavnagar,Bhavnagar,Gujarat,Gujarat,21.67082,71.84979,8388.6,8388.6,district area (km2) used as a rural-population proxy
+Gujarat|Dahod,Dahod,Gujarat,Gujarat,22.91014,74.01989,5218.2,5218.2,district area (km2) used as a rural-population proxy
+Gujarat|Gandhinagar,Gandhinagar,Gujarat,Gujarat,23.208,72.6996,1721.5,1721.5,district area (km2) used as a rural-population proxy
+Gujarat|Jamnagar,Jamnagar,Gujarat,Gujarat,22.24833,69.92713,11254.9,11254.9,district area (km2) used as a rural-population proxy
+Gujarat|Junagadh,Junagadh,Gujarat,Gujarat,21.21373,70.56786,8208.6,8208.6,district area (km2) used as a rural-population proxy
+Gujarat|Kachchh,Kachchh,Gujarat,Gujarat,23.62281,70.00497,42160.8,42160.8,district area (km2) used as a rural-population proxy
+Gujarat|Kheda,Kheda,Gujarat,Gujarat,22.87642,73.02347,3978.9,3978.9,district area (km2) used as a rural-population proxy
+Gujarat|Mahesana,Mahesana,Gujarat,Gujarat,23.57953,72.49636,4383.2,4383.2,district area (km2) used as a rural-population proxy
+Gujarat|Narmada,Narmada,Gujarat,Gujarat,21.71151,73.6575,2566.2,2566.2,district area (km2) used as a rural-population proxy
+Gujarat|Navsari,Navsari,Gujarat,Gujarat,20.81254,73.1035,2181.8,2181.8,district area (km2) used as a rural-population proxy
+Gujarat|Panch_Mahals,Panch Mahals,Gujarat,Gujarat,22.85293,73.60853,3641.4,3641.4,district area (km2) used as a rural-population proxy
+Gujarat|Patan,Patan,Gujarat,Gujarat,23.76792,71.80016,6005.2,6005.2,district area (km2) used as a rural-population proxy
+Gujarat|Porbandar,Porbandar,Gujarat,Gujarat,21.63781,69.80218,2308.6,2308.6,district area (km2) used as a rural-population proxy
+Gujarat|Rajkot,Rajkot,Gujarat,Gujarat,22.25497,70.79206,11151.3,11151.3,district area (km2) used as a rural-population proxy
+Gujarat|Sabar_Kantha,Sabar Kantha,Gujarat,Gujarat,23.65821,73.16658,7431.4,7431.4,district area (km2) used as a rural-population proxy
+Gujarat|Surat,Surat,Gujarat,Gujarat,21.23448,73.31113,7536.4,7536.4,district area (km2) used as a rural-population proxy
+Gujarat|Surendranagar,Surendranagar,Gujarat,Gujarat,22.79468,71.55241,10446.8,10446.8,district area (km2) used as a rural-population proxy
+Gujarat|The_Dangs,The Dangs,Gujarat,Gujarat,20.79862,73.70614,1710.2,1710.2,district area (km2) used as a rural-population proxy
+Gujarat|Vadodara,Vadodara,Gujarat,Gujarat,22.2264,73.54121,7731.1,7731.1,district area (km2) used as a rural-population proxy
+Gujarat|Valsad,Valsad,Gujarat,Gujarat,20.41828,73.11854,3054.6,3054.6,district area (km2) used as a rural-population proxy
+Haryana|Ambala,Ambala,Haryana,Haryana,30.35854,76.96609,1748.7,1748.7,district area (km2) used as a rural-population proxy
+Haryana|Bhiwani,Bhiwani,Haryana,Haryana,28.7241,75.95756,4625.5,4625.5,district area (km2) used as a rural-population proxy
+Haryana|Faridabad,Faridabad,Haryana,Haryana,28.16405,77.32314,2157.8,2157.8,district area (km2) used as a rural-population proxy
+Haryana|Fatehabad,Fatehabad,Haryana,Haryana,29.57931,75.56909,2394.3,2394.3,district area (km2) used as a rural-population proxy
+Haryana|Gurgaon,Gurgaon,Haryana,Haryana,28.16854,76.98348,2745.4,2745.4,district area (km2) used as a rural-population proxy
+Haryana|Hisar,Hisar,Haryana,Haryana,29.22039,75.80475,4160.2,4160.2,district area (km2) used as a rural-population proxy
+Haryana|Jhajjar,Jhajjar,Haryana,Haryana,28.59238,76.61653,2107.8,2107.8,district area (km2) used as a rural-population proxy
+Haryana|Jind,Jind,Haryana,Haryana,29.44243,76.29396,2727.0,2727.0,district area (km2) used as a rural-population proxy
+Haryana|Kaithal,Kaithal,Haryana,Haryana,29.81602,76.40782,2295.1,2295.1,district area (km2) used as a rural-population proxy
+Haryana|Karnal,Karnal,Haryana,Haryana,29.69693,76.88094,2578.6,2578.6,district area (km2) used as a rural-population proxy
+Haryana|Kurukshetra,Kurukshetra,Haryana,Haryana,30.0499,76.82975,1831.6,1831.6,district area (km2) used as a rural-population proxy
+Haryana|Mahendragarh,Mahendragarh,Haryana,Haryana,28.17826,76.13633,1932.8,1932.8,district area (km2) used as a rural-population proxy
+Haryana|Panchkula,Panchkula,Haryana,Haryana,30.7101,76.95855,736.0,736.0,district area (km2) used as a rural-population proxy
+Haryana|Panipat,Panipat,Haryana,Haryana,29.33742,76.91545,1221.9,1221.9,district area (km2) used as a rural-population proxy
+Haryana|Rewari,Rewari,Haryana,Haryana,28.21045,76.55528,1250.7,1250.7,district area (km2) used as a rural-population proxy
+Haryana|Rohtak,Rohtak,Haryana,Haryana,28.91415,76.51108,1681.9,1681.9,district area (km2) used as a rural-population proxy
+Haryana|Sirsa,Sirsa,Haryana,Haryana,29.6163,74.89203,4221.5,4221.5,district area (km2) used as a rural-population proxy
+Haryana|Sonepat,Sonepat,Haryana,Haryana,29.06547,76.86412,2208.5,2208.5,district area (km2) used as a rural-population proxy
+Haryana|Yamuna_Nagar,Yamuna Nagar,Haryana,Haryana,30.25753,77.33025,1302.0,1302.0,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Bilaspur,Bilaspur,All other states,Himachal Pradesh,31.37534,76.6576,1163.0,1163.0,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Chamba,Chamba,All other states,Himachal Pradesh,32.67832,76.33764,6441.7,6441.7,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Hamirpur,Hamirpur,All other states,Himachal Pradesh,31.67053,76.511,1118.4,1118.4,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Kangra,Kangra,All other states,Himachal Pradesh,32.11033,76.30225,5690.5,5690.5,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Kinnaur,Kinnaur,All other states,Himachal Pradesh,31.60136,78.39687,6438.4,6438.4,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Kullu,Kullu,All other states,Himachal Pradesh,31.90784,77.38445,5486.7,5486.7,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Lahul_and_Spiti,Lahul and Spiti,All other states,Himachal Pradesh,32.48337,77.5992,13769.0,13769.0,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Mandi,Mandi,All other states,Himachal Pradesh,31.64145,76.97793,3937.4,3937.4,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Shimla,Shimla,All other states,Himachal Pradesh,31.20135,77.6178,5118.6,5118.6,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Sirmaur,Sirmaur,All other states,Himachal Pradesh,30.6721,77.41745,2801.6,2801.6,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Solan,Solan,All other states,Himachal Pradesh,31.04658,76.89569,1950.9,1950.9,district area (km2) used as a rural-population proxy
+Himachal_Pradesh|Una,Una,All other states,Himachal Pradesh,31.58272,76.19571,1533.4,1533.4,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Anantnag_(Kashmir_South),Anantnag (Kashmir South),Jammu & Kashmir,Jammu and Kashmir,33.8039,75.33209,4381.5,4381.5,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Bagdam,Bagdam,Jammu & Kashmir,Jammu and Kashmir,33.94545,74.78824,1249.4,1249.4,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Baramula_(Kashmir_North),Baramula (Kashmir North),Jammu & Kashmir,Jammu and Kashmir,34.3569,74.66805,5147.4,5147.4,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Doda,Doda,Jammu & Kashmir,Jammu and Kashmir,33.43873,75.93414,10582.2,10582.2,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Jammu,Jammu,Jammu & Kashmir,Jammu and Kashmir,32.73553,74.89554,3630.5,3630.5,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Kargil,Kargil,Jammu & Kashmir,Jammu and Kashmir,33.81327,76.61866,14320.9,14320.9,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Kathua,Kathua,Jammu & Kashmir,Jammu and Kashmir,32.54827,75.58958,2011.3,2011.3,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Kupwara_(Muzaffarabad),Kupwara (Muzaffarabad),Jammu & Kashmir,Jammu and Kashmir,34.54132,74.22222,2728.1,2728.1,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Ladakh_(Leh),Ladakh (Leh),Jammu & Kashmir,Jammu and Kashmir,33.90436,77.95917,47694.5,47694.5,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Pulwama,Pulwama,Jammu & Kashmir,Jammu and Kashmir,33.8398,75.02159,1038.5,1038.5,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Punch,Punch,Jammu & Kashmir,Jammu and Kashmir,33.74568,74.34325,3051.0,3051.0,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Rajauri,Rajauri,Jammu & Kashmir,Jammu and Kashmir,33.26115,74.45642,3205.9,3205.9,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Srinagar,Srinagar,Jammu & Kashmir,Jammu and Kashmir,34.24555,75.10261,1678.1,1678.1,district area (km2) used as a rural-population proxy
+Jammu_and_Kashmir|Udhampur,Udhampur,Jammu & Kashmir,Jammu and Kashmir,33.0621,75.18847,4611.1,4611.1,district area (km2) used as a rural-population proxy
+Jharkhand|Bokaro,Bokaro,Jharkhand,Jharkhand,23.69167,85.98754,2866.5,2866.5,district area (km2) used as a rural-population proxy
+Jharkhand|Chatra,Chatra,Jharkhand,Jharkhand,24.1731,84.88022,3752.4,3752.4,district area (km2) used as a rural-population proxy
+Jharkhand|Deoghar,Deoghar,Jharkhand,Jharkhand,24.32681,86.73521,2437.8,2437.8,district area (km2) used as a rural-population proxy
+Jharkhand|Dhanbad,Dhanbad,Jharkhand,Jharkhand,23.83031,86.47082,2081.3,2081.3,district area (km2) used as a rural-population proxy
+Jharkhand|Dumka,Dumka,Jharkhand,Jharkhand,24.31834,87.26116,3769.3,3769.3,district area (km2) used as a rural-population proxy
+Jharkhand|Garhwa,Garhwa,Jharkhand,Jharkhand,24.10338,83.68972,4073.2,4073.2,district area (km2) used as a rural-population proxy
+Jharkhand|Giridih,Giridih,Jharkhand,Jharkhand,24.29685,86.10392,4990.1,4990.1,district area (km2) used as a rural-population proxy
+Jharkhand|Godda,Godda,Jharkhand,Jharkhand,24.85878,87.30631,2238.8,2238.8,district area (km2) used as a rural-population proxy
+Jharkhand|Gumla,Gumla,Jharkhand,Jharkhand,23.10072,84.52779,5359.4,5359.4,district area (km2) used as a rural-population proxy
+Jharkhand|Hazaribag,Hazaribag,Jharkhand,Jharkhand,23.9796,85.44989,6153.6,6153.6,district area (km2) used as a rural-population proxy
+Jharkhand|Jamtara,Jamtara,Jharkhand,Jharkhand,23.97528,86.91166,1802.5,1802.5,district area (km2) used as a rural-population proxy
+Jharkhand|Koderma,Koderma,Jharkhand,Jharkhand,24.5185,85.7024,1320.7,1320.7,district area (km2) used as a rural-population proxy
+Jharkhand|Latehar,Latehar,Jharkhand,Jharkhand,23.71719,84.4361,4259.4,4259.4,district area (km2) used as a rural-population proxy
+Jharkhand|Lohardaga,Lohardaga,Jharkhand,Jharkhand,23.47458,84.66307,1498.1,1498.1,district area (km2) used as a rural-population proxy
+Jharkhand|Pakur,Pakur,Jharkhand,Jharkhand,24.56191,87.65834,1812.7,1812.7,district area (km2) used as a rural-population proxy
+Jharkhand|Palamu,Palamu,Jharkhand,Jharkhand,24.20024,84.15857,4449.7,4449.7,district area (km2) used as a rural-population proxy
+Jharkhand|Pashchim_Singhbhum,Pashchim Singhbhum,Jharkhand,Jharkhand,22.41646,85.51347,7223.9,7223.9,district area (km2) used as a rural-population proxy
+Jharkhand|Purba_Singhbhum,Purba Singhbhum,Jharkhand,Jharkhand,22.57915,86.44725,3574.1,3574.1,district area (km2) used as a rural-population proxy
+Jharkhand|Ranchi,Ranchi,Jharkhand,Jharkhand,23.21138,85.33027,7647.7,7647.7,district area (km2) used as a rural-population proxy
+Jharkhand|Sahibganj,Sahibganj,Jharkhand,Jharkhand,25.00703,87.67436,2195.7,2195.7,district area (km2) used as a rural-population proxy
+Jharkhand|Saraikela_Kharsawan,Saraikela Kharsawan,Jharkhand,Jharkhand,22.84213,85.94565,2650.7,2650.7,district area (km2) used as a rural-population proxy
+Jharkhand|Simdega,Simdega,Jharkhand,Jharkhand,22.57773,84.55962,3787.6,3787.6,district area (km2) used as a rural-population proxy
+Karnataka|Bagalkot,Bagalkot,Karnataka,Karnataka,16.218,75.62653,6552.1,6552.1,district area (km2) used as a rural-population proxy
+Karnataka|Bangalore_Rural,Bangalore Rural,Karnataka,Karnataka,12.88739,77.42238,5812.4,5812.4,district area (km2) used as a rural-population proxy
+Karnataka|Bangalore_Urban,Bangalore Urban,Karnataka,Karnataka,12.94229,77.58682,2179.7,2179.7,district area (km2) used as a rural-population proxy
+Karnataka|Belgaum,Belgaum,Karnataka,Karnataka,16.11777,74.8279,13334.2,13334.2,district area (km2) used as a rural-population proxy
+Karnataka|Bellary,Bellary,Karnataka,Karnataka,15.10503,76.53056,8425.9,8425.9,district area (km2) used as a rural-population proxy
+Karnataka|Bidar,Bidar,Karnataka,Karnataka,17.95022,77.2235,5431.9,5431.9,district area (km2) used as a rural-population proxy
+Karnataka|Bijapur,Bijapur,Karnataka,Karnataka,16.79153,75.95337,10482.9,10482.9,district area (km2) used as a rural-population proxy
+Karnataka|Chamrajnagar,Chamrajnagar,Karnataka,Karnataka,11.94868,77.09036,5655.9,5655.9,district area (km2) used as a rural-population proxy
+Karnataka|Chikmagalur,Chikmagalur,Karnataka,Karnataka,13.44944,75.68959,7190.2,7190.2,district area (km2) used as a rural-population proxy
+Karnataka|Chitradurga,Chitradurga,Karnataka,Karnataka,14.16205,76.51249,8430.3,8430.3,district area (km2) used as a rural-population proxy
+Karnataka|Dakshin_Kannad,Dakshin Kannad,Karnataka,Karnataka,12.83305,75.26677,4562.7,4562.7,district area (km2) used as a rural-population proxy
+Karnataka|Davanagere,Davanagere,Karnataka,Karnataka,14.3515,75.93133,6609.7,6609.7,district area (km2) used as a rural-population proxy
+Karnataka|Dharwad,Dharwad,Karnataka,Karnataka,15.38649,75.15628,4261.1,4261.1,district area (km2) used as a rural-population proxy
+Karnataka|Gadag,Gadag,Karnataka,Karnataka,15.4278,75.66667,4631.0,4631.0,district area (km2) used as a rural-population proxy
+Karnataka|Gulbarga,Gulbarga,Karnataka,Karnataka,17.05182,76.88145,16223.3,16223.3,district area (km2) used as a rural-population proxy
+Karnataka|Hassan,Hassan,Karnataka,Karnataka,12.9896,76.1049,6792.8,6792.8,district area (km2) used as a rural-population proxy
+Karnataka|Haveri,Haveri,Karnataka,Karnataka,14.73445,75.41851,4794.6,4794.6,district area (km2) used as a rural-population proxy
+Karnataka|Kodagu,Kodagu,Karnataka,Karnataka,12.31874,75.79915,4097.4,4097.4,district area (km2) used as a rural-population proxy
+Karnataka|Kolar,Kolar,Karnataka,Karnataka,13.35587,78.01226,8203.1,8203.1,district area (km2) used as a rural-population proxy
+Karnataka|Koppal,Koppal,Karnataka,Karnataka,15.55802,76.22041,5556.0,5556.0,district area (km2) used as a rural-population proxy
+Karnataka|Mandya,Mandya,Karnataka,Karnataka,12.60359,76.79049,4927.3,4927.3,district area (km2) used as a rural-population proxy
+Karnataka|Mysore,Mysore,Karnataka,Karnataka,12.20218,76.43608,6299.8,6299.8,district area (km2) used as a rural-population proxy
+Karnataka|Raichur,Raichur,Karnataka,Karnataka,16.08555,76.8901,8435.7,8435.7,district area (km2) used as a rural-population proxy
+Karnataka|Shimoga,Shimoga,Karnataka,Karnataka,14.05225,75.17608,7735.2,7735.2,district area (km2) used as a rural-population proxy
+Karnataka|Tumkur,Tumkur,Karnataka,Karnataka,13.41879,76.89662,10598.8,10598.8,district area (km2) used as a rural-population proxy
+Karnataka|Udupi,Udupi,Karnataka,Karnataka,13.46483,74.88283,3903.1,3903.1,district area (km2) used as a rural-population proxy
+Karnataka|Uttar_Kannand,Uttar Kannand,Karnataka,Karnataka,14.78766,74.62406,10277.4,10277.4,district area (km2) used as a rural-population proxy
+Kerala|Alappuzha,Alappuzha,Kerala,Kerala,9.40879,76.447,1246.1,1246.1,district area (km2) used as a rural-population proxy
+Kerala|Ernakulam,Ernakulam,Kerala,Kerala,10.05876,76.47943,2251.3,2251.3,district area (km2) used as a rural-population proxy
+Kerala|Idukki,Idukki,Kerala,Kerala,9.87376,77.01325,4992.9,4992.9,district area (km2) used as a rural-population proxy
+Kerala|Kannur,Kannur,Kerala,Kerala,11.99236,75.53621,2775.0,2775.0,district area (km2) used as a rural-population proxy
+Kerala|Kasaragod,Kasaragod,Kerala,Kerala,12.46107,75.15249,1951.8,1951.8,district area (km2) used as a rural-population proxy
+Kerala|Kollam,Kollam,Kerala,Kerala,8.95411,76.86771,2405.9,2405.9,district area (km2) used as a rural-population proxy
+Kerala|Kottayam,Kottayam,Kerala,Kerala,9.62846,76.64901,2103.9,2103.9,district area (km2) used as a rural-population proxy
+Kerala|Kozhikode,Kozhikode,Kerala,Kerala,11.48085,75.8315,2273.0,2273.0,district area (km2) used as a rural-population proxy
+Kerala|Malappuram,Malappuram,Kerala,Kerala,11.12925,76.15158,3501.6,3501.6,district area (km2) used as a rural-population proxy
+Kerala|Palakkad,Palakkad,Kerala,Kerala,10.78721,76.54831,4474.2,4474.2,district area (km2) used as a rural-population proxy
+Kerala|Pattanamtitta,Pattanamtitta,Kerala,Kerala,9.2761,76.91342,2635.9,2635.9,district area (km2) used as a rural-population proxy
+Kerala|Thiruvananthapuram,Thiruvananthapuram,Kerala,Kerala,8.60625,77.00469,2043.9,2043.9,district area (km2) used as a rural-population proxy
+Kerala|Thrissur,Thrissur,Kerala,Kerala,10.46561,76.31188,2942.4,2942.4,district area (km2) used as a rural-population proxy
+Kerala|Wayanad,Wayanad,Kerala,Kerala,11.70489,76.09163,2122.8,2122.8,district area (km2) used as a rural-population proxy
+Lakshadweep|Kavaratti,Kavaratti,All other states,Lakshadweep,8.28052,73.04923,35.1,35.1,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Anuppur,Anuppur,Madhya Pradesh,Madhya Pradesh,23.14842,81.87204,2023.6,2023.6,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Ashoknagar,Ashoknagar,Madhya Pradesh,Madhya Pradesh,24.61412,77.86943,4717.6,4717.6,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Balaghat,Balaghat,Madhya Pradesh,Madhya Pradesh,21.88125,80.35393,9240.8,9240.8,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Barwani,Barwani,Madhya Pradesh,Madhya Pradesh,21.78964,75.0233,5419.7,5419.7,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Betul,Betul,Madhya Pradesh,Madhya Pradesh,21.87975,77.86703,10059.4,10059.4,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Bhind,Bhind,Madhya Pradesh,Madhya Pradesh,26.4265,78.71485,4465.1,4465.1,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Bhopal,Bhopal,Madhya Pradesh,Madhya Pradesh,23.48195,77.39179,2718.7,2718.7,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Burhanpur,Burhanpur,Madhya Pradesh,Madhya Pradesh,21.37436,76.36909,3194.2,3194.2,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Chhatarpur,Chhatarpur,Madhya Pradesh,Madhya Pradesh,24.8022,79.65756,8701.1,8701.1,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Chhindwara,Chhindwara,Madhya Pradesh,Madhya Pradesh,22.12343,78.85003,11794.1,11794.1,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Damoh,Damoh,Madhya Pradesh,Madhya Pradesh,23.81628,79.52053,7344.6,7344.6,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Datia,Datia,Madhya Pradesh,Madhya Pradesh,25.84533,78.60677,2518.5,2518.5,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Dewas,Dewas,Madhya Pradesh,Madhya Pradesh,22.74848,76.45428,6949.8,6949.8,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Dhar,Dhar,Madhya Pradesh,Madhya Pradesh,22.50017,75.10524,8126.4,8126.4,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Dindori,Dindori,Madhya Pradesh,Madhya Pradesh,22.83515,81.04562,6481.9,6481.9,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|East_Nimar,East Nimar,Madhya Pradesh,Madhya Pradesh,21.93877,76.57,7438.3,7438.3,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Guna,Guna,Madhya Pradesh,Madhya Pradesh,24.55933,77.19593,6288.7,6288.7,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Gwalior,Gwalior,Madhya Pradesh,Madhya Pradesh,26.04505,78.13879,4573.3,4573.3,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Harda,Harda,Madhya Pradesh,Madhya Pradesh,22.23715,77.11805,3311.4,3311.4,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Hoshangabad,Hoshangabad,Madhya Pradesh,Madhya Pradesh,22.59134,77.98443,6701.9,6701.9,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Indore,Indore,Madhya Pradesh,Madhya Pradesh,22.71627,75.78144,3904.7,3904.7,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Jabalpur,Jabalpur,Madhya Pradesh,Madhya Pradesh,23.17428,79.94499,4007.2,4007.2,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Jhabua,Jhabua,Madhya Pradesh,Madhya Pradesh,22.6093,74.52333,6751.2,6751.2,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Katni,Katni,Madhya Pradesh,Madhya Pradesh,23.70367,80.33473,6156.2,6156.2,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Mandla,Mandla,Madhya Pradesh,Madhya Pradesh,22.66603,80.44728,6765.4,6765.4,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Mandsaur,Mandsaur,Madhya Pradesh,Madhya Pradesh,24.21502,75.40407,5624.0,5624.0,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Morena,Morena,Madhya Pradesh,Madhya Pradesh,26.41926,77.86094,4976.4,4976.4,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Narsinghpur,Narsinghpur,Madhya Pradesh,Madhya Pradesh,22.9374,79.08131,5139.1,5139.1,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Neemuch,Neemuch,Madhya Pradesh,Madhya Pradesh,24.60921,75.14316,4148.7,4148.7,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Panna,Panna,Madhya Pradesh,Madhya Pradesh,24.42499,80.18546,7104.3,7104.3,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Raisen,Raisen,Madhya Pradesh,Madhya Pradesh,23.22067,78.11336,8485.8,8485.8,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Rajgarh,Rajgarh,Madhya Pradesh,Madhya Pradesh,23.86538,76.7311,6112.7,6112.7,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Ratlam,Ratlam,Madhya Pradesh,Madhya Pradesh,23.50418,75.09013,4810.6,4810.6,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Rewa,Rewa,Madhya Pradesh,Madhya Pradesh,24.75817,81.58151,6305.6,6305.6,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Sagar,Sagar,Madhya Pradesh,Madhya Pradesh,23.85192,78.75275,10240.0,10240.0,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Satna,Satna,Madhya Pradesh,Madhya Pradesh,24.53606,80.82549,7492.7,7492.7,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Sehore,Sehore,Madhya Pradesh,Madhya Pradesh,22.99478,77.12512,6556.0,6556.0,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Seoni,Seoni,Madhya Pradesh,Madhya Pradesh,22.31732,79.68392,8748.4,8748.4,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Shahdol,Shahdol,Madhya Pradesh,Madhya Pradesh,23.46328,81.43297,8308.8,8308.8,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Shajapur,Shajapur,Madhya Pradesh,Madhya Pradesh,23.58356,76.34308,6284.5,6284.5,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Sheopur,Sheopur,Madhya Pradesh,Madhya Pradesh,25.75812,77.00485,6514.5,6514.5,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Shivpuri,Shivpuri,Madhya Pradesh,Madhya Pradesh,25.36784,77.80615,10450.8,10450.8,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Sidhi,Sidhi,Madhya Pradesh,Madhya Pradesh,24.22002,82.14798,10553.1,10553.1,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Tikamgarh,Tikamgarh,Madhya Pradesh,Madhya Pradesh,24.99308,78.93955,5059.2,5059.2,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Ujjain,Ujjain,Madhya Pradesh,Madhya Pradesh,23.33519,75.66735,6075.3,6075.3,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Umaria,Umaria,Madhya Pradesh,Madhya Pradesh,23.60649,80.91358,3721.5,3721.5,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|Vidisha,Vidisha,Madhya Pradesh,Madhya Pradesh,23.89694,77.80824,7294.0,7294.0,district area (km2) used as a rural-population proxy
+Madhya_Pradesh|West_Nimar,West Nimar,Madhya Pradesh,Madhya Pradesh,21.92318,75.77445,8036.8,8036.8,district area (km2) used as a rural-population proxy
+Maharashtra|Ahmednagar,Ahmednagar,Maharashtra,Maharashtra,19.23322,74.6455,16123.3,16123.3,district area (km2) used as a rural-population proxy
+Maharashtra|Akola,Akola,Maharashtra,Maharashtra,20.75029,77.04457,5510.0,5510.0,district area (km2) used as a rural-population proxy
+Maharashtra|Amravati,Amravati,Maharashtra,Maharashtra,21.1893,77.56873,12176.6,12176.6,district area (km2) used as a rural-population proxy
+Maharashtra|Aurangabad,Aurangabad,Maharashtra,Maharashtra,20.02267,75.27591,10087.1,10087.1,district area (km2) used as a rural-population proxy
+Maharashtra|Bhandara,Bhandara,Maharashtra,Maharashtra,21.12919,79.74466,4697.8,4697.8,district area (km2) used as a rural-population proxy
+Maharashtra|Bid,Bid,Maharashtra,Maharashtra,18.92511,75.802,11408.6,11408.6,district area (km2) used as a rural-population proxy
+Maharashtra|Buldana,Buldana,Maharashtra,Maharashtra,20.51083,76.40432,9597.5,9597.5,district area (km2) used as a rural-population proxy
+Maharashtra|Chandrapur,Chandrapur,Maharashtra,Maharashtra,20.11674,79.43778,11301.8,11301.8,district area (km2) used as a rural-population proxy
+Maharashtra|Dhule,Dhule,Maharashtra,Maharashtra,21.11152,74.60495,7161.1,7161.1,district area (km2) used as a rural-population proxy
+Maharashtra|Garhchiroli,Garhchiroli,Maharashtra,Maharashtra,19.78228,80.23423,14453.1,14453.1,district area (km2) used as a rural-population proxy
+Maharashtra|Gondiya,Gondiya,Maharashtra,Maharashtra,21.1209,80.1548,4633.3,4633.3,district area (km2) used as a rural-population proxy
+Maharashtra|Greater_Bombay,Greater Bombay,Maharashtra,Maharashtra,19.14542,72.9232,874.3,874.3,district area (km2) used as a rural-population proxy
+Maharashtra|Hingoli,Hingoli,Maharashtra,Maharashtra,19.61535,77.11657,4683.0,4683.0,district area (km2) used as a rural-population proxy
+Maharashtra|Jalgaon,Jalgaon,Maharashtra,Maharashtra,20.93743,75.49132,11739.6,11739.6,district area (km2) used as a rural-population proxy
+Maharashtra|Jalna,Jalna,Maharashtra,Maharashtra,19.81973,75.98261,7774.7,7774.7,district area (km2) used as a rural-population proxy
+Maharashtra|Kolhapur,Kolhapur,Maharashtra,Maharashtra,16.46679,74.1673,7653.8,7653.8,district area (km2) used as a rural-population proxy
+Maharashtra|Latur,Latur,Maharashtra,Maharashtra,18.37348,76.75954,7230.6,7230.6,district area (km2) used as a rural-population proxy
+Maharashtra|Nagpur,Nagpur,Maharashtra,Maharashtra,21.17694,79.08204,9918.7,9918.7,district area (km2) used as a rural-population proxy
+Maharashtra|Nanded,Nanded,Maharashtra,Maharashtra,19.11518,77.62064,10583.7,10583.7,district area (km2) used as a rural-population proxy
+Maharashtra|Nandurbar,Nandurbar,Maharashtra,Maharashtra,21.54722,74.21991,5926.9,5926.9,district area (km2) used as a rural-population proxy
+Maharashtra|Nashik,Nashik,Maharashtra,Maharashtra,20.26,74.07784,15499.9,15499.9,district area (km2) used as a rural-population proxy
+Maharashtra|Osmanabad,Osmanabad,Maharashtra,Maharashtra,18.18823,76.03924,7547.7,7547.7,district area (km2) used as a rural-population proxy
+Maharashtra|Parbhani,Parbhani,Maharashtra,Maharashtra,19.28578,76.68153,6325.1,6325.1,district area (km2) used as a rural-population proxy
+Maharashtra|Pune,Pune,Maharashtra,Maharashtra,18.57055,74.07658,15595.3,15595.3,district area (km2) used as a rural-population proxy
+Maharashtra|Raigarh,Raigarh,Maharashtra,Maharashtra,18.50972,73.23034,7008.1,7008.1,district area (km2) used as a rural-population proxy
+Maharashtra|Ratnagiri,Ratnagiri,Maharashtra,Maharashtra,17.27267,73.46053,8461.0,8461.0,district area (km2) used as a rural-population proxy
+Maharashtra|Sangli,Sangli,Maharashtra,Maharashtra,17.11072,74.77483,8533.3,8533.3,district area (km2) used as a rural-population proxy
+Maharashtra|Satara,Satara,Maharashtra,Maharashtra,17.66775,74.18109,10465.9,10465.9,district area (km2) used as a rural-population proxy
+Maharashtra|Sindhudurg,Sindhudurg,Maharashtra,Maharashtra,16.13225,73.743,5170.9,5170.9,district area (km2) used as a rural-population proxy
+Maharashtra|Solapur,Solapur,Maharashtra,Maharashtra,17.78882,75.48516,14863.2,14863.2,district area (km2) used as a rural-population proxy
+Maharashtra|Thane,Thane,Maharashtra,Maharashtra,19.6185,73.1656,9166.9,9166.9,district area (km2) used as a rural-population proxy
+Maharashtra|Wardha,Wardha,Maharashtra,Maharashtra,20.79632,78.58273,6304.6,6304.6,district area (km2) used as a rural-population proxy
+Maharashtra|Washim,Washim,Maharashtra,Maharashtra,20.23845,77.21651,5188.3,5188.3,district area (km2) used as a rural-population proxy
+Maharashtra|Yavatmal,Yavatmal,Maharashtra,Maharashtra,20.08393,78.15806,13518.5,13518.5,district area (km2) used as a rural-population proxy
+Manipur|Bishnupur,Bishnupur,Northeastern states,Manipur,24.54012,93.80277,480.2,480.2,district area (km2) used as a rural-population proxy
+Manipur|Chandel,Chandel,Northeastern states,Manipur,24.2412,94.0955,3182.4,3182.4,district area (km2) used as a rural-population proxy
+Manipur|Churachandpur,Churachandpur,Northeastern states,Manipur,24.30378,93.421,4712.5,4712.5,district area (km2) used as a rural-population proxy
+Manipur|East_Imphal,East Imphal,Northeastern states,Manipur,24.83746,94.01799,597.3,597.3,district area (km2) used as a rural-population proxy
+Manipur|Senapati,Senapati,Northeastern states,Manipur,25.20165,94.04131,3479.5,3479.5,district area (km2) used as a rural-population proxy
+Manipur|Tamenglong,Tamenglong,Northeastern states,Manipur,24.95139,93.52812,4190.9,4190.9,district area (km2) used as a rural-population proxy
+Manipur|Thoubal,Thoubal,Northeastern states,Manipur,24.53614,93.97349,713.1,713.1,district area (km2) used as a rural-population proxy
+Manipur|Ukhrul,Ukhrul,Northeastern states,Manipur,25.02613,94.43563,4447.0,4447.0,district area (km2) used as a rural-population proxy
+Manipur|West_Imphal,West Imphal,Northeastern states,Manipur,24.80769,93.87763,487.3,487.3,district area (km2) used as a rural-population proxy
+Meghalaya|East_Garo_Hills,East Garo Hills,Northeastern states,Meghalaya,25.73542,90.63086,2930.1,2930.1,district area (km2) used as a rural-population proxy
+Meghalaya|East_Khasi_Hills,East Khasi Hills,Northeastern states,Meghalaya,25.38553,91.80097,2838.6,2838.6,district area (km2) used as a rural-population proxy
+Meghalaya|Jaintia_Hills,Jaintia Hills,Northeastern states,Meghalaya,25.37087,92.3805,3787.2,3787.2,district area (km2) used as a rural-population proxy
+Meghalaya|Ri-Bhoi,Ri-Bhoi,Northeastern states,Meghalaya,25.87518,91.88741,2381.4,2381.4,district area (km2) used as a rural-population proxy
+Meghalaya|South_Garo_Hills,South Garo Hills,Northeastern states,Meghalaya,25.30251,90.59634,1839.7,1839.7,district area (km2) used as a rural-population proxy
+Meghalaya|West_Garo_Hills,West Garo Hills,Northeastern states,Meghalaya,25.58153,90.14559,3383.6,3383.6,district area (km2) used as a rural-population proxy
+Meghalaya|West_Khasi_Hills,West Khasi Hills,Northeastern states,Meghalaya,25.52669,91.25814,5232.6,5232.6,district area (km2) used as a rural-population proxy
+Mizoram|Aizawl,Aizawl,Northeastern states,Mizoram,23.83656,92.88807,3449.0,3449.0,district area (km2) used as a rural-population proxy
+Mizoram|Champhai,Champhai,Northeastern states,Mizoram,23.54024,93.23731,3430.9,3430.9,district area (km2) used as a rural-population proxy
+Mizoram|Kolasib,Kolasib,Northeastern states,Mizoram,24.20056,92.72765,1347.2,1347.2,district area (km2) used as a rural-population proxy
+Mizoram|Lawngtlai,Lawngtlai,Northeastern states,Mizoram,22.38581,92.71582,1991.8,1991.8,district area (km2) used as a rural-population proxy
+Mizoram|Lunglei,Lunglei,Northeastern states,Mizoram,22.97406,92.72407,4518.6,4518.6,district area (km2) used as a rural-population proxy
+Mizoram|Mamit,Mamit,Northeastern states,Mizoram,23.75509,92.46779,3043.9,3043.9,district area (km2) used as a rural-population proxy
+Mizoram|Saiha,Saiha,Northeastern states,Mizoram,22.37936,93.01462,1975.0,1975.0,district area (km2) used as a rural-population proxy
+Mizoram|Serchhip,Serchhip,Northeastern states,Mizoram,23.29003,92.94709,1356.9,1356.9,district area (km2) used as a rural-population proxy
+Nagaland|Dimapur,Dimapur,Northeastern states,Nagaland,25.77767,93.78742,865.5,865.5,district area (km2) used as a rural-population proxy
+Nagaland|Kohima,Kohima,Northeastern states,Nagaland,25.6158,93.83164,2989.6,2989.6,district area (km2) used as a rural-population proxy
+Nagaland|Mokokchung,Mokokchung,Northeastern states,Nagaland,26.47711,94.53166,1603.0,1603.0,district area (km2) used as a rural-population proxy
+Nagaland|Mon,Mon,Northeastern states,Nagaland,26.68464,95.02185,2164.5,2164.5,district area (km2) used as a rural-population proxy
+Nagaland|Phek,Phek,Northeastern states,Nagaland,25.65232,94.5382,1907.5,1907.5,district area (km2) used as a rural-population proxy
+Nagaland|Tuensang,Tuensang,Northeastern states,Nagaland,26.13744,94.85715,3847.9,3847.9,district area (km2) used as a rural-population proxy
+Nagaland|Wokha,Wokha,Northeastern states,Nagaland,26.18961,94.19261,1623.8,1623.8,district area (km2) used as a rural-population proxy
+Nagaland|Zunheboto,Zunheboto,Northeastern states,Nagaland,26.00833,94.48658,1571.1,1571.1,district area (km2) used as a rural-population proxy
+Orissa|Angul,Angul,Odisha,Orissa,20.98104,84.90248,6369.5,6369.5,district area (km2) used as a rural-population proxy
+Orissa|Baleshwar,Baleshwar,Odisha,Orissa,21.4889,86.9043,3702.3,3702.3,district area (km2) used as a rural-population proxy
+Orissa|Baragarh,Baragarh,Odisha,Orissa,21.21665,83.34626,5801.3,5801.3,district area (km2) used as a rural-population proxy
+Orissa|Bhadrak,Bhadrak,Odisha,Orissa,20.97892,86.61596,2451.1,2451.1,district area (km2) used as a rural-population proxy
+Orissa|Bolangir,Bolangir,Odisha,Orissa,20.58592,83.16657,6572.7,6572.7,district area (km2) used as a rural-population proxy
+Orissa|Boudh,Boudh,Odisha,Orissa,20.64144,84.17072,3121.7,3121.7,district area (km2) used as a rural-population proxy
+Orissa|Cuttack,Cuttack,Odisha,Orissa,20.44363,85.69854,3941.8,3941.8,district area (km2) used as a rural-population proxy
+Orissa|Deogarh,Deogarh,Odisha,Orissa,21.46234,84.79733,2811.8,2811.8,district area (km2) used as a rural-population proxy
+Orissa|Dhenkanal,Dhenkanal,Odisha,Orissa,20.82011,85.52027,4478.1,4478.1,district area (km2) used as a rural-population proxy
+Orissa|Gajapati,Gajapati,Odisha,Orissa,19.16509,84.15328,4066.1,4066.1,district area (km2) used as a rural-population proxy
+Orissa|Ganjam,Ganjam,Odisha,Orissa,19.62227,84.65858,8376.0,8376.0,district area (km2) used as a rural-population proxy
+Orissa|Jagatsinghpur,Jagatsinghpur,Odisha,Orissa,20.21783,86.32996,1670.0,1670.0,district area (km2) used as a rural-population proxy
+Orissa|Jajpur,Jajpur,Odisha,Orissa,20.84969,86.14668,2901.6,2901.6,district area (km2) used as a rural-population proxy
+Orissa|Jharsuguda,Jharsuguda,Odisha,Orissa,21.80284,83.94776,2118.4,2118.4,district area (km2) used as a rural-population proxy
+Orissa|Kalahandi,Kalahandi,Odisha,Orissa,19.86187,83.10172,7911.2,7911.2,district area (km2) used as a rural-population proxy
+Orissa|Kandhamal,Kandhamal,Odisha,Orissa,20.12263,84.04012,8060.3,8060.3,district area (km2) used as a rural-population proxy
+Orissa|Kendrapara,Kendrapara,Odisha,Orissa,20.53305,86.58092,2481.1,2481.1,district area (km2) used as a rural-population proxy
+Orissa|Keonjhar,Keonjhar,Odisha,Orissa,21.53225,85.6992,8316.8,8316.8,district area (km2) used as a rural-population proxy
+Orissa|Khordha,Khordha,Odisha,Orissa,20.08255,85.50525,2754.7,2754.7,district area (km2) used as a rural-population proxy
+Orissa|Koraput,Koraput,Odisha,Orissa,18.81117,82.70721,8578.9,8578.9,district area (km2) used as a rural-population proxy
+Orissa|Malkangiri,Malkangiri,Odisha,Orissa,18.2505,81.94803,5829.2,5829.2,district area (km2) used as a rural-population proxy
+Orissa|Mayurbhanj,Mayurbhanj,Odisha,Orissa,21.89067,86.40587,10441.9,10441.9,district area (km2) used as a rural-population proxy
+Orissa|Nabarangpur,Nabarangpur,Odisha,Orissa,19.58251,82.32996,5305.4,5305.4,district area (km2) used as a rural-population proxy
+Orissa|Nayagarh,Nayagarh,Odisha,Orissa,20.20619,84.99291,3897.0,3897.0,district area (km2) used as a rural-population proxy
+Orissa|Nuapada,Nuapada,Odisha,Orissa,20.46149,82.57086,3868.3,3868.3,district area (km2) used as a rural-population proxy
+Orissa|Puri,Puri,Odisha,Orissa,19.86544,85.69728,3500.3,3500.3,district area (km2) used as a rural-population proxy
+Orissa|Rayagada,Rayagada,Odisha,Orissa,19.35502,83.50627,7378.2,7378.2,district area (km2) used as a rural-population proxy
+Orissa|Sambalpur,Sambalpur,Odisha,Orissa,21.44753,84.27428,6738.7,6738.7,district area (km2) used as a rural-population proxy
+Orissa|Sonepur,Sonepur,Odisha,Orissa,20.92699,83.8178,2359.9,2359.9,district area (km2) used as a rural-population proxy
+Orissa|Sundargarh,Sundargarh,Odisha,Orissa,22.07667,84.50393,9730.2,9730.2,district area (km2) used as a rural-population proxy
+Puducherry|Karaikal,Karaikal,All other states,Puducherry,10.91352,79.79651,192.2,192.2,district area (km2) used as a rural-population proxy
+Puducherry|Mahe,Mahe,All other states,Puducherry,12.07424,75.28613,128.4,128.4,district area (km2) used as a rural-population proxy
+Puducherry|Puducherry,Puducherry,All other states,Puducherry,11.90932,79.7483,195.4,195.4,district area (km2) used as a rural-population proxy
+Puducherry|Yanam,Yanam,All other states,Puducherry,16.71926,82.23833,31.5,31.5,district area (km2) used as a rural-population proxy
+Punjab|Amritsar,Amritsar,Punjab,Punjab,31.53049,74.86642,4945.0,4945.0,district area (km2) used as a rural-population proxy
+Punjab|Bathinda,Bathinda,Punjab,Punjab,30.18405,75.02998,3354.7,3354.7,district area (km2) used as a rural-population proxy
+Punjab|Faridkot,Faridkot,Punjab,Punjab,30.6111,74.76789,1444.1,1444.1,district area (km2) used as a rural-population proxy
+Punjab|Fatehgarh_Sahib,Fatehgarh Sahib,Punjab,Punjab,30.63564,76.34949,1170.3,1170.3,district area (km2) used as a rural-population proxy
+Punjab|Firozpur,Firozpur,Punjab,Punjab,30.56162,74.39446,5207.2,5207.2,district area (km2) used as a rural-population proxy
+Punjab|Gurdaspur,Gurdaspur,Punjab,Punjab,32.02264,75.37308,3567.1,3567.1,district area (km2) used as a rural-population proxy
+Punjab|Hoshiarpur,Hoshiarpur,Punjab,Punjab,31.62733,75.84461,3351.1,3351.1,district area (km2) used as a rural-population proxy
+Punjab|Jalandhar,Jalandhar,Punjab,Punjab,31.21381,75.55371,2595.9,2595.9,district area (km2) used as a rural-population proxy
+Punjab|Kapurthala,Kapurthala,Punjab,Punjab,31.37249,75.30728,1653.2,1653.2,district area (km2) used as a rural-population proxy
+Punjab|Ludhiana,Ludhiana,Punjab,Punjab,30.81069,75.82412,3560.6,3560.6,district area (km2) used as a rural-population proxy
+Punjab|Mansa,Mansa,Punjab,Punjab,29.91073,75.42839,2201.8,2201.8,district area (km2) used as a rural-population proxy
+Punjab|Moga,Moga,Punjab,Punjab,30.76706,75.158,2296.6,2296.6,district area (km2) used as a rural-population proxy
+Punjab|Muktsar,Muktsar,Punjab,Punjab,30.29465,74.53062,2592.6,2592.6,district area (km2) used as a rural-population proxy
+Punjab|Nawan_Shehar,Nawan Shehar,Punjab,Punjab,31.11151,76.14292,1292.6,1292.6,district area (km2) used as a rural-population proxy
+Punjab|Patiala,Patiala,Punjab,Punjab,30.30941,76.398,3703.1,3703.1,district area (km2) used as a rural-population proxy
+Punjab|Rupnagar,Rupnagar,Punjab,Punjab,30.9627,76.53863,2088.4,2088.4,district area (km2) used as a rural-population proxy
+Punjab|Sangrur,Sangrur,Punjab,Punjab,30.26911,75.75108,5073.5,5073.5,district area (km2) used as a rural-population proxy
+Rajasthan|Ajmer,Ajmer,Rajasthan,Rajasthan,26.2406,74.78536,8633.3,8633.3,district area (km2) used as a rural-population proxy
+Rajasthan|Alwar,Alwar,Rajasthan,Rajasthan,27.59682,76.598,8275.7,8275.7,district area (km2) used as a rural-population proxy
+Rajasthan|Banswara,Banswara,Rajasthan,Rajasthan,23.50911,74.39584,5037.1,5037.1,district area (km2) used as a rural-population proxy
+Rajasthan|Baran,Baran,Rajasthan,Rajasthan,25.00046,76.75189,6813.7,6813.7,district area (km2) used as a rural-population proxy
+Rajasthan|Barmer,Barmer,Rajasthan,Rajasthan,25.73018,71.47896,28274.1,28274.1,district area (km2) used as a rural-population proxy
+Rajasthan|Bharatpur,Bharatpur,Rajasthan,Rajasthan,27.2512,77.27077,5041.6,5041.6,district area (km2) used as a rural-population proxy
+Rajasthan|Bhilwara,Bhilwara,Rajasthan,Rajasthan,25.48307,74.72687,10432.9,10432.9,district area (km2) used as a rural-population proxy
+Rajasthan|Bikaner,Bikaner,Rajasthan,Rajasthan,28.19103,73.0766,26871.6,26871.6,district area (km2) used as a rural-population proxy
+Rajasthan|Bundi,Bundi,Rajasthan,Rajasthan,25.47434,75.77371,5565.2,5565.2,district area (km2) used as a rural-population proxy
+Rajasthan|Chittaurgarh,Chittaurgarh,Rajasthan,Rajasthan,24.57661,74.64145,10592.5,10592.5,district area (km2) used as a rural-population proxy
+Rajasthan|Churu,Churu,Rajasthan,Rajasthan,28.2927,74.56158,17015.6,17015.6,district area (km2) used as a rural-population proxy
+Rajasthan|Dausa,Dausa,Rajasthan,Rajasthan,26.86609,76.51993,3583.5,3583.5,district area (km2) used as a rural-population proxy
+Rajasthan|Dhaulpur,Dhaulpur,Rajasthan,Rajasthan,26.68645,77.69563,3020.1,3020.1,district area (km2) used as a rural-population proxy
+Rajasthan|Dungarpur,Dungarpur,Rajasthan,Rajasthan,23.73416,73.85793,3771.8,3771.8,district area (km2) used as a rural-population proxy
+Rajasthan|Ganganagar,Ganganagar,Rajasthan,Rajasthan,29.40777,73.5983,11638.8,11638.8,district area (km2) used as a rural-population proxy
+Rajasthan|Hanumangarh,Hanumangarh,Rajasthan,Rajasthan,29.24014,74.59695,8881.5,8881.5,district area (km2) used as a rural-population proxy
+Rajasthan|Jaipur,Jaipur,Rajasthan,Rajasthan,26.98375,75.71828,11224.5,11224.5,district area (km2) used as a rural-population proxy
+Rajasthan|Jaisalmer,Jaisalmer,Rajasthan,Rajasthan,27.0703,70.90053,38503.4,38503.4,district area (km2) used as a rural-population proxy
+Rajasthan|Jalor,Jalor,Rajasthan,Rajasthan,25.09505,72.21692,10688.6,10688.6,district area (km2) used as a rural-population proxy
+Rajasthan|Jhalawar,Jhalawar,Rajasthan,Rajasthan,24.33312,76.19372,6239.9,6239.9,district area (km2) used as a rural-population proxy
+Rajasthan|Jhunjhunun,Jhunjhunun,Rajasthan,Rajasthan,28.09559,75.54498,5901.3,5901.3,district area (km2) used as a rural-population proxy
+Rajasthan|Jodhpur,Jodhpur,Rajasthan,Rajasthan,26.74905,72.78783,22763.0,22763.0,district area (km2) used as a rural-population proxy
+Rajasthan|Karauli,Karauli,Rajasthan,Rajasthan,26.52227,76.93956,5173.4,5173.4,district area (km2) used as a rural-population proxy
+Rajasthan|Kota,Kota,Rajasthan,Rajasthan,25.12864,76.12542,5495.1,5495.1,district area (km2) used as a rural-population proxy
+Rajasthan|Nagaur,Nagaur,Rajasthan,Rajasthan,27.0664,74.18374,17615.2,17615.2,district area (km2) used as a rural-population proxy
+Rajasthan|Pali,Pali,Rajasthan,Rajasthan,25.7087,73.52097,12304.5,12304.5,district area (km2) used as a rural-population proxy
+Rajasthan|Rajsamand,Rajsamand,Rajasthan,Rajasthan,25.19743,73.87532,4585.1,4585.1,district area (km2) used as a rural-population proxy
+Rajasthan|Sawai_Madhopur,Sawai Madhopur,Rajasthan,Rajasthan,26.19276,76.44438,4662.7,4662.7,district area (km2) used as a rural-population proxy
+Rajasthan|Sikar,Sikar,Rajasthan,Rajasthan,27.64002,75.28126,7666.7,7666.7,district area (km2) used as a rural-population proxy
+Rajasthan|Sirohi,Sirohi,Rajasthan,Rajasthan,24.75843,72.77903,5128.3,5128.3,district area (km2) used as a rural-population proxy
+Rajasthan|Tonk,Tonk,Rajasthan,Rajasthan,26.15,75.66734,7227.3,7227.3,district area (km2) used as a rural-population proxy
+Rajasthan|Udaipur,Udaipur,Rajasthan,Rajasthan,24.39191,73.75588,12695.8,12695.8,district area (km2) used as a rural-population proxy
+Sikkim|East,East,Northeastern states,Sikkim,27.29301,88.67076,941.8,941.8,district area (km2) used as a rural-population proxy
+Sikkim|North_Sikkim,North Sikkim,Northeastern states,Sikkim,27.74368,88.52635,4233.3,4233.3,district area (km2) used as a rural-population proxy
+Sikkim|South_Sikkim,South Sikkim,Northeastern states,Sikkim,27.28709,88.38036,730.4,730.4,district area (km2) used as a rural-population proxy
+Sikkim|West_Sikkim,West Sikkim,Northeastern states,Sikkim,27.34711,88.17392,1161.1,1161.1,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Ariyalur,Ariyalur,Tamil Nadu,Tamil Nadu,11.14672,79.22819,1951.4,1951.4,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Chennai,Chennai,Tamil Nadu,Tamil Nadu,13.04809,80.23495,195.0,195.0,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Coimbatore,Coimbatore,Tamil Nadu,Tamil Nadu,10.83677,77.07197,7409.6,7409.6,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Cuddalore,Cuddalore,Tamil Nadu,Tamil Nadu,11.52509,79.44523,3817.0,3817.0,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Dharmapuri,Dharmapuri,Tamil Nadu,Tamil Nadu,12.29558,78.09742,9651.1,9651.1,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Dindigul,Dindigul,Tamil Nadu,Tamil Nadu,10.37926,77.80498,6060.2,6060.2,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Erode,Erode,Tamil Nadu,Tamil Nadu,11.31938,77.44693,8179.2,8179.2,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Kancheepuram,Kancheepuram,Tamil Nadu,Tamil Nadu,12.68133,79.93615,4657.3,4657.3,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Kanniyakumari,Kanniyakumari,Tamil Nadu,Tamil Nadu,8.30605,77.3465,1592.1,1592.1,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Karur,Karur,Tamil Nadu,Tamil Nadu,10.83179,78.11837,2890.6,2890.6,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Madurai,Madurai,Tamil Nadu,Tamil Nadu,9.90997,77.98957,3689.8,3689.8,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Nagapattinam,Nagapattinam,Tamil Nadu,Tamil Nadu,11.14121,79.70432,2403.3,2403.3,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Namakkal,Namakkal,Tamil Nadu,Tamil Nadu,11.3053,78.12248,3402.3,3402.3,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Nilgiris,Nilgiris,Tamil Nadu,Tamil Nadu,11.44838,76.63281,2547.3,2547.3,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Perambalur,Perambalur,Tamil Nadu,Tamil Nadu,11.26048,78.87776,1752.9,1752.9,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Pudukkottai,Pudukkottai,Tamil Nadu,Tamil Nadu,10.34207,78.86659,4692.6,4692.6,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Ramanathapuram,Ramanathapuram,Tamil Nadu,Tamil Nadu,9.44729,78.66603,4263.3,4263.3,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Salem,Salem,Tamil Nadu,Tamil Nadu,11.66309,78.20916,5212.6,5212.6,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Sivaganga,Sivaganga,Tamil Nadu,Tamil Nadu,9.90702,78.57596,4068.7,4068.7,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Thanjavur,Thanjavur,Tamil Nadu,Tamil Nadu,10.65525,79.22359,3393.0,3393.0,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Theni,Theni,Tamil Nadu,Tamil Nadu,9.88075,77.42393,2846.8,2846.8,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Thiruvallur,Thiruvallur,Tamil Nadu,Tamil Nadu,13.23032,79.92517,3235.0,3235.0,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Thiruvarur,Thiruvarur,Tamil Nadu,Tamil Nadu,10.66994,79.53438,2516.5,2516.5,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Thoothukudi,Thoothukudi,Tamil Nadu,Tamil Nadu,8.87755,77.98813,4715.6,4715.6,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Tiruchchirappalli,Tiruchchirappalli,Tamil Nadu,Tamil Nadu,10.87669,78.55491,4506.5,4506.5,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Tirunelveli_Kattabo,Tirunelveli Kattabo,Tamil Nadu,Tamil Nadu,8.79011,77.52306,6775.1,6775.1,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Tiruvannamalai,Tiruvannamalai,Tamil Nadu,Tamil Nadu,12.41866,79.15446,6185.8,6185.8,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Vellore,Vellore,Tamil Nadu,Tamil Nadu,12.80064,78.99815,6069.5,6069.5,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Villupuram,Villupuram,Tamil Nadu,Tamil Nadu,11.96033,79.28447,7296.7,7296.7,district area (km2) used as a rural-population proxy
+Tamil_Nadu|Virudhunagar,Virudhunagar,Tamil Nadu,Tamil Nadu,9.48056,77.89436,4291.9,4291.9,district area (km2) used as a rural-population proxy
+Tripura|Dhalai,Dhalai,Northeastern states,Tripura,23.85037,91.92825,2203.7,2203.7,district area (km2) used as a rural-population proxy
+Tripura|North_Tripura,North Tripura,Northeastern states,Tripura,24.13362,92.15362,2052.6,2052.6,district area (km2) used as a rural-population proxy
+Tripura|South_Tripura,South Tripura,Northeastern states,Tripura,23.37087,91.61186,3192.9,3192.9,district area (km2) used as a rural-population proxy
+Tripura|West_Tripura,West Tripura,Northeastern states,Tripura,23.80434,91.465,2986.2,2986.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Agra,Agra,Uttar Pradesh,Uttar Pradesh,27.00751,78.06292,3520.0,3520.0,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Aligarh,Aligarh,Uttar Pradesh,Uttar Pradesh,27.92617,78.07718,3857.7,3857.7,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Allahabad,Allahabad,Uttar Pradesh,Uttar Pradesh,25.29989,81.96481,5140.5,5140.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Ambedkar_Nagar,Ambedkar Nagar,Uttar Pradesh,Uttar Pradesh,26.42372,82.65983,2320.8,2320.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Auraiya,Auraiya,Uttar Pradesh,Uttar Pradesh,26.64988,79.44951,2174.8,2174.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Azamgarh,Azamgarh,Uttar Pradesh,Uttar Pradesh,26.05524,83.0412,3890.4,3890.4,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Badaun,Badaun,Uttar Pradesh,Uttar Pradesh,28.12136,78.93494,5064.9,5064.9,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Baghpat,Baghpat,Uttar Pradesh,Uttar Pradesh,29.06001,77.30257,1329.5,1329.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Bahraich,Bahraich,Uttar Pradesh,Uttar Pradesh,27.74114,81.41207,3680.1,3680.1,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Ballia,Ballia,Uttar Pradesh,Uttar Pradesh,25.87746,84.09686,3003.3,3003.3,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Balrampur,Balrampur,Uttar Pradesh,Uttar Pradesh,27.48715,82.36882,3360.9,3360.9,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Banda,Banda,Uttar Pradesh,Uttar Pradesh,25.4712,80.55263,4512.9,4512.9,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Bara_Banki,Bara Banki,Uttar Pradesh,Uttar Pradesh,26.91674,81.37166,4424.5,4424.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Bareilly,Bareilly,Uttar Pradesh,Uttar Pradesh,28.45553,79.41115,3775.5,3775.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Basti,Basti,Uttar Pradesh,Uttar Pradesh,26.7899,82.60642,2513.2,2513.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Bijnor,Bijnor,Uttar Pradesh,Uttar Pradesh,29.39282,78.38678,4304.6,4304.6,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Bulandshahr,Bulandshahr,Uttar Pradesh,Uttar Pradesh,28.3667,77.99919,3571.5,3571.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Chandauli,Chandauli,Uttar Pradesh,Uttar Pradesh,25.13947,83.25276,2531.8,2531.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Chitrakoot,Chitrakoot,Uttar Pradesh,Uttar Pradesh,25.20894,81.08126,3079.5,3079.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Deoria,Deoria,Uttar Pradesh,Uttar Pradesh,26.42547,83.82737,2552.5,2552.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Etah,Etah,Uttar Pradesh,Uttar Pradesh,27.63463,78.76159,4468.2,4468.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Etawah,Etawah,Uttar Pradesh,Uttar Pradesh,26.78954,79.08139,2149.0,2149.0,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Faizabad,Faizabad,Uttar Pradesh,Uttar Pradesh,26.63472,82.07054,2095.9,2095.9,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Farrukhabad,Farrukhabad,Uttar Pradesh,Uttar Pradesh,27.4363,79.45149,2180.3,2180.3,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Fatehpur,Fatehpur,Uttar Pradesh,Uttar Pradesh,25.87788,80.79821,4170.3,4170.3,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Firozabad,Firozabad,Uttar Pradesh,Uttar Pradesh,27.20601,78.45674,2841.2,2841.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Gautam_Buddha_Nagar,Gautam Buddha Nagar,Uttar Pradesh,Uttar Pradesh,28.39576,77.53741,1383.3,1383.3,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Ghaziabad,Ghaziabad,Uttar Pradesh,Uttar Pradesh,28.74459,77.69618,1971.3,1971.3,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Ghazipur,Ghazipur,Uttar Pradesh,Uttar Pradesh,25.62473,83.54763,3380.8,3380.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Gonda,Gonda,Uttar Pradesh,Uttar Pradesh,27.08774,82.01253,4000.8,4000.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Gorakhpur,Gorakhpur,Uttar Pradesh,Uttar Pradesh,26.6257,83.35993,3061.4,3061.4,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Hamirpur,Hamirpur,Uttar Pradesh,Uttar Pradesh,25.73656,79.87069,4256.2,4256.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Hardoi,Hardoi,Uttar Pradesh,Uttar Pradesh,27.33439,80.15249,5999.0,5999.0,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Hathras,Hathras,Uttar Pradesh,Uttar Pradesh,27.57615,78.14403,1617.8,1617.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Jalaun,Jalaun,Uttar Pradesh,Uttar Pradesh,26.09632,79.37968,4556.3,4556.3,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Jaunpur,Jaunpur,Uttar Pradesh,Uttar Pradesh,25.74918,82.56706,4029.6,4029.6,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Jhansi,Jhansi,Uttar Pradesh,Uttar Pradesh,25.51059,78.94644,5058.1,5058.1,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Jyotiba_Phule_Nagar,Jyotiba Phule Nagar,Uttar Pradesh,Uttar Pradesh,28.8434,78.34915,2511.7,2511.7,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Kannauj,Kannauj,Uttar Pradesh,Uttar Pradesh,27.01771,79.67846,2070.8,2070.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Kanpur_Dehat,Kanpur Dehat,Uttar Pradesh,Uttar Pradesh,26.42802,79.9538,5025.1,5025.1,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Kanpur,Kanpur,Uttar Pradesh,Uttar Pradesh,26.38029,80.32103,1056.5,1056.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Kaushambi,Kaushambi,Uttar Pradesh,Uttar Pradesh,25.49152,81.45897,2100.4,2100.4,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Kushinagar,Kushinagar,Uttar Pradesh,Uttar Pradesh,26.86466,83.92527,2883.0,2883.0,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Lakhimpur_Kheri,Lakhimpur Kheri,Uttar Pradesh,Uttar Pradesh,28.1276,80.65654,7686.1,7686.1,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Lalitpur,Lalitpur,Uttar Pradesh,Uttar Pradesh,24.65799,78.55536,5039.9,5039.9,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Lucknow,Lucknow,Uttar Pradesh,Uttar Pradesh,26.8467,80.897,2535.3,2535.3,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Maharajganj,Maharajganj,Uttar Pradesh,Uttar Pradesh,27.18815,83.50078,3181.5,3181.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Mahoba,Mahoba,Uttar Pradesh,Uttar Pradesh,25.35239,79.69269,2831.8,2831.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Mainpuri,Mainpuri,Uttar Pradesh,Uttar Pradesh,27.18644,79.04401,2745.4,2745.4,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Mathura,Mathura,Uttar Pradesh,Uttar Pradesh,27.60089,77.62051,3367.6,3367.6,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Mau,Mau,Uttar Pradesh,Uttar Pradesh,26.0354,83.50282,2063.2,2063.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Meerut,Meerut,Uttar Pradesh,Uttar Pradesh,29.04164,77.7836,2599.4,2599.4,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Mirzapur,Mirzapur,Uttar Pradesh,Uttar Pradesh,24.98783,82.61089,4511.0,4511.0,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Moradabad,Moradabad,Uttar Pradesh,Uttar Pradesh,28.76065,78.702,3369.2,3369.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Muzaffarnagar,Muzaffarnagar,Uttar Pradesh,Uttar Pradesh,29.44439,77.58079,4039.8,4039.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Pilibhit,Pilibhit,Uttar Pradesh,Uttar Pradesh,28.54778,79.95036,3584.1,3584.1,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Pratapgarh,Pratapgarh,Uttar Pradesh,Uttar Pradesh,25.87642,81.82249,3709.8,3709.8,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Rae_Bareli,Rae Bareli,Uttar Pradesh,Uttar Pradesh,26.23334,81.22216,4612.9,4612.9,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Rampur,Rampur,Uttar Pradesh,Uttar Pradesh,28.80158,79.094,2565.4,2565.4,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Saharanpur,Saharanpur,Uttar Pradesh,Uttar Pradesh,29.95468,77.53534,3711.5,3711.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Sant_Kabir_Nagar,Sant Kabir Nagar,Uttar Pradesh,Uttar Pradesh,26.74788,83.03009,1324.5,1324.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Sant_Ravi_Das_Nagar,Sant Ravi Das Nagar,Uttar Pradesh,Uttar Pradesh,25.35098,82.45565,1007.7,1007.7,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Shahjahanpur,Shahjahanpur,Uttar Pradesh,Uttar Pradesh,27.98172,79.83425,4642.7,4642.7,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Shravasti,Shravasti,Uttar Pradesh,Uttar Pradesh,27.67841,81.81583,3146.2,3146.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Siddharth_Nagar,Siddharth Nagar,Uttar Pradesh,Uttar Pradesh,27.23281,82.86032,3472.2,3472.2,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Sitapur,Sitapur,Uttar Pradesh,Uttar Pradesh,27.52318,80.84696,5769.5,5769.5,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Sonbhadra,Sonbhadra,Uttar Pradesh,Uttar Pradesh,24.40357,83.04555,6780.3,6780.3,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Sultanpur,Sultanpur,Uttar Pradesh,Uttar Pradesh,26.27896,82.01081,4412.0,4412.0,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Unnao,Unnao,Uttar Pradesh,Uttar Pradesh,26.61434,80.54996,4590.7,4590.7,district area (km2) used as a rural-population proxy
+Uttar_Pradesh|Varanasi,Varanasi,Uttar Pradesh,Uttar Pradesh,25.39063,82.90903,1548.8,1548.8,district area (km2) used as a rural-population proxy
+Uttaranchal|Almora,Almora,All other states,Uttaranchal,29.69517,79.48897,3094.8,3094.8,district area (km2) used as a rural-population proxy
+Uttaranchal|Bageshwar,Bageshwar,All other states,Uttaranchal,29.99701,79.846,2275.8,2275.8,district area (km2) used as a rural-population proxy
+Uttaranchal|Chamoli,Chamoli,All other states,Uttaranchal,30.49854,79.55835,7909.1,7909.1,district area (km2) used as a rural-population proxy
+Uttaranchal|Champawat,Champawat,All other states,Uttaranchal,29.30306,80.06174,1680.8,1680.8,district area (km2) used as a rural-population proxy
+Uttaranchal|Dehra_Dun,Dehra Dun,All other states,Uttaranchal,30.46861,77.95975,3059.4,3059.4,district area (km2) used as a rural-population proxy
+Uttaranchal|Haridwar,Haridwar,All other states,Uttaranchal,29.87728,77.9887,2380.1,2380.1,district area (km2) used as a rural-population proxy
+Uttaranchal|Naini_Tal,Naini Tal,All other states,Uttaranchal,29.31677,79.45503,4054.7,4054.7,district area (km2) used as a rural-population proxy
+Uttaranchal|Pauri_Garhwal,Pauri Garhwal,All other states,Uttaranchal,29.89866,78.75665,5442.8,5442.8,district area (km2) used as a rural-population proxy
+Uttaranchal|Pithoragarh,Pithoragarh,All other states,Uttaranchal,30.11189,80.33363,7311.7,7311.7,district area (km2) used as a rural-population proxy
+Uttaranchal|Rudra_Prayag,Rudra Prayag,All other states,Uttaranchal,30.59482,79.09849,1211.0,1211.0,district area (km2) used as a rural-population proxy
+Uttaranchal|Tehri_Garhwal,Tehri Garhwal,All other states,Uttaranchal,30.44285,78.56982,4378.1,4378.1,district area (km2) used as a rural-population proxy
+Uttaranchal|Udham_Singh_Nagar,Udham Singh Nagar,All other states,Uttaranchal,29.04298,79.49917,2856.1,2856.1,district area (km2) used as a rural-population proxy
+Uttaranchal|Uttarkashi,Uttarkashi,All other states,Uttaranchal,30.9782,78.58919,8024.8,8024.8,district area (km2) used as a rural-population proxy
+West_Bengal|Bankura,Bankura,West Bengal,West Bengal,23.13821,87.12997,6957.1,6957.1,district area (km2) used as a rural-population proxy
+West_Bengal|Barddhaman,Barddhaman,West Bengal,West Bengal,23.42533,87.76325,7033.4,7033.4,district area (km2) used as a rural-population proxy
+West_Bengal|Birbhum,Birbhum,West Bengal,West Bengal,23.95173,87.66159,4550.1,4550.1,district area (km2) used as a rural-population proxy
+West_Bengal|Dakshin_Dinajpur,Dakshin Dinajpur,West Bengal,West Bengal,25.36157,88.59255,2086.3,2086.3,district area (km2) used as a rural-population proxy
+West_Bengal|Darjiling,Darjiling,West Bengal,West Bengal,26.91426,88.39221,3139.1,3139.1,district area (km2) used as a rural-population proxy
+West_Bengal|East_Midnapore,East Midnapore,West Bengal,West Bengal,22.02738,87.77025,3977.9,3977.9,district area (km2) used as a rural-population proxy
+West_Bengal|Haora,Haora,West Bengal,West Bengal,22.52372,88.06459,1438.9,1438.9,district area (km2) used as a rural-population proxy
+West_Bengal|Hugli,Hugli,West Bengal,West Bengal,22.88157,88.07588,3148.8,3148.8,district area (km2) used as a rural-population proxy
+West_Bengal|Jalpaiguri,Jalpaiguri,West Bengal,West Bengal,26.66263,89.0807,6181.4,6181.4,district area (km2) used as a rural-population proxy
+West_Bengal|Kochbihar,Kochbihar,West Bengal,West Bengal,26.2923,89.34953,3326.2,3326.2,district area (km2) used as a rural-population proxy
+West_Bengal|Kolkata,Kolkata,West Bengal,West Bengal,22.55173,88.35234,91.5,91.5,district area (km2) used as a rural-population proxy
+West_Bengal|Maldah,Maldah,West Bengal,West Bengal,25.1357,88.08771,3607.0,3607.0,district area (km2) used as a rural-population proxy
+West_Bengal|Murshidabad,Murshidabad,West Bengal,West Bengal,24.16145,88.22707,5376.5,5376.5,district area (km2) used as a rural-population proxy
+West_Bengal|Nadia,Nadia,West Bengal,West Bengal,23.47629,88.51647,3899.8,3899.8,district area (km2) used as a rural-population proxy
+West_Bengal|North_24_Parganas,North 24 Parganas,West Bengal,West Bengal,22.79143,88.69737,5790.8,5790.8,district area (km2) used as a rural-population proxy
+West_Bengal|Puruliya,Puruliya,West Bengal,West Bengal,23.27499,86.41265,6249.7,6249.7,district area (km2) used as a rural-population proxy
+West_Bengal|South_24_Parganas,South 24 Parganas,West Bengal,West Bengal,22.22535,88.41941,5517.7,5517.7,district area (km2) used as a rural-population proxy
+West_Bengal|Uttar_Dinajpur,Uttar Dinajpur,West Bengal,West Bengal,25.87442,88.15696,3355.8,3355.8,district area (km2) used as a rural-population proxy
+West_Bengal|West_Midnapore,West Midnapore,West Bengal,West Bengal,22.41042,87.26241,9391.2,9391.2,district area (km2) used as a rural-population proxy

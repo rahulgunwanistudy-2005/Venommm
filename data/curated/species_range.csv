@@ -1,0 +1,5 @@
+species,states,basis,source,note
+Naja sagittifera,Andaman and Nicobar,published_range_description,10.3389/fphar.2021.768210,"Endemic to the Andaman and Nicobar Islands. Only 5 georeferenced GBIF records, below the 25-record threshold, so the range is taken from the published description rather than from occurrences."
+Bungarus sindanus,Rajasthan;Gujarat;Punjab;Haryana,published_range_description,10.1371/journal.pntd.0007899,"Sind krait of north-western India and Pakistan. 17 georeferenced GBIF records, below threshold; range taken from the sampling description and published distribution."
+Bungarus fasciatus,West Bengal;Odisha;Bihar;Jharkhand;Assam;Arunachal Pradesh;Northeastern states;Andhra Pradesh,published_range_description,10.1371/journal.pntd.0007899,"Banded krait of eastern and north-eastern India. GBIF records are adequate but sparse in the north-east; the published range is used to avoid under-calling presence there."
+Naja kaouthia,West Bengal;Assam;Arunachal Pradesh;Odisha;Bihar;Northeastern states,published_range_description,10.1371/journal.pntd.0007899,"Monocled cobra of eastern and north-eastern India."

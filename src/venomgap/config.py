@@ -34,6 +34,7 @@ HOLDOUT_CSV: Final[Path] = CURATED_DIR / "holdout_targets.csv"
 BURDEN_CSV: Final[Path] = CURATED_DIR / "state_snakebite_mortality.csv"
 DISTRICTS_CSV: Final[Path] = CURATED_DIR / "districts.csv"
 BITE_SHARE_CSV: Final[Path] = CURATED_DIR / "bite_attribution.csv"
+RANGE_SPECIES_CSV_FALLBACK: Final[Path] = CURATED_DIR / "species_range.csv"
 
 FITTED_PARAMS_JSON: Final[Path] = DERIVED_DIR / "fitted_parameters.json"
 SEQUENCE_CACHE: Final[Path] = RAW_DIR / "uniprot"
@@ -44,6 +45,19 @@ OCCURRENCE_CACHE: Final[Path] = RAW_DIR / "gbif"
 OFFLINE: Final[bool] = os.environ.get("VENOMGAP_OFFLINE", "0") == "1"
 
 RANDOM_SEED: Final[int] = 20260929
+
+# The four studies underlying the pre-registered holdout findings R1-R4. Their *compositions* are
+# legitimate model inputs -- the model cannot predict anything about a population without knowing
+# what its venom contains -- but none of their antivenom, immunorecognition or neutralisation
+# results may enter a parameter fit. `model/calibrate.py` raises on any calibration row citing one.
+HOLDOUT_STUDY_DOIS: Final[frozenset[str]] = frozenset(
+    {
+        "10.3390/toxins18010054",          # R1: E. c. sochureki, north-west India
+        "10.3389/fphar.2021.768210",       # R2: Naja sagittifera, Andaman and Nicobar
+        "10.1371/journal.pntd.0007899",    # R3: beyond the big four, North Indian B. caeruleus
+        "10.1371/journal.pntd.0009659",    # R4: pathology-specific experimental antivenoms
+    }
+)
 
 # --------------------------------------------------------------------------------------
 # Toxin family vocabulary
@@ -203,10 +217,17 @@ KAPPA_FITTED_FAMILIES: Final[tuple[str, ...]] = (
     "KSPI",
 )
 
-# L2 penalty pulling fitted log-multipliers back toward the prior. With a calibration set of a few
-# dozen family-level observations this is what keeps the fit identifiable.
-KAPPA_L2_PENALTY: Final[float] = 2.0
-THETA_L2_PENALTY: Final[float] = 4.0
+# L2 penalties pulling the fitted values back toward their a priori settings.
+#
+# kappa_scale is a nuisance scale: it absorbs the venom-specific antibody fraction of Indian
+# polyvalent antivenom, which is genuinely unknown per batch and commonly reported at only 10-20%
+# of total protein. Pinning it near 1 would be pinning it to a number nobody has measured, so its
+# prior is deliberately weak.
+KAPPA_L2_PENALTY: Final[float] = 0.05
+
+# theta_f is a physical recognition threshold with a real prior (conformational epitopes lose
+# recognition below roughly 60-70% identity), so its prior is kept firm.
+THETA_L2_PENALTY: Final[float] = 1.0
 
 # --------------------------------------------------------------------------------------
 # theta_f — sequence-identity recognition floor. Initialised a priori, fitted on calibration.
@@ -218,6 +239,13 @@ THETA_PRIOR: Final[float] = 0.65
 THETA_BOUNDS: Final[tuple[float, float]] = (0.40, 0.85)
 KAPPA_SCALE_BOUNDS: Final[tuple[float, float]] = (0.05, 20.0)
 KAPPA_LOG_MULT_BOUNDS: Final[tuple[float, float]] = (-1.5, 1.5)
+
+# A fitted theta_f whose perturbation by +/- this much changes the calibration objective by less
+# than THETA_IDENTIFIABILITY_TOL is reported as *not identified* by the available data, and keeps
+# its a priori value. Saying so is the point: an unidentified parameter that silently sits at its
+# prior looks exactly like a tuned one unless the report distinguishes them.
+THETA_PROBE_DELTA: Final[float] = 0.05
+THETA_IDENTIFIABILITY_TOL: Final[float] = 1e-6
 
 # --------------------------------------------------------------------------------------
 # B and D — antibody budget and delivered venom dose. FIXED, swept in sensitivity.
@@ -243,10 +271,19 @@ D_SWEEP_MG: Final[tuple[float, ...]] = (10.0, 20.0, 40.0, 60.0, 100.0)
 # --------------------------------------------------------------------------------------
 # Spatial model
 # --------------------------------------------------------------------------------------
-# Candidate kernel length scales in km for the leave-one-population-out CV grid.
+# Candidate kernel length scales in km for the leave-one-population-out CV grid. The grid runs well
+# past India's ~3000 km north-south extent deliberately: if the CV optimum sat at the top of a
+# short grid it would be an artefact of the grid, and the only way to tell a real plateau from a
+# truncation is to look beyond it.
 ELL_GRID_KM: Final[tuple[float, ...]] = (
-    50.0, 75.0, 100.0, 150.0, 200.0, 250.0, 300.0, 400.0, 500.0, 650.0, 800.0, 1000.0, 1400.0,
+    50.0, 75.0, 100.0, 150.0, 200.0, 300.0, 400.0, 500.0, 650.0, 800.0, 1000.0,
+    1200.0, 1600.0, 2000.0, 3000.0, 5000.0, 10000.0,
 )
+
+# A length scale whose CV error is within this relative tolerance of the minimum is inside the
+# plateau. Reporting the plateau alongside the minimiser is the honest way to present a
+# flat-bottomed CV curve, and it is what stops a shallow minimum being quoted as a precise number.
+ELL_PLATEAU_TOLERANCE: Final[float] = 0.01
 
 # A district whose nearest same-species sampled population is further than this is reported as
 # `unknown`, not as covered. Expressed as a multiple of the fitted length scale so that it
