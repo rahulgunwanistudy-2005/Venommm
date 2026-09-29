@@ -474,11 +474,34 @@ def figure_08_ablation() -> list[Path]:
     fig, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(9.8, 4.2))
 
     names = [c["criterion_id"] for c in criteria]
-    passed = [c["passed"] for c in criteria]
-    model_pass = [1 if p else 0 for p in passed]
-    # The cosine baseline cannot address R1-R3 rank criteria any better than chance, and R4c is
-    # precisely the criterion it fails; shown as the ablation contrast.
-    baseline_pass = [0] * len(names)
+    model_pass = [1 if c["passed"] else 0 for c in criteria]
+
+    # The baseline's outcome on each rank criterion is *computed* from its own deficit ranking,
+    # not assumed. Asserting that an ablation fails everything without evaluating it would be
+    # exactly the kind of unearned claim this project is trying to avoid.
+    cosine = sens["cosine_deficits"]
+    ranked = sorted(cosine, key=lambda k: -cosine[k])
+    total = len(ranked)
+
+    def quantile(pop_id: str) -> float | None:
+        if pop_id not in cosine:
+            return None
+        return (ranked.index(pop_id) + 1) / total
+
+    r1_targets = [p for p in cosine if p.startswith("Echis_carinatus_sochureki__")]
+    r1_hits = sum(1 for p in r1_targets if (q := quantile(p)) is not None and q <= 0.10)
+    r2_q = quantile("Naja_sagittifera__Andaman")
+    r3_q = quantile("Bungarus_caeruleus__Punjab")
+    baseline_outcome = {
+        "R1a": r1_hits > len(r1_targets) / 2 if r1_targets else False,
+        "R2a": r2_q is not None and r2_q <= 0.10,
+        "R3a": r3_q is not None and r3_q <= 1.0 / 3.0,
+        # R4c is the criterion about the baseline itself: it passes when the baseline *cannot*
+        # reproduce the turnover, so by construction the baseline never satisfies R4a or R4b.
+        "R4a": False,
+        "R4b": False,
+    }
+    baseline_pass = [1 if baseline_outcome.get(n, False) else 0 for n in names]
     positions = np.arange(len(names))
     width = 0.38
     ax_a.bar(positions - width / 2, model_pass, width, color=C1, label="stoichiometric model")
@@ -489,9 +512,16 @@ def figure_08_ablation() -> list[Path]:
     ax_a.set_yticklabels(["fail", "pass"])
     ax_a.set_ylabel("pre-registered criterion outcome")
     ax_a.set_title(
-        f"Pre-registered criteria: {retro['targets_passed']}/{retro['targets_total']} targets"
+        f"Pre-registered criteria: {retro['targets_passed']}/{retro['targets_total']} targets\n"
+        "baseline outcomes computed from its own ranking, not assumed"
     )
     ax_a.legend(fontsize=8)
+    ax_a.text(
+        0.5, -0.22,
+        "R1b, R2b and R3b have no baseline analogue: the cosine metric has no per-family\n"
+        "neutralised fraction and no immunogen budget to substitute within.",
+        transform=ax_a.transAxes, fontsize=7, color=INK_MUTED, ha="center", va="top",
+    )
 
     shared = sorted(sens["model_deficits"], key=lambda k: -sens["model_deficits"][k])
     model = [sens["model_deficits"][k] for k in shared]
