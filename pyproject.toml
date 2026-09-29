@@ -58,8 +58,15 @@ disallow_untyped_defs = true
 plugins = ["pydantic.mypy"]
 
 [[tool.mypy.overrides]]
-module = ["scipy.*", "matplotlib.*", "Bio.*", "pandas.*"]
+module = ["scipy.*", "matplotlib.*", "Bio.*", "pandas.*", "uvicorn.*"]
 ignore_missing_imports = true
+
+# Biopython ships no py.typed marker, so every aligner call reads as untyped. The wrapper in
+# model/crossreact.py is itself fully annotated; this override stops the missing marker from
+# forcing `Any` through an otherwise strict module.
+[[tool.mypy.overrides]]
+module = ["venomgap.model.crossreact"]
+disallow_untyped_calls = false
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

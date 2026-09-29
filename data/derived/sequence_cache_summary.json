@@ -1,0 +1,118 @@
+{
+ "Bungarus caeruleus": {
+  "query": "organism_name:\"Bungarus caeruleus\"",
+  "sequences_kept": 7,
+  "broadened_query": true,
+  "unclassified_dropped": 0,
+  "families": {
+   "3FTx": 1,
+   "PLA2": 6
+  }
+ },
+ "Bungarus fasciatus": {
+  "query": "organism_name:\"Bungarus fasciatus\" AND keyword:KW-0800",
+  "sequences_kept": 24,
+  "broadened_query": false,
+  "unclassified_dropped": 1,
+  "families": {
+   "3FTx": 9,
+   "AChE": 1,
+   "KSPI": 3,
+   "LAAO": 1,
+   "PLA2": 9,
+   "SVMP": 1
+  }
+ },
+ "Bungarus sindanus": {
+  "query": "organism_name:\"Bungarus sindanus\"",
+  "sequences_kept": 0,
+  "broadened_query": true,
+  "unclassified_dropped": 0,
+  "families": {}
+ },
+ "Daboia russelii": {
+  "query": "organism_name:\"Daboia russelii\" AND keyword:KW-0800",
+  "sequences_kept": 66,
+  "broadened_query": false,
+  "unclassified_dropped": 23,
+  "families": {
+   "3FTx": 2,
+   "CRISP": 5,
+   "CTL": 11,
+   "DIS": 6,
+   "KSPI": 5,
+   "LAAO": 4,
+   "PLA2": 18,
+   "SVMP": 4,
+   "SVSP": 9,
+   "VEGF": 2
+  }
+ },
+ "Echis carinatus": {
+  "query": "organism_name:\"Echis carinatus\" AND keyword:KW-0800",
+  "sequences_kept": 47,
+  "broadened_query": false,
+  "unclassified_dropped": 98,
+  "families": {
+   "CTL": 16,
+   "DIS": 5,
+   "PLA2": 3,
+   "SVMP": 13,
+   "SVSP": 10
+  }
+ },
+ "Echis carinatus sochureki": {
+  "query": "organism_name:\"Echis carinatus sochureki\" AND keyword:KW-0800",
+  "sequences_kept": 15,
+  "broadened_query": false,
+  "unclassified_dropped": 36,
+  "families": {
+   "CTL": 6,
+   "DIS": 1,
+   "PLA2": 1,
+   "SVMP": 3,
+   "SVSP": 4
+  }
+ },
+ "Naja kaouthia": {
+  "query": "organism_name:\"Naja kaouthia\" AND keyword:KW-0800",
+  "sequences_kept": 30,
+  "broadened_query": false,
+  "unclassified_dropped": 2,
+  "families": {
+   "3FTx": 22,
+   "CRISP": 3,
+   "CVF": 1,
+   "LAAO": 1,
+   "PLA2": 1,
+   "SVMP": 2
+  }
+ },
+ "Naja naja": {
+  "query": "organism_name:\"Naja naja\" AND keyword:KW-0800",
+  "sequences_kept": 144,
+  "broadened_query": false,
+  "unclassified_dropped": 120,
+  "families": {
+   "3FTx": 49,
+   "CRISP": 8,
+   "KSPI": 5,
+   "LAAO": 8,
+   "NP": 8,
+   "PDE": 7,
+   "PLA2": 4,
+   "SVMP": 41,
+   "SVSP": 14
+  }
+ },
+ "Naja sagittifera": {
+  "query": "organism_name:\"Naja sagittifera\"",
+  "sequences_kept": 7,
+  "broadened_query": true,
+  "unclassified_dropped": 0,
+  "families": {
+   "3FTx": 1,
+   "PLA2": 6
+  }
+ }
+}

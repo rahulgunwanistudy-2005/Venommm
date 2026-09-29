@@ -31,6 +31,18 @@ REQUEST_TIMEOUT_S = 60
 MAX_RETRIES = 3
 RETRY_BACKOFF_S = 3.0
 PAGE_SIZE = 500
+MAX_PAGES = 12
+
+# UniProt keyword KW-0800 is "Toxin", the annotation the ToxProt programme applies to venom
+# components. Without it an organism query returns the whole proteome, and for a species with a
+# sequenced genome that is thousands of housekeeping proteins for a handful of toxins.
+TOXIN_KEYWORD = "KW-0800"
+
+# Under-sequenced species (Naja sagittifera, Bungarus caeruleus) have too few Toxin-keyword entries
+# to estimate identity from. For those the query is broadened to the whole organism and the family
+# classifier does the filtering instead. The broadening is recorded in the cache file so that it is
+# visible in SOURCES.md rather than being an invisible change of method.
+MIN_SEQUENCES_BEFORE_BROADENING = 8
 
 FIELDS = ("accession", "id", "protein_name", "protein_families", "organism_name", "organism_id",
           "length", "sequence", "reviewed", "keywordid")
@@ -110,30 +122,48 @@ def _cache_path(species: str, reviewed_only: bool) -> Path:
 
 
 def _request_tsv(query: str) -> list[dict[str, str]]:
-    """One paged UniProt TSV query, with retry on transient failure."""
+    """Every page of a UniProt TSV query, following the cursor in the Link header."""
     params = {
         "query": query,
         "format": "tsv",
         "fields": ",".join(FIELDS),
         "size": str(PAGE_SIZE),
     }
-    url = f"{UNIPROT_SEARCH}?{urlencode(params)}"
+    url: str | None = f"{UNIPROT_SEARCH}?{urlencode(params)}"
+    rows: list[dict[str, str]] = []
+    pages = 0
+    while url and pages < MAX_PAGES:
+        response = _get_with_retry(url)
+        lines = response.text.splitlines()
+        if lines:
+            header = lines[0].split("\t")
+            rows.extend(
+                dict(zip(header, line.split("\t"), strict=False)) for line in lines[1:]
+            )
+        url = response.links.get("next", {}).get("url")
+        pages += 1
+    if url:
+        logger.warning("stopped after %d pages for query %r; results may be truncated",
+                       MAX_PAGES, query)
+    return rows
+
+
+def _get_with_retry(url: str) -> requests.Response:
     last_error: Exception | None = None
     for attempt in range(MAX_RETRIES):
         try:
             response = requests.get(url, timeout=REQUEST_TIMEOUT_S)
             response.raise_for_status()
-            lines = response.text.splitlines()
-            if not lines:
-                return []
-            header = lines[0].split("\t")
-            return [dict(zip(header, line.split("\t"), strict=False)) for line in lines[1:]]
-        except (requests.RequestException, ValueError) as exc:
+        except requests.RequestException as exc:
             last_error = exc
-            logger.warning("UniProt query failed (attempt %d/%d): %s", attempt + 1, MAX_RETRIES, exc)
+            logger.warning(
+                "UniProt request failed (attempt %d/%d): %s", attempt + 1, MAX_RETRIES, exc
+            )
             if attempt < MAX_RETRIES - 1:
                 time.sleep(RETRY_BACKOFF_S * (attempt + 1))
-    raise VenomGapError(f"UniProt query failed after {MAX_RETRIES} attempts: {last_error}")
+        else:
+            return response
+    raise VenomGapError(f"UniProt request failed after {MAX_RETRIES} attempts: {last_error}")
 
 
 def fetch_species_sequences(
@@ -158,9 +188,18 @@ def fetch_species_sequences(
             f"run `python -m venomgap.cli fetch-sequences` with network access first"
         )
 
-    clause = f'organism_name:"{species}"'
+    clause = f'organism_name:"{species}" AND keyword:{TOXIN_KEYWORD}'
     query = f"{clause} AND reviewed:true" if reviewed_only else clause
     rows = _request_tsv(query)
+    broadened = False
+    if _count_classifiable(rows) < MIN_SEQUENCES_BEFORE_BROADENING:
+        broad_clause = f'organism_name:"{species}"'
+        query = f"{broad_clause} AND reviewed:true" if reviewed_only else broad_clause
+        logger.info(
+            "%s has too few Toxin-keyword entries; broadening to the whole organism query", species
+        )
+        rows = _request_tsv(query)
+        broadened = True
 
     sequences: list[ToxinSequence] = []
     unclassified = 0
@@ -197,6 +236,7 @@ def fetch_species_sequences(
             {
                 "species": species,
                 "query": query,
+                "broadened_query": broadened,
                 "rows_returned": len(rows),
                 "sequences_kept": len(sequences),
                 "unclassified_dropped": unclassified,
@@ -214,6 +254,15 @@ def fetch_species_sequences(
         unclassified,
     )
     return sequences
+
+
+def _count_classifiable(rows: list[dict[str, str]]) -> int:
+    return sum(
+        1
+        for row in rows
+        if (row.get("Sequence") or "").strip()
+        and classify_family(row.get("Protein families", ""), row.get("Protein names", ""))
+    )
 
 
 def group_by_family(sequences: list[ToxinSequence]) -> dict[str, list[ToxinSequence]]:
@@ -236,6 +285,7 @@ def cache_summary() -> dict[str, dict[str, Any]]:
         summary[payload["species"]] = {
             "query": payload["query"],
             "sequences_kept": payload["sequences_kept"],
+            "broadened_query": payload.get("broadened_query", False),
             "unclassified_dropped": payload.get("unclassified_dropped", 0),
             "families": dict(sorted(families.items())),
         }

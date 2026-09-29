@@ -6,9 +6,9 @@ as the paper printed them. This module does three things and states each in the 
 1. **Maps source family labels onto the VenomGap vocabulary.** Papers split three-finger toxins into
    neurotoxic and cytotoxic, report snaclecs separately from C-type lectins, and name minor families
    (vespryn, cystatin, NGF, hyaluronidase) that have no vocabulary slot and fold into `other`.
-2. **Accounts for the unreported residual.** Where the listed families sum to less than 100% of whole
-   venom, the shortfall goes to `other` rather than being redistributed. Redistributing it would
-   invent abundance for families the study did not see.
+2. **Accounts for the unreported residual.** Where the listed families sum to less than 100% of
+   whole venom the shortfall goes to `other`, not redistributed. Redistributing it would invent
+   abundance for families the study did not see.
 3. **Normalises to the simplex** and flags the row when the correction was material.
 
 Rows in, rows out, and every exclusion are counted. A study is never silently dropped.
@@ -19,12 +19,13 @@ from __future__ import annotations
 import logging
 from datetime import date
 from pathlib import Path
+from typing import TypedDict, cast
 
 import pandas as pd
 
-from venomgap.config import COMPOSITIONS_CSV, FAMILIES
+from venomgap.config import COMPOSITIONS_CSV
 from venomgap.errors import DataValidationError, ProvenanceError
-from venomgap.types import Provenance, ResultFlag, VenomPopulation
+from venomgap.types import Provenance, ProteomicMethod, ResultFlag, VenomPopulation
 
 logger = logging.getLogger(__name__)
 
@@ -64,6 +65,17 @@ SOURCE_FAMILY_MAP: dict[str, str] = {
     "other": "other",
 }
 
+VALID_FLAGS: frozenset[str] = frozenset(
+    (
+        "sequence_imputed",
+        "composition_imputed",
+        "no_nearby_proteome",
+        "single_study_basis",
+        "partial_table_renormalised",
+        "genus_consensus_sequences",
+    )
+)
+
 REQUIRED_COLUMNS: tuple[str, ...] = (
     "pop_id",
     "species",
@@ -71,6 +83,7 @@ REQUIRED_COLUMNS: tuple[str, ...] = (
     "locality",
     "state",
     "region",
+    "country",
     "lat",
     "lon",
     "doi",
@@ -134,7 +147,7 @@ def load_compositions(path: Path = COMPOSITIONS_CSV) -> list[VenomPopulation]:
 
 
 def _row_to_population(
-    row: "pd.Series[object]", family_columns: list[str], row_number: int
+    row: pd.Series[object], family_columns: list[str], row_number: int
 ) -> VenomPopulation:
     """One CSV row -> one validated VenomPopulation, with the residual accounted for."""
     pop_id = str(row["pop_id"]).strip()
@@ -185,19 +198,19 @@ def _row_to_population(
 
     if str(row["method"]).strip() == "other":
         flags.append("composition_imputed")
-    extra_flags = str(row.get("flags", "") or "").strip()
+    extra_flags = _optional_text(row.get("flags"))
     for flag in (f.strip() for f in extra_flags.split(";") if f.strip()):
-        if flag not in ResultFlag.__args__:  # type: ignore[attr-defined]
+        if flag not in VALID_FLAGS:
             raise DataValidationError(f"row {row_number} ({pop_id}) has unknown flag {flag!r}")
-        flags.append(flag)  # type: ignore[arg-type]
+        flags.append(cast("ResultFlag", flag))
 
     provenance = Provenance(
         doi=str(row["doi"]).strip(),
         table=str(row["table"]).strip(),
         accessed=date.fromisoformat(str(row["accessed"]).strip()),
-        method=str(row["method"]).strip(),  # type: ignore[arg-type]
+        method=_validated_method(row["method"], pop_id),
         imputed=bool(flags and "composition_imputed" in flags),
-        note=str(row.get("note", "") or "").strip(),
+        note=_optional_text(row.get("note")),
     )
 
     return VenomPopulation(
@@ -207,6 +220,7 @@ def _row_to_population(
         locality=str(row["locality"]).strip(),
         state=str(row["state"]).strip(),
         region=str(row["region"]).strip(),
+        country=str(row["country"]).strip(),
         lat=float(row["lat"]),
         lon=float(row["lon"]),
         composition=composition,
@@ -223,6 +237,26 @@ def _snap_to_simplex(composition: dict[str, float]) -> dict[str, float]:
     out = {k: v / total for k, v in composition.items()}
     out[largest] += 1.0 - sum(out.values())
     return out
+
+
+VALID_METHODS: frozenset[str] = frozenset(
+    ("LC-MS/MS", "RP-HPLC+MS", "transcriptome-informed", "other")
+)
+
+
+def _validated_method(value: object, pop_id: str) -> ProteomicMethod:
+    text = str(value).strip()
+    if text not in VALID_METHODS:
+        raise DataValidationError(f"row {pop_id} has unknown proteomic method {text!r}")
+    return cast("ProteomicMethod", text)
+
+
+def _optional_text(value: object) -> str:
+    """Empty CSV cells arrive as NaN, which str() would turn into the literal "nan"."""
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return ""
+    text = str(value).strip()
+    return "" if text.lower() == "nan" else text
 
 
 def _as_bool(value: object) -> bool:
@@ -246,7 +280,22 @@ def _duplicates(values: list[str]) -> list[str]:
     return out
 
 
-def corpus_summary(populations: list[VenomPopulation]) -> dict[str, object]:
+class CorpusSummary(TypedDict):
+    """Counts reported by the M2 gate. Every field is computed, never asserted."""
+
+    populations: int
+    species: int
+    states: int
+    studies: int
+    holdout_populations: list[str]
+    immunogen_sources: list[str]
+    by_species: dict[str, int]
+    by_state: dict[str, int]
+    flagged_populations: list[str]
+    dominant_family: dict[str, str]
+
+
+def corpus_summary(populations: list[VenomPopulation]) -> CorpusSummary:
     """Counts used by the M2 gate, the README and SOURCES.md. Every number here is computed."""
     by_species: dict[str, int] = {}
     by_state: dict[str, int] = {}
@@ -254,17 +303,17 @@ def corpus_summary(populations: list[VenomPopulation]) -> dict[str, object]:
         by_species[p.species] = by_species.get(p.species, 0) + 1
         by_state[p.state] = by_state.get(p.state, 0) + 1
     flagged = [p.pop_id for p in populations if p.flags]
-    return {
-        "populations": len(populations),
-        "species": len(by_species),
-        "states": len(by_state),
-        "studies": len({p.provenance.doi for p in populations}),
-        "holdout_populations": sorted(p.pop_id for p in populations if p.holdout),
-        "immunogen_sources": sorted(p.pop_id for p in populations if p.is_immunogen_source),
-        "by_species": dict(sorted(by_species.items())),
-        "by_state": dict(sorted(by_state.items())),
-        "flagged_populations": sorted(flagged),
-        "dominant_family": {
+    return CorpusSummary(
+        populations=len(populations),
+        species=len(by_species),
+        states=len(by_state),
+        studies=len({p.provenance.doi for p in populations}),
+        holdout_populations=sorted(p.pop_id for p in populations if p.holdout),
+        immunogen_sources=sorted(p.pop_id for p in populations if p.is_immunogen_source),
+        by_species=dict(sorted(by_species.items())),
+        by_state=dict(sorted(by_state.items())),
+        flagged_populations=sorted(flagged),
+        dominant_family={
             p.pop_id: max(p.composition, key=lambda k: p.composition[k]) for p in populations
         },
-    }
+    )

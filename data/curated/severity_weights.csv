@@ -1,0 +1,17 @@
+family,long_name,sigma,mass_kda,kappa_prior,status,rationale
+3FTx,Three-finger toxin,1.00,7.0,14.2857,"fixed a priori, never fitted","Post-synaptic alpha-neurotoxins produce flaccid paralysis and respiratory arrest, the proximate cause of death in elapid envenoming. Anchor of the scale at 1.00."
+PLA2,Phospholipase A2,0.95,14.0,7.1429,"fixed a priori, never fitted","Pre-synaptic beta-neurotoxicity (krait), systemic myotoxicity and anticoagulant action. Irreversible pre-synaptic damage is not reversed by later antivenom, so near-anchor."
+SVMP,Snake venom metalloproteinase,0.90,47.0,2.1277,"fixed a priori, never fitted","Principal driver of viper pathology: systemic haemorrhage, venom-induced consumption coagulopathy, local necrosis and tissue loss. Leading cause of amputation and of haemorrhagic death."
+SVSP,Snake venom serine proteinase,0.75,28.0,3.5714,"fixed a priori, never fitted",Thrombin-like and factor-activating enzymes causing defibrinogenation and incoagulable blood. Serious but more often correctable than SVMP-driven vessel-wall damage.
+LAAO,L-amino acid oxidase,0.25,55.0,1.8182,"fixed a priori, never fitted","Local oedema, apoptosis and oxidative tissue injury; limited systemic consequence."
+CRISP,Cysteine-rich secretory protein,0.20,25.0,4.0000,"fixed a priori, never fitted",Smooth-muscle and ion-channel effects; minor recorded clinical contribution.
+CTL,C-type lectin / snaclec,0.55,28.0,3.5714,"fixed a priori, never fitted","Snaclecs cause thrombocytopenia and platelet dysfunction, aggravating bleeding without being its primary cause."
+KSPI,Kunitz-type serine proteinase inhibitor,0.15,7.0,14.2857,"fixed a priori, never fitted",Mostly protease inhibitors; potentiating roles reported but little independent pathology in the Indian species of interest.
+DIS,Disintegrin,0.30,7.5,13.3333,"fixed a priori, never fitted","Disintegrins block platelet aggregation via integrins, contributing to bleeding."
+NP,Natriuretic peptide,0.35,3.0,33.3333,"fixed a priori, never fitted",Natriuretic and bradykinin-potentiating peptides contributing to early hypotension.
+VEGF,Snake venom VEGF,0.20,27.0,3.7037,"fixed a priori, never fitted","Increases vascular permeability, contributing to oedema and hypotension."
+NUC,5'-nucleotidase / nucleotidase,0.10,60.0,1.6667,"fixed a priori, never fitted",Nucleotidases act as adjuvants to other toxins rather than causing primary pathology.
+PDE,Phosphodiesterase,0.10,100.0,1.0000,"fixed a priori, never fitted",Purine-liberating enzyme; adjuvant role only.
+AChE,Acetylcholinesterase,0.10,60.0,1.6667,"fixed a priori, never fitted",Abundant in some elapids with no established independent clinical syndrome.
+CVF,Cobra venom factor (complement C3 homologue),0.15,150.0,0.6667,"fixed a priori, never fitted",Complement depletion; immunologically striking but of limited acute clinical weight.
+other,Other / unassigned,0.10,30.0,3.3333,"fixed a priori, never fitted",Unassigned or minor components; conservative low weight.

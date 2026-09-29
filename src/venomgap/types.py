@@ -83,6 +83,7 @@ class VenomPopulation(BaseModel):
     locality: str = Field(min_length=2)
     state: str = Field(min_length=2)
     region: str = Field(min_length=2)
+    country: str = Field(min_length=2)
     lat: float = Field(ge=-90.0, le=90.0)
     lon: float = Field(ge=-180.0, le=180.0)
     composition: dict[str, float]

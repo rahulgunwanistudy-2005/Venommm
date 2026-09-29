@@ -42,8 +42,18 @@ IDENTITY_CACHE_JSON: Path = DERIVED_DIR / "family_identity.json"
 # identity converges quickly and the alignment count grows quadratically.
 MAX_SEQUENCES_PER_FAMILY = 12
 
-# A family with fewer than this many sequences on one side is not a usable identity estimate.
-MIN_SEQUENCES_FOR_IDENTITY = 2
+# A *between*-species mean needs only one sequence per side: one sequence each gives one genuine
+# pairwise identity. Discarding it would throw away the only measurement available for
+# under-sequenced species such as Naja sagittifera, whose 3FTx -- 70% of its venom -- is
+# represented by a single UniProt entry. Thin estimates are kept and flagged, not dropped.
+MIN_SEQUENCES_BETWEEN = 1
+
+# A *within*-species mean needs two, because with one sequence there is no pair to align.
+MIN_SEQUENCES_WITHIN = 2
+
+# At or below this support (the smaller of the two group sizes) an estimate is reported as thin,
+# which raises `sequence_imputed` on every result that depends on it.
+THIN_SUPPORT = 2
 
 
 @lru_cache(maxsize=1)
@@ -89,20 +99,26 @@ def _subsample(sequences: list[ToxinSequence]) -> list[ToxinSequence]:
 
 def mean_between_group_identity(
     group_a: list[ToxinSequence], group_b: list[ToxinSequence]
-) -> float | None:
-    """Mean identity over all cross pairs, or None if either side is too thin to estimate."""
+) -> tuple[float, int] | None:
+    """Mean identity over all cross pairs, with the supporting group size.
+
+    Returns (mean_identity, support) where support is the smaller of the two group sizes, or None
+    when either side has no sequences at all.
+    """
     a = _subsample(group_a)
     b = _subsample(group_b)
-    if len(a) < MIN_SEQUENCES_FOR_IDENTITY or len(b) < MIN_SEQUENCES_FOR_IDENTITY:
+    if len(a) < MIN_SEQUENCES_BETWEEN or len(b) < MIN_SEQUENCES_BETWEEN:
         return None
     values = [pairwise_identity(x.sequence, y.sequence) for x in a for y in b]
-    return float(np.mean(values)) if values else None
+    if not values:
+        return None
+    return float(np.mean(values)), min(len(a), len(b))
 
 
 def mean_within_group_identity(group: list[ToxinSequence]) -> float | None:
     """Mean identity among a single group's own sequences: the within-species reference level."""
     members = _subsample(group)
-    if len(members) < MIN_SEQUENCES_FOR_IDENTITY:
+    if len(members) < MIN_SEQUENCES_WITHIN:
         return None
     values = [pairwise_identity(x.sequence, y.sequence) for x, y in combinations(members, 2)]
     return float(np.mean(values)) if values else None
@@ -120,6 +136,7 @@ class IdentityTable:
     values: dict[tuple[str, str, str], float]
     species: tuple[str, ...]
     within_species: dict[tuple[str, str], float]
+    support: dict[tuple[str, str, str], int]
 
     def get(self, species_a: str, species_b: str, family: str) -> float | None:
         if species_a == species_b:
@@ -128,6 +145,18 @@ class IdentityTable:
             species_b, species_a, family
         )
         return self.values.get(key)
+
+    def support_for(self, species_a: str, species_b: str, family: str) -> int:
+        """How many sequences back the estimate. 0 means there is none."""
+        if species_a == species_b:
+            return THIN_SUPPORT + 1
+        key = (species_a, species_b, family) if species_a <= species_b else (
+            species_b, species_a, family
+        )
+        return self.support.get(key, 0)
+
+    def is_thin(self, species_a: str, species_b: str, family: str) -> bool:
+        return 0 < self.support_for(species_a, species_b, family) <= THIN_SUPPORT
 
     def to_json(self, path: Path = IDENTITY_CACHE_JSON) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -138,6 +167,9 @@ class IdentityTable:
                     "within_species": {f"{k[0]}|{k[1]}": v for k, v in self.within_species.items()},
                     "between_species": {
                         f"{k[0]}|{k[1]}|{k[2]}": v for k, v in sorted(self.values.items())
+                    },
+                    "support": {
+                        f"{k[0]}|{k[1]}|{k[2]}": v for k, v in sorted(self.support.items())
                     },
                 },
                 indent=1,
@@ -159,13 +191,20 @@ class IdentityTable:
         for key, value in payload["within_species"].items():
             species, family = key.split("|")
             within[(species, family)] = float(value)
+        support: dict[tuple[str, str, str], int] = {}
+        for key, value in payload.get("support", {}).items():
+            a, b, family = key.split("|")
+            support[(a, b, family)] = int(value)
         return cls(
-            values=values, species=tuple(payload["species"]), within_species=within
+            values=values,
+            species=tuple(payload["species"]),
+            within_species=within,
+            support=support,
         )
 
 
 def build_identity_table(sequences_by_species: dict[str, list[ToxinSequence]]) -> IdentityTable:
-    """Compute mean family identity for every species pair. This is the expensive step; it caches."""
+    """Mean family identity for every species pair. The expensive step; it caches to disk."""
     grouped = {
         species: group_by_family(seqs) for species, seqs in sequences_by_species.items()
     }
@@ -179,21 +218,30 @@ def build_identity_table(sequences_by_species: dict[str, list[ToxinSequence]]) -
                 within[(species, family)] = value
 
     values: dict[tuple[str, str, str], float] = {}
+    support: dict[tuple[str, str, str], int] = {}
     for species_a, species_b in combinations(species_list, 2):
         shared = set(grouped[species_a]) & set(grouped[species_b])
         for family in shared:
-            value = mean_between_group_identity(
+            estimate = mean_between_group_identity(
                 grouped[species_a][family], grouped[species_b][family]
             )
-            if value is not None:
-                values[(species_a, species_b, family)] = value
+            if estimate is not None:
+                identity, n = estimate
+                values[(species_a, species_b, family)] = identity
+                support[(species_a, species_b, family)] = n
+    thin = sum(1 for n in support.values() if n <= THIN_SUPPORT)
     logger.info(
-        "identity table: %d species, %d within-species values, %d between-species values",
+        "identity table: %d species, %d within-species values, %d between-species values "
+        "(%d thin, supported by <= %d sequences)",
         len(species_list),
         len(within),
         len(values),
+        thin,
+        THIN_SUPPORT,
     )
-    return IdentityTable(values=values, species=species_list, within_species=within)
+    return IdentityTable(
+        values=values, species=species_list, within_species=within, support=support
+    )
 
 
 def crossreactivity(identity: float, theta: float) -> float:
@@ -241,8 +289,16 @@ def crossreact_matrix(
             if identity is None:
                 imputed = True
                 identity = _fallback_identity(
-                    species, target_species, family, table, global_by_family, global_mean, same_genus
+                    species,
+                    target_species,
+                    family,
+                    table,
+                    global_by_family,
+                    global_mean,
+                    same_genus,
                 )
+            elif table.is_thin(species, target_species, family):
+                imputed = True
             out[q_index, f_index] = crossreactivity(identity, float(theta[f_index]))
     return out, imputed
 

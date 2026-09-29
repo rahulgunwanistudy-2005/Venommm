@@ -222,12 +222,13 @@ KAPPA_LOG_MULT_BOUNDS: Final[tuple[float, float]] = (-1.5, 1.5)
 # --------------------------------------------------------------------------------------
 # B and D — antibody budget and delivered venom dose. FIXED, swept in sensitivity.
 # --------------------------------------------------------------------------------------
-# Indian polyvalent antivenom is supplied as a lyophilised F(ab')2 preparation reconstituted to
-# 10 mL per vial. Protein content per vial is taken at 100 mg, within the range reported for
-# Indian products. The standard Indian national protocol initial dose is 10 vials, so a treatment
-# course carries of order 1000 mg of total protein. Only part of that is venom-specific; the
-# specific fraction is absorbed into the fitted kappa_scale rather than guessed here.
-VIAL_PROTEIN_MG: Final[float] = 100.0
+# Indian polyvalent antivenom is a lyophilised equine F(ab')2 preparation. A Bharat Serums vial
+# contains 390 mg of lyophilised powder (95% CI 155-510 mg) of which 25.2% is protein, i.e. 98 mg
+# per vial (95% CI 39-125 mg) -- doi:10.3390/toxins18010054, Discussion, citing its reference 29.
+# The standard Indian national protocol initial dose is 10 vials. Only part of that protein is
+# venom-specific; the specific fraction is absorbed into the fitted kappa_scale rather than
+# guessed here, which is why B is a scale and not a claim about absolute potency.
+VIAL_PROTEIN_MG: Final[float] = 98.0
 DEFAULT_VIALS: Final[int] = 10
 DEFAULT_B_MG: Final[float] = VIAL_PROTEIN_MG * DEFAULT_VIALS
 
@@ -266,11 +267,21 @@ EARTH_RADIUS_KM: Final[float] = 6371.0088
 IRULA_LAT: Final[float] = 12.6819
 IRULA_LON: Final[float] = 80.0000
 
-BIG_FOUR_POP_IDS: Final[tuple[str, str, str, str]] = (
-    "Naja_naja__TamilNadu",
-    "Bungarus_caeruleus__TamilNadu",
-    "Daboia_russelii__TamilNadu",
-    "Echis_carinatus__TamilNadu",
+# No complete family-level proteome is published for any of these species AT the locality the
+# immunogen venom is collected from (preregistration amendment A1.3). The immunogen composition is
+# therefore interpolated at the Irula coordinates by the same spatial model used for districts, so
+# it carries the same fitted length scale, the same uncertainty and the same imputation flags.
+# These are the four species whose venom is pooled, not four curated population rows.
+BIG_FOUR_SPECIES: Final[tuple[str, str, str, str]] = (
+    "Naja naja",
+    "Bungarus caeruleus",
+    "Daboia russelii",
+    "Echis carinatus",
+)
+
+# Synthetic population ids for the interpolated immunogen, one per Big Four species.
+BIG_FOUR_POP_IDS: Final[tuple[str, ...]] = tuple(
+    f"{name.replace(' ', '_')}__IrulaTamilNadu" for name in BIG_FOUR_SPECIES
 )
 
 # Equal mixture weights, matching the standard description of the Indian polyvalent immunisation
