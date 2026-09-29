@@ -1,0 +1,338 @@
+{
+ "baseline_national_coverage": 0.6615434957839591,
+ "baseline_national_deficit": 0.3384565042160409,
+ "coverage_vs_k": [
+  {
+   "k": 1,
+   "greedy": 0.2174510000077591,
+   "greedy_local": 0.2174510000077591,
+   "weight_optimised": 0.2174510000077591,
+   "uniform_weights": 0.2174510000077591,
+   "weights_improved": false,
+   "sites": [
+    "Naja_naja__Maharashtra"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__Maharashtra',) (0.21745)"
+   ]
+  },
+  {
+   "k": 2,
+   "greedy": 0.3686797381663094,
+   "greedy_local": 0.42041944135341885,
+   "weight_optimised": 0.42060575160103053,
+   "uniform_weights": 0.42041944135341885,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__Rajasthan",
+    "Bungarus_caeruleus__Punjab"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__Maharashtra', 'Bungarus_caeruleus__Punjab') (0.36868)",
+    "swap Naja_naja__Maharashtra -> Daboia_russelii__MadhyaPradesh (0.39771)",
+    "swap Daboia_russelii__MadhyaPradesh -> Daboia_russelii__WestIndia (0.40155)",
+    "swap Daboia_russelii__WestIndia -> Naja_naja__EasternIndia (0.41262)",
+    "swap Naja_naja__EasternIndia -> Naja_naja__NorthwestIndia (0.41862)",
+    "swap Naja_naja__NorthwestIndia -> Naja_naja__Rajasthan (0.42042)"
+   ]
+  },
+  {
+   "k": 3,
+   "greedy": 0.5098543654093329,
+   "greedy_local": 0.5631483071899619,
+   "weight_optimised": 0.5768123912663584,
+   "uniform_weights": 0.5631483071899619,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__WestBengal",
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__Maharashtra', 'Bungarus_caeruleus__Punjab', 'Daboia_russelii__MadhyaPradesh') (0.50985)",
+    "swap Naja_naja__Maharashtra -> Echis_carinatus__Maharashtra (0.55050)",
+    "swap Echis_carinatus__Maharashtra -> Naja_naja__NorthwestIndia (0.55558)",
+    "swap Naja_naja__NorthwestIndia -> Naja_naja__WestBengal (0.56315)"
+   ]
+  },
+  {
+   "k": 4,
+   "greedy": 0.6159638937136551,
+   "greedy_local": 0.6497662915596789,
+   "weight_optimised": 0.6877808348572982,
+   "uniform_weights": 0.6497662915596789,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__NorthwestIndia",
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__Maharashtra', 'Bungarus_caeruleus__Punjab', 'Daboia_russelii__MadhyaPradesh', 'Echis_carinatus__Maharashtra') (0.61596)",
+    "swap Naja_naja__Maharashtra -> Naja_naja__EasternIndia (0.63827)",
+    "swap Naja_naja__EasternIndia -> Naja_naja__NorthwestIndia (0.64977)"
+   ]
+  },
+  {
+   "k": 5,
+   "greedy": 0.6655000925144641,
+   "greedy_local": 0.6885850944760229,
+   "weight_optimised": 0.715599325778874,
+   "uniform_weights": 0.6885850944760229,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__Rajasthan",
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_naja__WestBengal"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__Maharashtra', 'Bungarus_caeruleus__Punjab', 'Daboia_russelii__MadhyaPradesh', 'Echis_carinatus__Maharashtra', 'Naja_naja__WestBengal') (0.66550)",
+    "swap Naja_naja__Maharashtra -> Naja_naja__EasternIndia (0.68076)",
+    "swap Naja_naja__EasternIndia -> Naja_naja__NorthwestIndia (0.68747)",
+    "swap Naja_naja__NorthwestIndia -> Naja_naja__Rajasthan (0.68859)"
+   ]
+  },
+  {
+   "k": 6,
+   "greedy": 0.6655000925144641,
+   "greedy_local": 0.6885850944760229,
+   "weight_optimised": 0.715599325778874,
+   "uniform_weights": 0.6885850944760229,
+   "weights_improved": true,
+   "sites": [
+    "Naja_naja__Rajasthan",
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_naja__WestBengal"
+   ],
+   "moves": [
+    "greedy -> ('Naja_naja__Maharashtra', 'Bungarus_caeruleus__Punjab', 'Daboia_russelii__MadhyaPradesh', 'Echis_carinatus__Maharashtra', 'Naja_naja__WestBengal') (0.66550)",
+    "swap Naja_naja__Maharashtra -> Naja_naja__EasternIndia (0.68076)",
+    "swap Naja_naja__EasternIndia -> Naja_naja__NorthwestIndia (0.68747)",
+    "swap Naja_naja__NorthwestIndia -> Naja_naja__Rajasthan (0.68859)"
+   ]
+  }
+ ],
+ "turnover_k": 5,
+ "turnover_is_interior": true,
+ "best_national_coverage": 0.715599325778874,
+ "solutions": [
+  {
+   "k": 1,
+   "sites": [
+    "Naja_naja__Maharashtra"
+   ],
+   "weights": [
+    1.0
+   ],
+   "national_coverage": 0.2174510000077591,
+   "coverage_gain_vs_baseline": -0.4440924957762,
+   "districts_moved_out_of_high_deficit": 0,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 2,
+   "sites": [
+    "Naja_naja__Rajasthan",
+    "Bungarus_caeruleus__Punjab"
+   ],
+   "weights": [
+    0.4749222987831018,
+    0.5250777012168982
+   ],
+   "national_coverage": 0.42060575160103053,
+   "coverage_gain_vs_baseline": -0.24093774418292857,
+   "districts_moved_out_of_high_deficit": 3,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 3,
+   "sites": [
+    "Naja_naja__WestBengal",
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh"
+   ],
+   "weights": [
+    0.3524768190036613,
+    0.43905613022683704,
+    0.20846705076950167
+   ],
+   "national_coverage": 0.5768123912663584,
+   "coverage_gain_vs_baseline": -0.08473110451760069,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 4,
+   "sites": [
+    "Naja_naja__NorthwestIndia",
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra"
+   ],
+   "weights": [
+    0.3580479889068188,
+    0.2879061023533307,
+    0.20372190860215716,
+    0.15032400013769331
+   ],
+   "national_coverage": 0.6877808348572982,
+   "coverage_gain_vs_baseline": 0.02623733907333914,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 5,
+   "sites": [
+    "Naja_naja__Rajasthan",
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_naja__WestBengal"
+   ],
+   "weights": [
+    0.12453774213521768,
+    0.28145017362223346,
+    0.20329704806940513,
+    0.1481328991899933,
+    0.24258213698315054
+   ],
+   "national_coverage": 0.715599325778874,
+   "coverage_gain_vs_baseline": 0.05405582999491487,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  },
+  {
+   "k": 6,
+   "sites": [
+    "Naja_naja__Rajasthan",
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_naja__WestBengal"
+   ],
+   "weights": [
+    0.12453774213521768,
+    0.28145017362223346,
+    0.20329704806940513,
+    0.1481328991899933,
+    0.24258213698315054
+   ],
+   "national_coverage": 0.715599325778874,
+   "coverage_gain_vs_baseline": 0.05405582999491487,
+   "districts_moved_out_of_high_deficit": 23,
+   "solver": "greedy+local",
+   "optimality_gap": null
+  }
+ ],
+ "mixture_size_curve": {
+  "sizes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "coverages": [
+   0.2168785473548266,
+   0.41262180488361055,
+   0.550501249775897,
+   0.6382657169758581,
+   0.6295731549829118,
+   0.6114237177409554
+  ],
+  "best_sets": [
+   [
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_kaouthia__WestBengal",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Echis_carinatus_sochureki__RajasthanPooled",
+    "Naja_kaouthia__WestBengal",
+    "Naja_naja__EasternIndia"
+   ]
+  ],
+  "argmax_size": 4,
+  "peak": 0.6382657169758581,
+  "terminal": 0.6114237177409554
+ },
+ "optimality_gap": {
+  "k": 4,
+  "candidates": [
+   "Bungarus_caeruleus__Punjab",
+   "Bungarus_fasciatus__WestBengal",
+   "Bungarus_sindanus__Rajasthan",
+   "Daboia_russelii__MadhyaPradesh",
+   "Daboia_russelii__Maharashtra",
+   "Daboia_russelii__WestBengal",
+   "Daboia_russelii__WestIndia",
+   "Echis_carinatus__Maharashtra",
+   "Echis_carinatus_sochureki__Barmer",
+   "Echis_carinatus_sochureki__Pokhran",
+   "Echis_carinatus_sochureki__RajasthanPooled",
+   "Echis_carinatus_sochureki__Sam",
+   "Naja_kaouthia__ArunachalPradesh",
+   "Naja_kaouthia__WestBengal",
+   "Naja_naja__EasternIndia",
+   "Naja_naja__Karnataka",
+   "Naja_naja__Maharashtra",
+   "Naja_naja__NorthwestIndia",
+   "Naja_naja__Punjab",
+   "Naja_naja__Rajasthan"
+  ],
+  "exact_sites": [
+   "Bungarus_caeruleus__Punjab",
+   "Daboia_russelii__MadhyaPradesh",
+   "Echis_carinatus__Maharashtra",
+   "Naja_naja__NorthwestIndia"
+  ],
+  "exact_coverage": 0.6497662915596789,
+  "subsets_evaluated": 6195,
+  "heuristic_sites": [
+   "Naja_naja__NorthwestIndia",
+   "Bungarus_caeruleus__Punjab",
+   "Daboia_russelii__MadhyaPradesh",
+   "Echis_carinatus__Maharashtra"
+  ],
+  "heuristic_coverage": 0.6497662915596789,
+  "optimality_gap": 0.0,
+  "heuristic_matched_exact": true,
+  "note": "The objective is non-monotone and not submodular, so no (1 - 1/e) guarantee applies. This gap is measured on a reduced instance, not derived."
+ },
+ "submodularity_note": "The objective is non-monotone and not submodular, because adding a venom moves antibody supply away from families already covered. No (1 - 1/e) guarantee applies and none is claimed; the gap above is measured against exact enumeration on a reduced instance, not derived from theory.",
+ "disclaimer": "Research model. Not clinical guidance. Predictions are computational and require experimental validation."
+}

@@ -27,6 +27,7 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 from itertools import combinations
+from typing import TYPE_CHECKING
 
 import numpy as np
 from numpy.typing import NDArray
@@ -35,6 +36,9 @@ from venomgap.config import EPS, FAMILIES, MAX_K, SIGMA
 from venomgap.model.assemble import ModelAssembly
 from venomgap.optimize.objective import NationalObjective
 from venomgap.types import FittedParameters
+
+if TYPE_CHECKING:
+    from venomgap.validate.retrodiction import MixtureSizeCurve
 
 logger = logging.getLogger(__name__)
 
@@ -107,7 +111,7 @@ def cosine_mixture_size_curve(
     fitted: FittedParameters,  # noqa: ARG001 - the baseline has no fitted parameters, by design
     max_size: int = MAX_K,
     use_max: bool = False,
-):  # type: ignore[no-untyped-def]
+) -> MixtureSizeCurve:
     """The R4c curve: the cosine baseline's best achievable score at each mixture size."""
     from venomgap.optimize.greedy import _immunogen_candidate_pool
     from venomgap.validate.retrodiction import MixtureSizeCurve

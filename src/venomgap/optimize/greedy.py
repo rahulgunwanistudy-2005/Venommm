@@ -13,14 +13,19 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 from itertools import combinations
+from typing import TYPE_CHECKING
 
 import numpy as np
+from numpy.typing import NDArray
 
 from venomgap.config import BIG_FOUR_SPECIES, MAX_K
 from venomgap.errors import OptimisationError
 from venomgap.model.assemble import ModelAssembly
 from venomgap.optimize.objective import NationalObjective
-from venomgap.types import FittedParameters
+from venomgap.types import FittedParameters, VenomPopulation
+
+if TYPE_CHECKING:
+    from venomgap.validate.retrodiction import MixtureSizeCurve
 
 logger = logging.getLogger(__name__)
 
@@ -56,7 +61,7 @@ def evaluate_subset(
     objective: NationalObjective,
     assembly: ModelAssembly,
     pop_ids: tuple[str, ...],
-    weights: np.ndarray | None = None,
+    weights: NDArray[np.float64] | None = None,
 ) -> float:
     if not pop_ids:
         return 0.0
@@ -168,7 +173,7 @@ def best_subset_per_size(
     fitted: FittedParameters,  # noqa: ARG001 - uniform signature with the cosine curve builder
     max_size: int = MAX_K,
     candidates: tuple[str, ...] | None = None,
-):  # type: ignore[no-untyped-def]
+) -> MixtureSizeCurve:
     """The R4 curve: best achievable national coverage at each mixture size 1..max_size.
 
     The candidate pool is restricted to one population per Big Four species plus the most
@@ -207,7 +212,7 @@ def _immunogen_candidate_pool(assembly: ModelAssembly) -> tuple[str, ...]:
     centroid_lat = float(np.dot(weights, districts["lat"].to_numpy(dtype=float)))
     centroid_lon = float(np.dot(weights, districts["lon"].to_numpy(dtype=float)))
 
-    by_species: dict[str, list] = {}
+    by_species: dict[str, list[VenomPopulation]] = {}
     for population in assembly.populations:
         if population.country != "India":
             continue

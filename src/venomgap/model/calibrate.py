@@ -22,6 +22,7 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -85,7 +86,9 @@ class CalibrationSet:
         )
 
 
-def load_calibration(path=CALIBRATION_CSV, exclude_study: str | None = None) -> CalibrationSet:
+def load_calibration(
+    path: Path = CALIBRATION_CSV, exclude_study: str | None = None
+) -> CalibrationSet:
     """Load the calibration CSV and enforce the holdout split. Raises rather than filtering."""
     if not path.exists():
         raise DataValidationError(f"calibration file not found: {path}")
@@ -228,8 +231,8 @@ def fit_parameters(
 
     def penalty(x: NDArray[np.float64]) -> float:
         """Regularisation toward the a priori values."""
-        return (
-            KAPPA_L2_PENALTY * x[0] ** 2
+        return float(
+            KAPPA_L2_PENALTY * float(x[0]) ** 2
             + THETA_L2_PENALTY * (float(x[1]) - THETA_PRIOR) ** 2
             + THETA_L2_PENALTY * float(np.sum(np.square(x[2 : 2 + n_theta])))
         )
@@ -369,7 +372,7 @@ def _ratio(row: pd.Series[object]) -> float | None:
     if potency <= 0.0:
         return None
     concentration = float(row["antivenom_protein_mg_per_ml"])
-    return concentration / potency
+    return float(concentration / potency)
 
 
 def _ordinal_groups(
@@ -436,7 +439,7 @@ def run_calibration(
     return fitted
 
 
-def load_fitted_parameters(path=FITTED_PARAMS_JSON) -> FittedParameters:
+def load_fitted_parameters(path: Path = FITTED_PARAMS_JSON) -> FittedParameters:
     if not path.exists():
         raise CalibrationError(
             f"{path} does not exist; run `python -m venomgap.cli calibrate` first"

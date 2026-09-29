@@ -19,6 +19,7 @@ import logging
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Any
 from urllib.parse import urlencode
 
 import numpy as np
@@ -121,13 +122,13 @@ def fetch_species_occurrences(
     return records
 
 
-def _get_json(url: str) -> dict[str, object]:
+def _get_json(url: str) -> dict[str, Any]:
     last_error: Exception | None = None
     for attempt in range(MAX_RETRIES):
         try:
             response = requests.get(url, timeout=REQUEST_TIMEOUT_S)
             response.raise_for_status()
-            data: dict[str, object] = response.json()
+            data: dict[str, Any] = response.json()
         except (requests.RequestException, ValueError) as exc:
             last_error = exc
             logger.warning("GBIF request failed (%d/%d): %s", attempt + 1, MAX_RETRIES, exc)
@@ -167,7 +168,7 @@ def range_mask(
     return mask
 
 
-def occurrence_summary(species_occurrences: dict[str, list[Occurrence]]) -> dict[str, object]:
+def occurrence_summary(species_occurrences: dict[str, list[Occurrence]]) -> dict[str, Any]:
     """Record counts for SOURCES.md, with an explicit note about what they are not used for."""
     return {
         "note": (

@@ -106,7 +106,7 @@ class NationalObjective:
 
     def cell_coverage(self, immunogen: ImmunogenSpec) -> NDArray[np.float64]:
         """Coverage of every (district, species) cell under this immunogen."""
-        return coverage_many(
+        result: NDArray[np.float64] = coverage_many(
             self.cell_compositions,
             immunogen.compositions,
             self.crossreact_for(immunogen),
@@ -116,6 +116,7 @@ class NationalObjective:
             B=self.B,
             D=self.D,
         )
+        return result
 
     def district_coverage(self, immunogen: ImmunogenSpec) -> NDArray[np.float64]:
         """Bite-share-weighted coverage per district."""
@@ -130,7 +131,7 @@ class NationalObjective:
             weights=self.cell_weights,
             minlength=len(self.district_ids),
         )
-        out = np.zeros_like(numerator)
+        out: NDArray[np.float64] = np.zeros_like(numerator)
         present = denominator > 0.0
         out[present] = numerator[present] / denominator[present]
         return out
@@ -146,7 +147,8 @@ class NationalObjective:
             weights=np.array([s == "estimated" for s in self.cell_status], dtype=float),
             minlength=len(self.district_ids),
         )
-        return known <= 0.0
+        unknown: NDArray[np.bool_] = known <= 0.0
+        return unknown
 
 
 def build_national_objective(
@@ -245,18 +247,20 @@ def _presence_mask(  # type: ignore[no-untyped-def]
         logger.warning("no occurrence cache for %s (%s); using the published range", species, exc)
         occurrences = []
 
-    if states is not None and len(occurrences) < MIN_RECORDS_FOR_RANGE:
-        return districts["state"].isin(states).to_numpy() | districts["geo_state"].isin(
-            states
-        ).to_numpy()
     if states is not None:
+        by_state: NDArray[np.bool_] = np.asarray(
+            districts["state"].isin(states).to_numpy()
+            | districts["geo_state"].isin(states).to_numpy(),
+            dtype=bool,
+        )
+        if len(occurrences) < MIN_RECORDS_FOR_RANGE:
+            return by_state
         # Both sources available: union, so a published range can add districts GBIF missed but
         # cannot remove ones it recorded.
-        by_state = districts["state"].isin(states).to_numpy() | districts["geo_state"].isin(
-            states
-        ).to_numpy()
-        return by_state | mask_fn(lats, lons, occurrences)
-    return mask_fn(lats, lons, occurrences)
+        combined: NDArray[np.bool_] = by_state | mask_fn(lats, lons, occurrences)
+        return combined
+    from_occurrences: NDArray[np.bool_] = mask_fn(lats, lons, occurrences)
+    return from_occurrences
 
 
 def _load_bite_shares() -> dict[str, float]:
