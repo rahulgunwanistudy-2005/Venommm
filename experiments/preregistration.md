@@ -183,3 +183,66 @@ reason is recorded.
 computed value, the threshold, and the boolean outcome — plus the preregistration commit hash, the
 fitted parameters, and the data version. Every number quoted in the README, the figures and any
 slide is read from `results/*.json`. Nothing is retyped by hand.
+
+---
+
+## Amendment 1 — filed 2026-09-29, after curating compositions, before any parameter was fitted
+
+Two criteria in §5 turned out to be under-specified once the composition corpus was assembled.
+Both ambiguities are resolved here, in writing, **before `calibrate.py` was ever run and before any
+deficit value was computed**. The resolutions were chosen to be deterministic, not favourable.
+
+### A1.1 — R1 concerns more than one *E. carinatus sochureki* population
+
+The original criterion says "the *E. c. sochureki* north-west population", assuming one. The corpus
+contains **four** north-west Indian *E. c. sochureki* proteomes from two independent studies, and
+the two studies disagree sharply about this subspecies:
+
+| Population | Source | SVMP | PLA2 |
+|---|---|---|---|
+| Sam (Jaisalmer) | doi:10.3390/toxins18010054, Results 2.3 | 66.6% | 12.4% |
+| Barmer | doi:10.3390/toxins18010054, Results 2.3 | 60.7% | 27.0% |
+| Pokhran (Jaisalmer) | doi:10.3390/toxins18010054, Results 2.3 | 55.5% | 12.5% |
+| Rajasthan (pooled) | doi:10.1371/journal.pntd.0007899, S2E Table | 3.0% | 61.9% |
+
+This is a genuine, published disagreement, not a curation error: the 2026 study explicitly notes the
+discrepancy against the 2019 study it cites as reference 9. It is exactly the kind of thing the
+leave-one-study-out sensitivity analysis exists to expose.
+
+**Resolution.** R1a and R1b are evaluated on **every** curated north-west Indian *E. c. sochureki*
+population, individually, and the criterion passes only if it holds for a **strict majority** of
+them. The per-population outcome is reported for all four regardless. Because three of the four come
+from one study and one from another, this rule makes R1 a test of the majority-study composition
+while keeping the dissenting population visible; the honest consequence is that R1's verdict is
+conditional on the 2026 proteome being right, and the report says so.
+
+### A1.2 — R3b needs a southern *Bungarus caeruleus* reference that does not exist in the open literature
+
+R3b compares North Indian *B. caeruleus* against "the South Indian (immunogen-source) *B. caeruleus*
+population". No South Indian *B. caeruleus* proteome with complete family-level relative abundances
+was locatable in open-access literature. The nearest published proteome to the Tamil Nadu immunogen
+source is Sri Lankan (doi:10.3390/toxins9090290, Table 1, from Sri Lanka).
+
+**Resolution.** R3b is evaluated against the **southern reference population**, defined as the
+curated *B. caeruleus* population whose locality is geographically nearest the immunogen source at
+the Irula Cooperative, Chengalpattu district, Tamil Nadu. That is the Sri Lankan population. The
+threshold is unchanged at 0.10 absolute deficit difference. The substitution is a weakening of the
+test in one respect and a strengthening in another: Sri Lankan *B. caeruleus* is more distant from
+Punjab than a Tamil Nadu sample would be, so the comparison is more forgiving; but it is also not
+the immunogen source, so a pass says less about the antivenom's own training set.
+
+### A1.3 — the immunogen composition is interpolated, not curated
+
+No complete family-level proteome is published for any of the four immunogen species **at the
+locality the venom is actually collected from**. For *E. carinatus* from Tamil Nadu only two
+families are reported (SVMP 23.06%, snaclec 32.98%; doi:10.3390/toxins18010054, Discussion, citing
+its reference 2), which characterises 56% of whole venom and falls outside this project's 45%
+residual limit.
+
+**Resolution.** No Tamil Nadu composition row is fabricated. `compositions.csv` contains only real,
+localised, published proteomes. The Big Four immunogen composition is instead **estimated at the
+Irula coordinates by the same spatial interpolation used for every other district**, so it carries
+the same fitted length scale and the same reported uncertainty as any other estimate, and the
+`composition_imputed` and `no_nearby_proteome` flags apply to it wherever they would apply to a
+district. This is a stricter treatment than curating a proxy row would have been, and it makes the
+absence itself measurable. That absence is reported as a finding.
