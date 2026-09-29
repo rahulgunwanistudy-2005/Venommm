@@ -87,10 +87,14 @@ def _save(fig: Figure, stem: str, caption: str) -> list[Path]:
         0.005, 0.005, DISCLAIMER, fontsize=6, color=INK_MUTED, ha="left", va="bottom"
     )
     fig.text(0.995, 0.005, caption, fontsize=6, color=INK_MUTED, ha="right", va="bottom")
+    # Fixed metadata so a regenerated figure is byte-identical to the committed one. Without this
+    # the embedded creation timestamp changes on every run and the reproducibility claim is only
+    # true of the numbers, not of the files.
+    metadata = {"pdf": {"CreationDate": None}, "png": {"Software": None}}
     out = []
     for suffix in (".pdf", ".png"):
         path = FIGURES_DIR / f"{stem}{suffix}"
-        fig.savefig(path, bbox_inches="tight")
+        fig.savefig(path, bbox_inches="tight", metadata=metadata[suffix.lstrip(".")])
         out.append(path)
     plt.close(fig)
     return out
