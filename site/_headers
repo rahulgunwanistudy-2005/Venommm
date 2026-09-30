@@ -1,0 +1,9 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/figures/*
+  Cache-Control: public, max-age=86400
+/results/*
+  Cache-Control: public, max-age=86400

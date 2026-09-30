@@ -1,0 +1,282 @@
+{
+ "leave_one_study_out": [
+  {
+   "excluded_study": "Kalita2017Echis",
+   "spearman_rho": 1.0,
+   "kappa_scale": 0.7858139382297501,
+   "calibration_rows": 6
+  },
+  {
+   "excluded_study": "SenjiLaxme2021Daboia",
+   "spearman_rho": 0.9887069452286844,
+   "kappa_scale": 0.9384847320843517,
+   "calibration_rows": 9
+  },
+  {
+   "excluded_study": "SenjiLaxme2021Naja",
+   "spearman_rho": 0.9943534726143423,
+   "kappa_scale": 0.8300625661207213,
+   "calibration_rows": 9
+  }
+ ],
+ "mean_spearman": 0.9943534726143421,
+ "min_spearman": 0.9887069452286844,
+ "parameter_sweep": [
+  {
+   "B_mg": 200.0,
+   "D_mg": 10.0,
+   "ratio": 20.0,
+   "national_coverage": 0.6125956864304095,
+   "spearman_rho_vs_default": 0.9875776397515529
+  },
+  {
+   "B_mg": 200.0,
+   "D_mg": 20.0,
+   "ratio": 10.0,
+   "national_coverage": 0.40240238169150166,
+   "spearman_rho_vs_default": 0.9875776397515529
+  },
+  {
+   "B_mg": 200.0,
+   "D_mg": 40.0,
+   "ratio": 5.0,
+   "national_coverage": 0.22831591303286938,
+   "spearman_rho_vs_default": 0.9853190287972897
+  },
+  {
+   "B_mg": 200.0,
+   "D_mg": 60.0,
+   "ratio": 3.3333333333333335,
+   "national_coverage": 0.15262949007776272,
+   "spearman_rho_vs_default": 0.9875776397515529
+  },
+  {
+   "B_mg": 200.0,
+   "D_mg": 100.0,
+   "ratio": 2.0,
+   "national_coverage": 0.0918906016769608,
+   "spearman_rho_vs_default": 0.9728966685488425
+  },
+  {
+   "B_mg": 500.0,
+   "D_mg": 10.0,
+   "ratio": 50.0,
+   "national_coverage": 0.7919799584000254,
+   "spearman_rho_vs_default": 0.7976262870448901
+  },
+  {
+   "B_mg": 500.0,
+   "D_mg": 20.0,
+   "ratio": 25.0,
+   "national_coverage": 0.6644734222099675,
+   "spearman_rho_vs_default": 1.0
+  },
+  {
+   "B_mg": 500.0,
+   "D_mg": 40.0,
+   "ratio": 12.5,
+   "national_coverage": 0.4596550656217728,
+   "spearman_rho_vs_default": 0.9875776397515529
+  },
+  {
+   "B_mg": 500.0,
+   "D_mg": 60.0,
+   "ratio": 8.333333333333334,
+   "national_coverage": 0.3560014361789743,
+   "spearman_rho_vs_default": 0.9875776397515529
+  },
+  {
+   "B_mg": 500.0,
+   "D_mg": 100.0,
+   "ratio": 5.0,
+   "national_coverage": 0.22831591303286936,
+   "spearman_rho_vs_default": 0.9853190287972897
+  },
+  {
+   "B_mg": 1000.0,
+   "D_mg": 10.0,
+   "ratio": 100.0,
+   "national_coverage": 0.8066454096733171,
+   "spearman_rho_vs_default": 0.7143778965396317
+  },
+  {
+   "B_mg": 1000.0,
+   "D_mg": 20.0,
+   "ratio": 50.0,
+   "national_coverage": 0.7919799584000254,
+   "spearman_rho_vs_default": 0.7976262870448901
+  },
+  {
+   "B_mg": 1000.0,
+   "D_mg": 40.0,
+   "ratio": 25.0,
+   "national_coverage": 0.6644734222099675,
+   "spearman_rho_vs_default": 1.0
+  },
+  {
+   "B_mg": 1000.0,
+   "D_mg": 60.0,
+   "ratio": 16.666666666666668,
+   "national_coverage": 0.5480435468175648,
+   "spearman_rho_vs_default": 0.9864483342744214
+  },
+  {
+   "B_mg": 1000.0,
+   "D_mg": 100.0,
+   "ratio": 10.0,
+   "national_coverage": 0.40240238169150166,
+   "spearman_rho_vs_default": 0.9875776397515529
+  },
+  {
+   "B_mg": 2000.0,
+   "D_mg": 10.0,
+   "ratio": 200.0,
+   "national_coverage": 0.8072040023821652,
+   "spearman_rho_vs_default": 0.790995073307661
+  },
+  {
+   "B_mg": 2000.0,
+   "D_mg": 20.0,
+   "ratio": 100.0,
+   "national_coverage": 0.8066454096733171,
+   "spearman_rho_vs_default": 0.7143778965396317
+  },
+  {
+   "B_mg": 2000.0,
+   "D_mg": 40.0,
+   "ratio": 50.0,
+   "national_coverage": 0.7919799584000254,
+   "spearman_rho_vs_default": 0.7976262870448901
+  },
+  {
+   "B_mg": 2000.0,
+   "D_mg": 60.0,
+   "ratio": 33.333333333333336,
+   "national_coverage": 0.7133025422121905,
+   "spearman_rho_vs_default": 0.9695087521174479
+  },
+  {
+   "B_mg": 2000.0,
+   "D_mg": 100.0,
+   "ratio": 20.0,
+   "national_coverage": 0.6125956864304095,
+   "spearman_rho_vs_default": 0.9875776397515529
+  },
+  {
+   "B_mg": 4000.0,
+   "D_mg": 10.0,
+   "ratio": 400.0,
+   "national_coverage": 0.8082024287119645,
+   "spearman_rho_vs_default": 0.8669874546548564
+  },
+  {
+   "B_mg": 4000.0,
+   "D_mg": 20.0,
+   "ratio": 200.0,
+   "national_coverage": 0.8072040023821652,
+   "spearman_rho_vs_default": 0.790995073307661
+  },
+  {
+   "B_mg": 4000.0,
+   "D_mg": 40.0,
+   "ratio": 100.0,
+   "national_coverage": 0.8066454096733171,
+   "spearman_rho_vs_default": 0.7143778965396317
+  },
+  {
+   "B_mg": 4000.0,
+   "D_mg": 60.0,
+   "ratio": 66.66666666666667,
+   "national_coverage": 0.8030372286830665,
+   "spearman_rho_vs_default": 0.6490734975953897
+  },
+  {
+   "B_mg": 4000.0,
+   "D_mg": 100.0,
+   "ratio": 40.0,
+   "national_coverage": 0.7521684157969605,
+   "spearman_rho_vs_default": 0.8994918125352909
+  }
+ ],
+ "sweep_min_spearman": 0.6490734975953897,
+ "controls": {
+  "cosine_baseline_rho_vs_model": -0.24901185770750994,
+  "sequence_free_rho_vs_model": 0.052469108638343503,
+  "permutation_rho_mean": -0.018294748729531338,
+  "permutation_rho_p95": 0.4129305477131564,
+  "note": "The permutation control confirms the null level. The sequence-free control sets x_f = 1 everywhere; a high correlation with the full model would mean the sequence layer is decoration. The cosine baseline is run in its best-match form."
+ },
+ "cosine_deficits": {
+  "Naja_naja__Punjab": 0.01623872478427657,
+  "Naja_naja__WestBengal": 0.018677559570910107,
+  "Naja_naja__Rajasthan": 0.011113962981823988,
+  "Naja_naja__Maharashtra": 0.06948508225676919,
+  "Naja_naja__Karnataka": 0.07120388123219223,
+  "Naja_naja__EasternIndia": 0.012868900621125112,
+  "Naja_naja__NorthwestIndia": 0.014618829863045857,
+  "Naja_kaouthia__ArunachalPradesh": 0.029497726300981686,
+  "Naja_kaouthia__WestBengal": 0.013431681334572065,
+  "Naja_sagittifera__Andaman": 0.04185155936952889,
+  "Bungarus_caeruleus__Punjab": 0.06675973560401705,
+  "Bungarus_sindanus__Rajasthan": 0.2026026983469703,
+  "Bungarus_fasciatus__WestBengal": 0.019008091524062354,
+  "Daboia_russelii__Maharashtra": 0.07521003318140473,
+  "Daboia_russelii__MadhyaPradesh": 0.04289679777805799,
+  "Daboia_russelii__WestBengal": 0.16243612097395532,
+  "Daboia_russelii__WestIndia": 0.10289952578348516,
+  "Echis_carinatus__Maharashtra": 0.11722497247018437,
+  "Echis_carinatus_sochureki__RajasthanPooled": 0.10300920268421154,
+  "Echis_carinatus_sochureki__Sam": 0.12599751623279876,
+  "Echis_carinatus_sochureki__Barmer": 0.05463076582988724,
+  "Echis_carinatus_sochureki__Pokhran": 0.08830966735632284
+ },
+ "sequence_free_deficits": {
+  "Naja_naja__Punjab": 0.40884144313046455,
+  "Naja_naja__WestBengal": 0.46168699976611316,
+  "Naja_naja__Rajasthan": 0.21461045104636556,
+  "Naja_naja__Maharashtra": 5.9436317569105945e-05,
+  "Naja_naja__Karnataka": 0.13109420754932166,
+  "Naja_naja__EasternIndia": 0.16029830571714732,
+  "Naja_naja__NorthwestIndia": 0.23158515589444995,
+  "Naja_kaouthia__ArunachalPradesh": 0.20445715784877205,
+  "Naja_kaouthia__WestBengal": 0.39960794493487606,
+  "Naja_sagittifera__Andaman": 0.24332790533403637,
+  "Bungarus_caeruleus__Punjab": 0.0,
+  "Bungarus_sindanus__Rajasthan": 0.0031637345134800654,
+  "Bungarus_fasciatus__WestBengal": 0.0,
+  "Daboia_russelii__Maharashtra": 0.0,
+  "Daboia_russelii__MadhyaPradesh": 0.010656243524886921,
+  "Daboia_russelii__WestBengal": 0.08756866476122838,
+  "Daboia_russelii__WestIndia": 0.0157502896218773,
+  "Echis_carinatus__Maharashtra": 0.02632688596556787,
+  "Echis_carinatus_sochureki__RajasthanPooled": 0.004252011708537284,
+  "Echis_carinatus_sochureki__Sam": 0.0,
+  "Echis_carinatus_sochureki__Barmer": 0.0,
+  "Echis_carinatus_sochureki__Pokhran": 0.0
+ },
+ "model_deficits": {
+  "Naja_naja__Punjab": 0.5495602611697838,
+  "Naja_naja__WestBengal": 0.5926642822870585,
+  "Naja_naja__Rajasthan": 0.4333073987159406,
+  "Naja_naja__Maharashtra": 0.1659305414402904,
+  "Naja_naja__Karnataka": 0.33145490520396703,
+  "Naja_naja__EasternIndia": 0.32264240571535285,
+  "Naja_naja__NorthwestIndia": 0.45794605562038915,
+  "Naja_kaouthia__ArunachalPradesh": 0.990029542097489,
+  "Naja_kaouthia__WestBengal": 0.9691377882784772,
+  "Naja_sagittifera__Andaman": 0.9745649263721553,
+  "Bungarus_caeruleus__Punjab": 0.25872082781016226,
+  "Bungarus_sindanus__Rajasthan": 0.7813133998869741,
+  "Bungarus_fasciatus__WestBengal": 0.9997258076821891,
+  "Daboia_russelii__Maharashtra": 0.17401080132197855,
+  "Daboia_russelii__MadhyaPradesh": 0.022397338991081095,
+  "Daboia_russelii__WestBengal": 0.09842503598412067,
+  "Daboia_russelii__WestIndia": 0.033357191402056396,
+  "Echis_carinatus__Maharashtra": 0.03292156820795311,
+  "Echis_carinatus_sochureki__RajasthanPooled": 0.878557947294935,
+  "Echis_carinatus_sochureki__Sam": 0.8858891088816687,
+  "Echis_carinatus_sochureki__Barmer": 0.8919763107955727,
+  "Echis_carinatus_sochureki__Pokhran": 0.877032794368258
+ },
+ "disclaimer": "Research model. Not clinical guidance. Predictions are computational and require experimental validation."
+}

@@ -1,0 +1,758 @@
+{
+ "preregistration_commit": "a3cb96c963bcaf81cacede3550b9be93cc6ecb90",
+ "data_version": "compositions.csv sha256:9b20d498cbe96666",
+ "model_variant": "stoichiometric",
+ "criteria": [
+  {
+   "criterion_id": "R1a",
+   "statement": "Each north-west E. c. sochureki population ranks in the top decile of predicted deficit among curated Indian populations; passes on a strict majority.",
+   "computed": 0.0,
+   "threshold": 2.0,
+   "comparison": ">=",
+   "passed": false,
+   "detail": "RajasthanPooled at quantile 0.318 (rank 7/22) fail; Sam at quantile 0.273 (rank 6/22) fail; Barmer at quantile 0.227 (rank 5/22) fail; Pokhran at quantile 0.364 (rank 8/22) fail"
+  },
+  {
+   "criterion_id": "R1b",
+   "statement": "SVMP is the single worst limiting family for each such population; passes on a strict majority.",
+   "computed": 3.0,
+   "threshold": 2.0,
+   "comparison": ">=",
+   "passed": true,
+   "detail": "RajasthanPooled worst=LAAO fail; Sam worst=SVMP PASS; Barmer worst=SVMP PASS; Pokhran worst=SVMP PASS"
+  },
+  {
+   "criterion_id": "R2a",
+   "statement": "Naja sagittifera ranks in the top decile of predicted deficit.",
+   "computed": 0.13636363636363635,
+   "threshold": 0.1,
+   "comparison": "<=",
+   "passed": false,
+   "detail": "quantile 0.136, rank 3 of 22, deficit 0.975"
+  },
+  {
+   "criterion_id": "R2b",
+   "statement": "Substituting Naja kaouthia for Naja naja in the immunogen set, holding everything else fixed, increases predicted coverage of Naja sagittifera by at least 0.05.",
+   "computed": 0.0,
+   "threshold": 0.05,
+   "comparison": ">=",
+   "passed": false,
+   "detail": "coverage 0.0254 -> 0.0254, gain +0.0000"
+  },
+  {
+   "criterion_id": "R3a",
+   "statement": "North Indian Bungarus caeruleus, a Big Four species, has a predicted deficit in the top tertile of curated Indian populations.",
+   "computed": 0.7272727272727273,
+   "threshold": 0.3333333333333333,
+   "comparison": "<=",
+   "passed": false,
+   "detail": "quantile 0.727, rank 16 of 22, deficit 0.259"
+  },
+  {
+   "criterion_id": "R3b",
+   "statement": "Its predicted deficit exceeds that of the southern reference B. caeruleus population nearest the immunogen source by at least 0.10 absolute.",
+   "computed": 0.14563929245112628,
+   "threshold": 0.1,
+   "comparison": ">=",
+   "passed": true,
+   "detail": "reference Bungarus_caeruleus__SriLanka at 542 km from the immunogen source, deficit 0.113; Punjab deficit 0.259; excess +0.146"
+  },
+  {
+   "criterion_id": "R4a",
+   "statement": "Mean burden-weighted national coverage as a function of immunogen mixture size, each size at its own best subset, is non-monotone with an interior maximum.",
+   "computed": 4.0,
+   "threshold": null,
+   "comparison": "bool",
+   "passed": true,
+   "detail": "peak at |S| = 4 of 6; profile 1:0.2169, 2:0.4126, 3:0.5505, 4:0.6383, 5:0.6296, 6:0.6114"
+  },
+  {
+   "criterion_id": "R4b",
+   "statement": "The fall from the maximum to the largest mixture is at least 0.02 absolute coverage, so the turnover is not numerical noise.",
+   "computed": 0.026841999234902714,
+   "threshold": 0.02,
+   "comparison": ">=",
+   "passed": true,
+   "detail": "peak 0.6383 at |S| = 4, terminal 0.6114"
+  },
+  {
+   "criterion_id": "R4c",
+   "statement": "The cosine-similarity baseline, on identical inputs, is monotone non-decreasing in mixture size and therefore cannot reproduce R4a.",
+   "computed": 6.0,
+   "threshold": null,
+   "comparison": "bool",
+   "passed": true,
+   "detail": "cosine baseline peak at |S| = 6; monotone non-decreasing: True; profile 1:0.7288, 2:0.8556, 3:0.9226, 4:0.9470, 5:0.9489, 6:0.9489"
+  }
+ ],
+ "targets_passed": 1,
+ "targets_total": 4,
+ "notes": "Parameters were fitted without any holdout study's antivenom results. Only kappa_scale (0.7839) and the ED50 anchor C* (0.9755 if known) were identifiable; sigma_f, the kappa_f shape and every theta_f retain their a priori values, since the calibration set could not constrain theta at all. Unidentified thetas: ['3FTx', 'PLA2', 'SVMP', 'SVSP', 'CTL', 'KSPI'].",
+ "deficit_ranking": {
+  "Naja_naja__Punjab": {
+   "deficit": 0.5495602611697838,
+   "rank": 11,
+   "quantile": 0.5,
+   "limiting_families": [
+    "3FTx"
+   ]
+  },
+  "Naja_naja__WestBengal": {
+   "deficit": 0.5926642822870585,
+   "rank": 10,
+   "quantile": 0.45454545454545453,
+   "limiting_families": [
+    "3FTx"
+   ]
+  },
+  "Naja_naja__Rajasthan": {
+   "deficit": 0.4333073987159406,
+   "rank": 13,
+   "quantile": 0.5909090909090909,
+   "limiting_families": [
+    "3FTx",
+    "PLA2"
+   ]
+  },
+  "Naja_naja__Maharashtra": {
+   "deficit": 0.1659305414402904,
+   "rank": 18,
+   "quantile": 0.8181818181818182,
+   "limiting_families": [
+    "3FTx",
+    "PLA2",
+    "SVMP"
+   ]
+  },
+  "Naja_naja__Karnataka": {
+   "deficit": 0.33145490520396703,
+   "rank": 14,
+   "quantile": 0.6363636363636364,
+   "limiting_families": [
+    "other",
+    "3FTx"
+   ]
+  },
+  "Naja_naja__EasternIndia": {
+   "deficit": 0.32264240571535285,
+   "rank": 15,
+   "quantile": 0.6818181818181818,
+   "limiting_families": [
+    "3FTx"
+   ]
+  },
+  "Naja_naja__NorthwestIndia": {
+   "deficit": 0.45794605562038915,
+   "rank": 12,
+   "quantile": 0.5454545454545454,
+   "limiting_families": [
+    "3FTx",
+    "PLA2"
+   ]
+  },
+  "Naja_kaouthia__ArunachalPradesh": {
+   "deficit": 0.990029542097489,
+   "rank": 2,
+   "quantile": 0.09090909090909091,
+   "limiting_families": [
+    "3FTx",
+    "SVMP",
+    "CRISP"
+   ]
+  },
+  "Naja_kaouthia__WestBengal": {
+   "deficit": 0.9691377882784772,
+   "rank": 4,
+   "quantile": 0.18181818181818182,
+   "limiting_families": [
+    "3FTx"
+   ]
+  },
+  "Naja_sagittifera__Andaman": {
+   "deficit": 0.9745649263721553,
+   "rank": 3,
+   "quantile": 0.13636363636363635,
+   "limiting_families": [
+    "3FTx",
+    "other"
+   ]
+  },
+  "Bungarus_caeruleus__Punjab": {
+   "deficit": 0.25872082781016226,
+   "rank": 16,
+   "quantile": 0.7272727272727273,
+   "limiting_families": [
+    "3FTx"
+   ]
+  },
+  "Bungarus_sindanus__Rajasthan": {
+   "deficit": 0.7813133998869741,
+   "rank": 9,
+   "quantile": 0.4090909090909091,
+   "limiting_families": [
+    "3FTx",
+    "SVSP",
+    "AChE",
+    "SVMP",
+    "PLA2"
+   ]
+  },
+  "Bungarus_fasciatus__WestBengal": {
+   "deficit": 0.9997258076821891,
+   "rank": 1,
+   "quantile": 0.045454545454545456,
+   "limiting_families": [
+    "PLA2",
+    "3FTx"
+   ]
+  },
+  "Daboia_russelii__Maharashtra": {
+   "deficit": 0.17401080132197855,
+   "rank": 17,
+   "quantile": 0.7727272727272727,
+   "limiting_families": [
+    "PLA2"
+   ]
+  },
+  "Daboia_russelii__MadhyaPradesh": {
+   "deficit": 0.022397338991081095,
+   "rank": 22,
+   "quantile": 1.0,
+   "limiting_families": [
+    "VEGF",
+    "PLA2"
+   ]
+  },
+  "Daboia_russelii__WestBengal": {
+   "deficit": 0.09842503598412067,
+   "rank": 19,
+   "quantile": 0.8636363636363636,
+   "limiting_families": [
+    "KSPI",
+    "other"
+   ]
+  },
+  "Daboia_russelii__WestIndia": {
+   "deficit": 0.033357191402056396,
+   "rank": 20,
+   "quantile": 0.9090909090909091,
+   "limiting_families": [
+    "DIS",
+    "KSPI",
+    "CRISP"
+   ]
+  },
+  "Echis_carinatus__Maharashtra": {
+   "deficit": 0.03292156820795311,
+   "rank": 21,
+   "quantile": 0.9545454545454546,
+   "limiting_families": [
+    "DIS",
+    "CTL"
+   ]
+  },
+  "Echis_carinatus_sochureki__RajasthanPooled": {
+   "deficit": 0.878557947294935,
+   "rank": 7,
+   "quantile": 0.3181818181818182,
+   "limiting_families": [
+    "LAAO",
+    "SVMP",
+    "CTL",
+    "SVSP",
+    "PLA2"
+   ]
+  },
+  "Echis_carinatus_sochureki__Sam": {
+   "deficit": 0.8858891088816687,
+   "rank": 6,
+   "quantile": 0.2727272727272727,
+   "limiting_families": [
+    "SVMP",
+    "CTL",
+    "SVSP",
+    "PLA2"
+   ]
+  },
+  "Echis_carinatus_sochureki__Barmer": {
+   "deficit": 0.8919763107955727,
+   "rank": 5,
+   "quantile": 0.22727272727272727,
+   "limiting_families": [
+    "SVMP",
+    "PLA2"
+   ]
+  },
+  "Echis_carinatus_sochureki__Pokhran": {
+   "deficit": 0.877032794368258,
+   "rank": 8,
+   "quantile": 0.36363636363636365,
+   "limiting_families": [
+    "SVMP",
+    "LAAO",
+    "SVSP",
+    "PLA2"
+   ]
+  }
+ },
+ "mixture_size_curve": {
+  "sizes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "coverages": [
+   0.2168785473548266,
+   0.41262180488361055,
+   0.550501249775897,
+   0.6382657169758581,
+   0.6295731549829118,
+   0.6114237177409554
+  ],
+  "best_sets": [
+   [
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Naja_kaouthia__WestBengal",
+    "Naja_naja__EasternIndia"
+   ],
+   [
+    "Bungarus_caeruleus__Punjab",
+    "Daboia_russelii__MadhyaPradesh",
+    "Echis_carinatus__Maharashtra",
+    "Echis_carinatus_sochureki__RajasthanPooled",
+    "Naja_kaouthia__WestBengal",
+    "Naja_naja__EasternIndia"
+   ]
+  ]
+ },
+ "cosine_baseline_curve": {
+  "form": "best-match (max over immunogens), the literature paraspecificity metric",
+  "sizes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "coverages": [
+   0.7287779761461298,
+   0.855578008107306,
+   0.9225770910984669,
+   0.9469716633474576,
+   0.948895082896688,
+   0.9489243301945892
+  ]
+ },
+ "cosine_weighted_mean_curve": {
+  "form": "weighted mean over immunogens",
+  "sizes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "coverages": [
+   0.7287779761461298,
+   0.691483777807608,
+   0.6785417169109754,
+   0.6554821385921882,
+   0.6389697170032435,
+   0.6209487375199341
+  ],
+  "note": "Declines with mixture size, but as an arithmetic consequence of averaging fixed per-venom scores, not through any antibody-budget mechanism. It has no interior maximum, so it still cannot reproduce R4a."
+ },
+ "fitted_parameters": {
+  "theta": {
+   "3FTx": 0.6499999901786341,
+   "PLA2": 0.6499999901786341,
+   "SVMP": 0.6499999901786341,
+   "SVSP": 0.6499999901786341,
+   "LAAO": 0.649999995089317,
+   "CRISP": 0.649999995089317,
+   "CTL": 0.6499999901786341,
+   "KSPI": 0.6499999901786341,
+   "DIS": 0.649999995089317,
+   "NP": 0.649999995089317,
+   "VEGF": 0.649999995089317,
+   "NUC": 0.649999995089317,
+   "PDE": 0.649999995089317,
+   "AChE": 0.649999995089317,
+   "CVF": 0.649999995089317,
+   "other": 0.649999995089317
+  },
+  "kappa": {
+   "3FTx": 11.198484671976829,
+   "PLA2": 5.599242335988414,
+   "SVMP": 1.6678594192305916,
+   "SVSP": 2.799621167994207,
+   "LAAO": 1.4252616855243236,
+   "CRISP": 3.135575708153512,
+   "CTL": 2.799621167994207,
+   "KSPI": 11.198484671976829,
+   "DIS": 10.451919027178374,
+   "NP": 26.129797567945936,
+   "VEGF": 2.9033108408828814,
+   "NUC": 1.3064898783972967,
+   "PDE": 0.783893927038378,
+   "AChE": 1.3064898783972967,
+   "CVF": 0.5225959513589187,
+   "other": 2.6129797567945934
+  },
+  "kappa_scale": 0.783893927038378,
+  "ell_km": 1600.0,
+  "calibration_rows": 12,
+  "calibration_rmse": 0.03563852487278666,
+  "calibration_studies": [
+   "Kalita2017Echis",
+   "SenjiLaxme2021Daboia",
+   "SenjiLaxme2021Naja"
+  ],
+  "excluded_study": null,
+  "converged": true,
+  "c_star": 0.9755157045000492,
+  "theta_identifiability": {
+   "3FTx": 0.0,
+   "PLA2": 0.0,
+   "SVMP": 0.0,
+   "SVSP": 0.0,
+   "CTL": 0.0,
+   "KSPI": 0.0
+  },
+  "theta_unidentified": [
+   "3FTx",
+   "PLA2",
+   "SVMP",
+   "SVSP",
+   "CTL",
+   "KSPI"
+  ],
+  "ordinal_violations": [],
+  "ordinal_checks": 8
+ },
+ "diagnostics": {
+  "theta_scale_mismatch": {
+   "theta": 0.6499999901786341,
+   "between_species_identities": 82,
+   "mean_identity": 0.3279432608732522,
+   "fraction_below_theta": 0.926829268292683,
+   "consequence": "Cross-reactivity is forced to exactly zero for this fraction of species pairs, so the model has almost no paraspecific coverage. theta was pre-registered to be fitted on the calibration split; the calibration data could not identify it, so it kept its a priori value of 0.65. That prior was reasoned from epitope-level identity between orthologous toxins, whereas the statistic actually used is the mean identity over all sequence pairs in a family, which includes comparisons across divergent subfamilies and is therefore on a systematically lower scale. This scale mismatch is the single largest cause of the R1a, R2a, R2b and R3a misses."
+  },
+  "data_sparsity": {
+   "populations_per_species": {
+    "Bungarus caeruleus": 2,
+    "Bungarus fasciatus": 1,
+    "Bungarus sindanus": 1,
+    "Daboia russelii": 6,
+    "Echis carinatus": 1,
+    "Echis carinatus sochureki": 4,
+    "Naja kaouthia": 5,
+    "Naja naja": 8,
+    "Naja sagittifera": 1
+   },
+   "consequence": "Bungarus caeruleus has two curated proteomes and one of them is the R3 target itself, so the interpolated immunogen at the collection locality is built partly from the population being tested. That makes North Indian krait look better covered than it should and is a direct cause of the R3a miss."
+  },
+  "deficit_drivers": {
+   "Naja_naja__Punjab": [
+    [
+     "3FTx",
+     0.5455325095578558
+    ],
+    [
+     "KSPI",
+     0.004027751611928115
+    ]
+   ],
+   "Naja_naja__WestBengal": [
+    [
+     "3FTx",
+     0.5926642822870585
+    ]
+   ],
+   "Naja_naja__Rajasthan": [
+    [
+     "3FTx",
+     0.35215489075503664
+    ],
+    [
+     "PLA2",
+     0.08115250796090391
+    ]
+   ],
+   "Naja_naja__Maharashtra": [
+    [
+     "3FTx",
+     0.11416836735855708
+    ],
+    [
+     "PLA2",
+     0.03303193676015808
+    ],
+    [
+     "KSPI",
+     0.011513888180056307
+    ]
+   ],
+   "Naja_naja__Karnataka": [
+    [
+     "3FTx",
+     0.3138483668515848
+    ],
+    [
+     "other",
+     0.017606538352382062
+    ]
+   ],
+   "Naja_naja__EasternIndia": [
+    [
+     "3FTx",
+     0.3137152261365454
+    ],
+    [
+     "NP",
+     0.008609438280601173
+    ],
+    [
+     "SVSP",
+     0.0003177412982064641
+    ]
+   ],
+   "Naja_naja__NorthwestIndia": [
+    [
+     "3FTx",
+     0.36517737760663066
+    ],
+    [
+     "PLA2",
+     0.09276867801375843
+    ]
+   ],
+   "Naja_kaouthia__ArunachalPradesh": [
+    [
+     "3FTx",
+     0.8753789940138381
+    ],
+    [
+     "SVMP",
+     0.05679079530436137
+    ],
+    [
+     "CRISP",
+     0.033999326232864294
+    ]
+   ],
+   "Naja_kaouthia__WestBengal": [
+    [
+     "3FTx",
+     0.9463286519668594
+    ],
+    [
+     "SVMP",
+     0.012435593854981357
+    ],
+    [
+     "CVF",
+     0.004999551727956881
+    ]
+   ],
+   "Naja_sagittifera__Andaman": [
+    [
+     "3FTx",
+     0.9370816599732262
+    ],
+    [
+     "other",
+     0.03748326639892906
+    ]
+   ],
+   "Bungarus_caeruleus__Punjab": [
+    [
+     "3FTx",
+     0.2573074615718742
+    ],
+    [
+     "KSPI",
+     0.00141336623828799
+    ]
+   ],
+   "Bungarus_sindanus__Rajasthan": [
+    [
+     "3FTx",
+     0.5106408770294945
+    ],
+    [
+     "PLA2",
+     0.13211762138692493
+    ],
+    [
+     "SVSP",
+     0.041139168579675894
+    ]
+   ],
+   "Bungarus_fasciatus__WestBengal": [
+    [
+     "PLA2",
+     0.7853630347448727
+    ],
+    [
+     "3FTx",
+     0.19225533286288193
+    ],
+    [
+     "SVMP",
+     0.010101739744067032
+    ]
+   ],
+   "Daboia_russelii__Maharashtra": [
+    [
+     "PLA2",
+     0.17105437723075262
+    ],
+    [
+     "3FTx",
+     0.0021085618473316095
+    ],
+    [
+     "CRISP",
+     0.0008478622438942535
+    ]
+   ],
+   "Daboia_russelii__MadhyaPradesh": [
+    [
+     "VEGF",
+     0.010656243524886954
+    ],
+    [
+     "PLA2",
+     0.0060545619252914094
+    ],
+    [
+     "3FTx",
+     0.005552127965494056
+    ]
+   ],
+   "Daboia_russelii__WestBengal": [
+    [
+     "KSPI",
+     0.09625645718349349
+    ],
+    [
+     "other",
+     0.0021685788006271835
+    ]
+   ],
+   "Daboia_russelii__WestIndia": [
+    [
+     "DIS",
+     0.01985353777674327
+    ],
+    [
+     "KSPI",
+     0.011457223165396746
+    ],
+    [
+     "CRISP",
+     0.0020464304599164033
+    ]
+   ],
+   "Echis_carinatus__Maharashtra": [
+    [
+     "DIS",
+     0.028885363264004118
+    ],
+    [
+     "CTL",
+     0.004036204943948974
+    ]
+   ],
+   "Echis_carinatus_sochureki__RajasthanPooled": [
+    [
+     "PLA2",
+     0.6678456138070814
+    ],
+    [
+     "SVSP",
+     0.07307404858913409
+    ],
+    [
+     "LAAO",
+     0.042381683072119224
+    ]
+   ],
+   "Echis_carinatus_sochureki__Sam": [
+    [
+     "SVMP",
+     0.7551234991531667
+    ],
+    [
+     "SVSP",
+     0.03579679737949959
+    ],
+    [
+     "PLA2",
+     0.035136416093957644
+    ]
+   ],
+   "Echis_carinatus_sochureki__Barmer": [
+    [
+     "SVMP",
+     0.6507924208920173
+    ],
+    [
+     "PLA2",
+     0.1987138377665296
+    ],
+    [
+     "LAAO",
+     0.017851076130816504
+    ]
+   ],
+   "Echis_carinatus_sochureki__Pokhran": [
+    [
+     "SVMP",
+     0.6774364263033626
+    ],
+    [
+     "SVSP",
+     0.07490771255050467
+    ],
+    [
+     "LAAO",
+     0.05125926126957418
+    ]
+   ]
+  },
+  "r2b": {
+   "target_species": "Naja sagittifera",
+   "identity_3FTx_from_Naja_naja": 0.2780574171287045,
+   "identity_3FTx_from_Naja_kaouthia": 0.38754290396472985,
+   "theta_3FTx": 0.6499999901786341,
+   "note": "Both identities fall below theta, so x_f is exactly zero for both and the substitution cannot change coverage. The sequence data does order the two correctly -- kaouthia is the closer of the pair -- but the recognition floor discards that ordering before it can act."
+  }
+ }
+}
