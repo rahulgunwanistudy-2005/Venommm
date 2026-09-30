@@ -1,0 +1,1083 @@
+<title>VenomGap Atlas</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-2: #efefec;
+  --surface-3: #e6e6e2;
+  --border: #dcdcd8;
+  --border-strong: #c4c4bf;
+  --ink: #15181a;
+  --ink-2: #4c5154;
+  --ink-3: #7d8286;
+  --accent: #0f766e;
+  --accent-ink: #0b544e;
+  --accent-soft: #d9ebe8;
+  --good: #15803d;
+  --bad: #a8322b;
+  --unknown: #b4b3ae;
+  --r0: #fbeedd; --r1: #f6d6ae; --r2: #eeb783; --r3: #e19462;
+  --r4: #cf6f4d; --r5: #b54a3d; --r6: #8f2c2c;
+  --shadow: 0 1px 2px rgba(20,24,26,.05), 0 1px 12px rgba(20,24,26,.04);
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #101312;
+    --surface: #191d1c;
+    --surface-2: #222726;
+    --surface-3: #2c3231;
+    --border: #323837;
+    --border-strong: #454c4b;
+    --ink: #eef1f0;
+    --ink-2: #b2b9b7;
+    --ink-3: #7d8583;
+    --accent: #2dd4bf;
+    --accent-ink: #5eead4;
+    --accent-soft: #14312e;
+    --good: #4ade80;
+    --bad: #f07a72;
+    --unknown: #565a58;
+    --r0: #3b2a20; --r1: #573828; --r2: #75462d; --r3: #954f31;
+    --r4: #b55c38; --r5: #d47046; --r6: #f08a5d;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 1px 12px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #101312;
+  --surface: #191d1c;
+  --surface-2: #222726;
+  --surface-3: #2c3231;
+  --border: #323837;
+  --border-strong: #454c4b;
+  --ink: #eef1f0;
+  --ink-2: #b2b9b7;
+  --ink-3: #7d8583;
+  --accent: #2dd4bf;
+  --accent-ink: #5eead4;
+  --accent-soft: #14312e;
+  --good: #4ade80;
+  --bad: #f07a72;
+  --unknown: #565a58;
+  --r0: #3b2a20; --r1: #573828; --r2: #75462d; --r3: #954f31;
+  --r4: #b55c38; --r5: #d47046; --r6: #f08a5d;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 1px 12px rgba(0,0,0,.25);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--sans); font-size: 14.5px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 16px; padding-block: 0 40px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.num { font-variant-numeric: tabular-nums; font-family: var(--mono); }
+
+/* ---------- masthead ---------- */
+.masthead { padding-block: 26px 14px; border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.brand h1 { font-size: clamp(25px, 4.4vw, 34px); letter-spacing: -.018em; }
+.brand .tag {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent-ink); background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  padding: 3px 8px; border-radius: 3px; white-space: nowrap;
+}
+.thesis {
+  margin-top: 8px; max-width: 66ch; color: var(--ink-2); font-size: 15px;
+}
+.thesis b { color: var(--ink); font-weight: 600; }
+
+nav { display: flex; gap: 2px; margin-top: 16px; flex-wrap: wrap; }
+nav button {
+  appearance: none; background: none; border: 0; border-bottom: 2px solid transparent;
+  padding: 7px 13px 8px; font: 500 14px/1 var(--sans); color: var(--ink-3);
+  cursor: pointer; border-radius: 4px 4px 0 0;
+}
+nav button:hover { color: var(--ink); background: var(--surface-2); }
+nav button[aria-current="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+nav button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* ---------- panels ---------- */
+.panel {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 15px 17px; box-shadow: var(--shadow);
+}
+.grid { display: grid; gap: 14px; }
+.tiles { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.split { grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr); align-items: start; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+
+.tile .k {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.tile .v {
+  font-family: var(--mono); font-variant-numeric: tabular-nums;
+  font-size: 30px; font-weight: 600; letter-spacing: -.02em; line-height: 1.15; margin-top: 3px;
+}
+.tile .s { font-size: 12.5px; color: var(--ink-3); margin-top: 2px; }
+.tile .v.down { color: var(--bad); }
+
+h2.sec { font-size: 16px; margin-bottom: 3px; letter-spacing: -.01em; }
+.lede { color: var(--ink-2); font-size: 13px; }
+.note { color: var(--ink-3); font-size: 12.5px; }
+
+/* ---------- controls ---------- */
+.controls {
+  display: flex; flex-wrap: wrap; gap: 18px 22px; align-items: center;
+  margin-block: 14px; padding: 12px 16px;
+}
+.ctl { display: flex; align-items: center; gap: 9px; }
+.ctl > span {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+input[type="range"] { accent-color: var(--accent); width: 178px; max-width: 46vw; }
+select, input[type="search"] {
+  font: 400 13.5px var(--sans); color: var(--ink); background: var(--surface-2);
+  border: 1px solid var(--border-strong); border-radius: 5px; padding: 5px 8px;
+}
+input[type="search"] { width: 100%; }
+select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.kbadge {
+  font-family: var(--mono); font-size: 16px; font-weight: 600; color: var(--accent-ink);
+  min-width: 1.2em; text-align: center;
+}
+
+/* ---------- map ---------- */
+.maprow { display: block; }
+svg.map { display: block; width: 100%; height: auto; }
+svg.map rect.d { cursor: pointer; }
+svg.map rect.d:hover { stroke: var(--ink); stroke-width: 1.4; }
+.legend {
+  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+  margin-top: 11px; font-size: 11.5px; color: var(--ink-2);
+}
+.legend .scale { display: flex; align-items: center; gap: 0; }
+.legend .sw { width: 22px; height: 11px; display: block; }
+.legend .sw:first-child { border-radius: 2px 0 0 2px; }
+.legend .sw:last-child { border-radius: 0 2px 2px 0; }
+.legend .chip { display: inline-flex; align-items: center; gap: 5px; }
+.legend .chip i { width: 11px; height: 11px; border-radius: 2px; display: block; }
+
+/* ---------- tables ---------- */
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 6px 9px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink-3); font-weight: 500; white-space: nowrap;
+}
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); }
+tbody tr:last-child td { border-bottom: 0; }
+.scroll { overflow-x: auto; }
+
+.bar { background: var(--surface-3); border-radius: 3px; height: 8px; width: 62px; display: inline-block; vertical-align: middle; overflow: hidden; }
+.bar > i { display: block; height: 100%; border-radius: 3px; background: var(--accent); }
+.bar > i.warn { background: var(--r5); }
+
+.pill {
+  display: inline-block; font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em;
+  padding: 2px 7px; border-radius: 999px; background: var(--surface-3); color: var(--ink-2);
+  margin: 2px 3px 2px 0; white-space: nowrap;
+}
+.pill.flag { background: color-mix(in srgb, var(--r3) 22%, transparent); color: var(--ink); }
+.pill.hold { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent-ink); }
+.pass { color: var(--good); font-weight: 600; font-family: var(--mono); font-size: 12px; }
+.fail { color: var(--bad); font-weight: 600; font-family: var(--mono); font-size: 12px; }
+
+.callout {
+  border-left: 3px solid var(--accent); background: var(--surface-2);
+  padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--ink-2);
+  margin-top: 12px;
+}
+.callout.alert { border-left-color: var(--r5); }
+.callout b { color: var(--ink); }
+
+.poplist { max-height: 430px; overflow-y: auto; margin-top: 10px; border-top: 1px solid var(--border); }
+.pop { display: flex; gap: 10px; padding: 7px 2px; border-bottom: 1px solid var(--border); }
+.pop input { margin-top: 3px; accent-color: var(--accent); flex: none; }
+.pop label { cursor: pointer; flex: 1; min-width: 0; }
+.pop .sp { font-style: italic; }
+.pop .meta { color: var(--ink-3); font-size: 11.5px; margin-top: 1px; }
+
+.eq {
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.85; background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 6px; padding: 13px 15px; overflow-x: auto;
+  white-space: pre; color: var(--ink-2); margin-top: 10px;
+}
+.eq b { color: var(--ink); font-weight: 600; }
+
+footer {
+  margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--border);
+  color: var(--ink-3); font-size: 12px;
+}
+.stack { display: grid; gap: 14px; }
+.hl { color: var(--ink); font-weight: 600; }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="brand">
+      <h1>VenomGap</h1>
+      <span class="tag" id="tag-prereg">pre-registered · blinded</span>
+    </div>
+    <p class="thesis">
+      India&rsquo;s only antivenom is raised on venom pooled from four species collected almost
+      entirely from <b>one facility in Tamil Nadu</b>. Venom composition varies across the country.
+      That is <b>covariate shift</b>, and covariate shift is measurable. This model treats
+      neutralisation as a limiting-reagent problem over a finite antibody budget &mdash; not as
+      geometric similarity &mdash; and every number here is computed in your browser from the
+      published proteomes.
+    </p>
+    <nav id="tabs">
+      <button data-tab="atlas" aria-current="true">Atlas</button>
+      <button data-tab="mixture">Mixture explorer</button>
+      <button data-tab="retro">Retrodiction</button>
+      <button data-tab="method">Method &amp; data</button>
+    </nav>
+  </header>
+
+  <!-- ============================ ATLAS ============================ -->
+  <section id="tab-atlas">
+    <div class="grid tiles" style="margin-top:16px">
+      <div class="panel tile">
+        <div class="k">Burden-weighted coverage</div>
+        <div class="v" id="t-cov">&mdash;</div>
+        <div class="s" id="t-cov-sub">&nbsp;</div>
+      </div>
+      <div class="panel tile">
+        <div class="k">Districts modelled</div>
+        <div class="v" id="t-dist">&mdash;</div>
+        <div class="s" id="t-dist-sub">&nbsp;</div>
+      </div>
+      <div class="panel tile">
+        <div class="k">Proteome length scale</div>
+        <div class="v" id="t-ell">&mdash;</div>
+        <div class="s" id="t-ell-sub">&nbsp;</div>
+      </div>
+      <div class="panel tile">
+        <div class="k">Parameters fitted</div>
+        <div class="v" id="t-fit">&mdash;</div>
+        <div class="s" id="t-fit-sub">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="panel controls">
+      <label class="ctl" for="k-slider">
+        <span>New collection sites</span>
+        <span class="kbadge num" id="k-val">0</span>
+        <input type="range" id="k-slider" min="0" max="6" step="1" value="0">
+      </label>
+      <label class="ctl" for="metric">
+        <span>Colour by</span>
+        <select id="metric">
+          <option value="deficit">deficit</option>
+          <option value="uncertainty">uncertainty</option>
+          <option value="burden">burden</option>
+        </select>
+      </label>
+      <p class="note" id="k-note" style="flex:1 1 220px"></p>
+    </div>
+
+    <div class="grid split">
+      <div class="panel maprow">
+        <h2 class="sec">Predicted deficit by district</h2>
+        <p class="lede">Click a district for its per-family breakdown, provenance and flags.</p>
+        <div id="map"></div>
+        <div class="legend" id="legend"></div>
+      </div>
+
+      <div class="stack">
+        <div class="panel">
+          <h2 class="sec">National coverage vs <span class="num">k</span></h2>
+          <p class="lede" id="k-lede"></p>
+          <div id="kchart"></div>
+          <p class="note" id="k-foot" style="margin-top:9px"></p>
+        </div>
+        <div class="panel">
+          <h2 class="sec">How far a proteome generalises</h2>
+          <p class="note" id="spatial-interp"></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="district-detail" hidden></div>
+  </section>
+
+  <!-- ============================ MIXTURE ============================ -->
+  <section id="tab-mixture" hidden>
+    <div class="grid split" style="margin-top:16px">
+      <div class="panel">
+        <h2 class="sec">Immunising mixture</h2>
+        <p class="lede">
+          Tick venoms in and out. A vial holds a fixed mass of antibody, so antibody raised against
+          one more venom is antibody <i>not</i> raised against the toxins a given bite delivers.
+          Past the optimum, coverage falls.
+        </p>
+        <div style="margin-top:11px">
+          <input type="search" id="pop-filter" placeholder="Filter by species, state or dominant family">
+        </div>
+        <div class="poplist" id="poplist"></div>
+        <p class="note" style="margin-top:9px">
+          <button id="reset-mix" style="background:none;border:0;color:var(--accent);cursor:pointer;font:inherit;padding:0;text-decoration:underline">
+            Reset to the Big Four
+          </button>
+        </p>
+      </div>
+
+      <div class="stack">
+        <div class="panel tile">
+          <div class="k">Burden-weighted national coverage</div>
+          <div class="v" id="m-cov">&mdash;</div>
+          <div class="s" id="m-sub">&nbsp;</div>
+          <div id="m-alert"></div>
+        </div>
+        <div class="panel">
+          <h2 class="sec">Your moves</h2>
+          <p class="lede">Bars where adding a venom <i>lowered</i> coverage are shown in the deficit ramp.</p>
+          <div id="mchart"></div>
+          <p class="note" style="margin-top:8px">
+            <button id="clear-hist" style="background:none;border:0;color:var(--accent);cursor:pointer;font:inherit;padding:0;text-decoration:underline">
+              Clear history
+            </button>
+          </p>
+        </div>
+        <div class="panel">
+          <h2 class="sec">Mixture size, best subset at each size</h2>
+          <p class="lede" id="r4-lede"></p>
+          <div id="r4chart"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ RETRODICTION ============================ -->
+  <section id="tab-retro" hidden>
+    <div class="panel" style="margin-top:16px">
+      <h2 class="sec" id="retro-head"></h2>
+      <p class="lede">
+        Four published antivenom-failure findings were held out. The calibration code
+        <b>raises an exception</b> if a held-out row reaches a parameter fit, and tests assert it
+        raises. A holdout study&rsquo;s venom compositions are legitimate model inputs; its
+        antivenom results are not.
+      </p>
+      <div class="callout" id="retro-notes"></div>
+    </div>
+
+    <div class="panel scroll" style="margin-top:14px">
+      <table id="retro-table">
+        <thead>
+          <tr><th>Criterion</th><th>Pre-registered statement</th><th class="n">Computed</th><th class="n">Threshold</th><th>Outcome</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="grid split" style="margin-top:14px">
+      <div class="panel">
+        <h2 class="sec">Why the misses missed</h2>
+        <div id="diag"></div>
+      </div>
+      <div class="panel">
+        <h2 class="sec">Controls and stability</h2>
+        <div class="scroll"><table id="sens-table"><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ METHOD ============================ -->
+  <section id="tab-method" hidden>
+    <div class="grid split" style="margin-top:16px">
+      <div class="panel">
+        <h2 class="sec">The model</h2>
+        <p class="lede">
+          Neutralisation is a limiting-reagent problem. A vial holds a fixed antibody mass
+          <span class="num">B</span>, partitioned across toxin families in proportion to the
+          immunising mixture. Nothing below was fitted to produce the dilution effect &mdash; it
+          follows from the supply equation.
+        </p>
+        <div class="eq"><b>supply</b>_f(S,w)   = B · Σ_q w_q · a_qf
+<b>eff</b>_f(S,w,p)   = B · Σ_q w_q · a_qf · x_f(q→p)
+<b>demand</b>_f(p,D)  = D · a_pf · κ_f
+<b>n</b>_f            = min(1, eff_f / demand_f)
+<b>C</b>(p|S,w,D)     = Σ_f σ_f·a_pf·n_f ⁄ Σ_f σ_f·a_pf</div>
+        <p class="note" style="margin-top:11px">
+          <span class="hl">Non-monotone in |S|</span> — adding a venom moves supply away from the
+          families a bite actually delivers. <span class="hl">Dose-dependent</span> — demand is
+          linear in <span class="num">D</span>, supply is not.
+          <span class="hl">Saturating</span> — excess antibody against a family is wasted.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2 class="sec">What was actually fitted</h2>
+        <p class="lede">One parameter. Everything else is fixed a priori or unidentifiable.</p>
+        <div class="scroll" style="margin-top:9px"><table id="param-table"><tbody></tbody></table></div>
+      </div>
+    </div>
+
+    <div class="grid split" style="margin-top:14px">
+      <div class="panel">
+        <h2 class="sec">Severity weights <span class="num" style="font-size:13px">σ_f</span></h2>
+        <p class="lede">Fixed before any data was ingested, with a written rationale per family. Never fitted.</p>
+        <div class="scroll" style="margin-top:9px"><table id="sigma-table"><tbody></tbody></table></div>
+      </div>
+      <div class="panel">
+        <h2 class="sec">The corpus</h2>
+        <p class="lede" id="corpus-lede"></p>
+        <div class="scroll" style="margin-top:9px; max-height:430px; overflow-y:auto">
+          <table id="pop-table">
+            <thead><tr><th>Population</th><th>Dominant</th><th>Source</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:14px">
+      <h2 class="sec">What this predicts, and what it does not</h2>
+      <div class="grid split" style="margin-top:8px">
+        <div>
+          <p class="note"><span class="hl">It predicts</span> a risk ordering of Indian districts and
+          venom populations by antivenom deficit; which toxin family drives each deficit; the shape
+          of the coverage-versus-mixture-size curve; and a ranked answer to where new venom
+          collection sites should go.</p>
+        </div>
+        <div>
+          <p class="note"><span class="hl">It does not predict</span> clinical neutralisation
+          percentages, ED50 values, vial requirements, or patient outcomes. It is not validated
+          against clinical data and must not be used to guide treatment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span id="foot-disclaimer"></span>
+    <br>
+    Pre-registration commit <span class="num" id="foot-commit"></span> ·
+    data <span class="num" id="foot-data"></span> ·
+    the model runs entirely in this page.
+  </footer>
+</div>
+
+<script id="venomgap-data" type="application/json">__BUNDLE__</script>
+<script>
+(function () {
+  "use strict";
+  var D = JSON.parse(document.getElementById("venomgap-data").textContent);
+  var F = D.families, NF = F.length;
+  var SIG = D.sigma, KAP = D.kappa, B = D.B, DOSE = D.D;
+  var CELLS = D.cells, DISTRICTS = D.districts, POPS = D.populations;
+  var RES = D.results;
+  var byPop = {}; POPS.forEach(function (p) { byPop[p.popId] = p; });
+  var RAMP = ["--r0","--r1","--r2","--r3","--r4","--r5","--r6"];
+
+  var burden = DISTRICTS.map(function (d) { return d.burden; });
+  var burdenSum = burden.reduce(function (a, b) { return a + b; }, 0);
+
+  function fmtPct(x, dp) { return (x * 100).toFixed(dp === undefined ? 1 : dp) + "%"; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  // ---------------------------------------------------------------- the model
+  // Ported verbatim from venomgap/model/coverage.py. x_f depends only on the species pair, so
+  // the precomputed table is complete and the browser reproduces the Python result exactly.
+  function cellCoverages(immComps, immSpecies, weights) {
+    var nq = immComps.length, out = new Float64Array(CELLS.species.length);
+    var xcache = {};
+    for (var t = 0; t < CELLS.species.length; t++) {
+      var tsp = CELLS.species[t], comp = CELLS.compositions[t];
+      var xs = xcache[tsp];
+      if (!xs) {
+        xs = [];
+        for (var q = 0; q < nq; q++) xs.push(D.crossreact[immSpecies[q] + "|" + tsp]);
+        xcache[tsp] = xs;
+      }
+      var num = 0, den = 0;
+      for (var f = 0; f < NF; f++) {
+        var eff = 0;
+        for (var q2 = 0; q2 < nq; q2++) eff += weights[q2] * immComps[q2][f] * xs[q2][f];
+        eff *= B;
+        var demand = DOSE * comp[f] * KAP[f];
+        var n = demand > 1e-12 ? Math.min(1, eff / demand) : 1;
+        var w = SIG[f] * comp[f];
+        num += w * n; den += w;
+      }
+      out[t] = den > 1e-12 ? num / den : 1;
+    }
+    return out;
+  }
+
+  function districtCoverages(immComps, immSpecies, weights) {
+    var cells = cellCoverages(immComps, immSpecies, weights);
+    var num = new Float64Array(DISTRICTS.length), den = new Float64Array(DISTRICTS.length);
+    for (var i = 0; i < cells.length; i++) {
+      var d = CELLS.districtIndex[i], s = CELLS.biteShare[i];
+      num[d] += cells[i] * s; den[d] += s;
+    }
+    var out = new Float64Array(DISTRICTS.length);
+    for (var j = 0; j < DISTRICTS.length; j++) out[j] = den[j] > 0 ? num[j] / den[j] : 0;
+    return out;
+  }
+
+  function nationalCoverage(immComps, immSpecies, weights) {
+    var dc = districtCoverages(immComps, immSpecies, weights), acc = 0;
+    for (var i = 0; i < dc.length; i++) acc += (burden[i] / burdenSum) * dc[i];
+    return acc;
+  }
+
+  function mixtureFromPopIds(ids) {
+    var comps = [], sp = [];
+    ids.forEach(function (id) { comps.push(byPop[id].composition); sp.push(byPop[id].species); });
+    var w = comps.map(function () { return 1 / comps.length; });
+    return { comps: comps, sp: sp, w: w };
+  }
+
+  function baseMixture() {
+    return {
+      comps: D.baseImmunogen.compositions.slice(),
+      sp: D.baseImmunogen.species.slice(),
+      w: D.baseImmunogen.weights.slice()
+    };
+  }
+
+  function extendBase(ids) {
+    var b = baseMixture();
+    ids.forEach(function (id) { b.comps.push(byPop[id].composition); b.sp.push(byPop[id].species); });
+    var n = b.comps.length;
+    b.w = b.comps.map(function () { return 1 / n; });
+    return b;
+  }
+
+  // ---------------------------------------------------------------- tabs
+  var TABS = ["atlas", "mixture", "retro", "method"];
+  function show(tab) {
+    TABS.forEach(function (t) {
+      document.getElementById("tab-" + t).hidden = t !== tab;
+      var btn = document.querySelector('nav button[data-tab="' + t + '"]');
+      btn.setAttribute("aria-current", String(t === tab));
+    });
+    try { localStorage.setItem("venomgap.tab", tab); } catch (e) { /* private window */ }
+  }
+  document.getElementById("tabs").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-tab]");
+    if (b) show(b.dataset.tab);
+  });
+
+  // ---------------------------------------------------------------- map
+  var lons = DISTRICTS.map(function (d) { return d.lon; });
+  var lats = DISTRICTS.map(function (d) { return d.lat; });
+  var minLon = Math.min.apply(null, lons) - .7, maxLon = Math.max.apply(null, lons) + .7;
+  var minLat = Math.min.apply(null, lats) - .7, maxLat = Math.max.apply(null, lats) + .7;
+  var MW = 720, MH = Math.round(MW * (maxLat - minLat) / (maxLon - minLon));
+  function px(lat, lon) {
+    return [(lon - minLon) / (maxLon - minLon) * MW, MH - (lat - minLat) / (maxLat - minLat) * MH];
+  }
+  function rampVar(v) {
+    var i = Math.max(0, Math.min(RAMP.length - 1, Math.floor(v * RAMP.length)));
+    return "var(" + RAMP[i] + ")";
+  }
+
+  var selectedDistrict = null;
+  function drawMap(metric, pins) {
+    var maxB = Math.max.apply(null, burden);
+    var parts = ['<svg class="map" viewBox="0 0 ' + MW + ' ' + MH + '" role="img" aria-label="District map of predicted antivenom deficit across India">'];
+    DISTRICTS.forEach(function (d, i) {
+      var p = px(d.lat, d.lon), fill, title;
+      if (d.status === "unknown") {
+        fill = "var(--unknown)";
+        title = d.name + ", " + d.state + " \u2014 unknown: nearest proteome " +
+                d.nearestKm.toFixed(0) + " km away, beyond the extrapolation limit";
+      } else {
+        var v = metric === "deficit" ? d.deficit : metric === "uncertainty" ? d.uncertainty : d.burden / maxB;
+        fill = rampVar(v);
+        title = d.name + ", " + d.state +
+                "\ndeficit " + d.deficit.toFixed(3) + " \u00b7 uncertainty " + d.uncertainty.toFixed(2) +
+                "\nnearest proteome " + d.nearestKm.toFixed(0) + " km" +
+                (d.species.length ? "\nspecies: " + d.species.join(", ") : "");
+      }
+      var sel = d.id === selectedDistrict;
+      parts.push('<rect class="d" data-i="' + i + '" x="' + (p[0] - 3.3).toFixed(1) + '" y="' +
+        (p[1] - 3.3).toFixed(1) + '" width="6.6" height="6.6" rx="1.3" fill="' + fill + '"' +
+        (sel ? ' stroke="var(--ink)" stroke-width="1.8"' : '') + '><title>' + esc(title) + '</title></rect>');
+    });
+    var src = px(D.immunogenSource.lat, D.immunogenSource.lon);
+    parts.push('<g><circle cx="' + src[0].toFixed(1) + '" cy="' + src[1].toFixed(1) +
+      '" r="8" fill="none" stroke="var(--accent)" stroke-width="2.2"/><circle cx="' +
+      src[0].toFixed(1) + '" cy="' + src[1].toFixed(1) +
+      '" r="2.6" fill="var(--accent)"/><title>Immunogen source: Irula Cooperative, Chengalpattu, Tamil Nadu</title></g>');
+    pins.forEach(function (pin) {
+      var q = px(pin.lat, pin.lon);
+      parts.push('<g><path d="M ' + q[0].toFixed(1) + ' ' + q[1].toFixed(1) +
+        ' l -6.2 -13.5 a 7 7 0 1 1 12.4 0 z" fill="var(--accent)" stroke="var(--surface)" stroke-width="1.5"/>' +
+        '<title>' + esc("Proposed collection site: " + pin.species + " \u2014 " + pin.locality + ", " + pin.state) +
+        '</title></g>');
+    });
+    parts.push("</svg>");
+    document.getElementById("map").innerHTML = parts.join("");
+  }
+
+  document.getElementById("map").addEventListener("click", function (e) {
+    var r = e.target.closest("rect.d");
+    if (!r) return;
+    var d = DISTRICTS[+r.dataset.i];
+    selectedDistrict = selectedDistrict === d.id ? null : d.id;
+    renderAtlas();
+    renderDistrict();
+    if (selectedDistrict) {
+      document.getElementById("district-detail").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+
+  function renderLegend(metric) {
+    var label = metric === "deficit"
+      ? "predicted deficit \u2014 fraction of the severity-weighted venom dose left unneutralised"
+      : metric === "uncertainty"
+      ? "estimate uncertainty \u2014 0 tight, 1 no usable nearby proteome"
+      : "share of national snakebite burden, relative to the largest district";
+    var sw = RAMP.map(function (v) { return '<span class="sw" style="background:var(' + v + ')"></span>'; }).join("");
+    document.getElementById("legend").innerHTML =
+      '<span>' + label + '</span>' +
+      '<span class="scale"><span class="num" style="margin-right:5px">0</span>' + sw +
+      '<span class="num" style="margin-left:5px">1</span></span>' +
+      '<span class="chip"><i style="background:var(--unknown)"></i>unknown \u2014 no nearby proteome</span>' +
+      '<span class="chip"><i style="background:var(--accent)"></i>immunogen source &amp; proposed sites</span>';
+  }
+
+  // ---------------------------------------------------------------- charts
+  function lineChart(series, opts) {
+    var W = 460, H = 178, ml = 44, mr = 12, mt = 12, mb = 32;
+    var xs = series[0].pts.map(function (p) { return p[0]; });
+    var all = series.reduce(function (a, s) { return a.concat(s.pts.map(function (p) { return p[1]; })); }, []);
+    var lo = Math.min.apply(null, all), hi = Math.max.apply(null, all);
+    var pad = (hi - lo) * .18 || .02; lo -= pad; hi += pad;
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs);
+    function X(v) { return ml + (v - x0) / ((x1 - x0) || 1) * (W - ml - mr); }
+    function Y(v) { return mt + (1 - (v - lo) / ((hi - lo) || 1)) * (H - mt - mb); }
+    var o = ['<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto" role="img" aria-label="' + esc(opts.label) + '">'];
+    for (var g = 0; g <= 3; g++) {
+      var yv = lo + (hi - lo) * g / 3;
+      o.push('<line x1="' + ml + '" y1="' + Y(yv).toFixed(1) + '" x2="' + (W - mr) + '" y2="' + Y(yv).toFixed(1) +
+        '" stroke="var(--border)" stroke-width="1"/>');
+      o.push('<text x="' + (ml - 7) + '" y="' + (Y(yv) + 3.5).toFixed(1) +
+        '" text-anchor="end" font-size="10" font-family="var(--mono)" fill="var(--ink-3)">' + yv.toFixed(2) + "</text>");
+    }
+    xs.forEach(function (v) {
+      o.push('<text x="' + X(v).toFixed(1) + '" y="' + (H - mb + 15) +
+        '" text-anchor="middle" font-size="10" font-family="var(--mono)" fill="var(--ink-3)">' + v + "</text>");
+    });
+    o.push('<text x="' + ((ml + W - mr) / 2).toFixed(0) + '" y="' + (H - 3) +
+      '" text-anchor="middle" font-size="10" fill="var(--ink-3)">' + esc(opts.x) + "</text>");
+    if (opts.mark !== undefined) {
+      o.push('<line x1="' + X(opts.mark).toFixed(1) + '" y1="' + mt + '" x2="' + X(opts.mark).toFixed(1) +
+        '" y2="' + (H - mb) + '" stroke="var(--r5)" stroke-width="1.4" stroke-dasharray="4 3"/>');
+    }
+    if (opts.cursor !== undefined) {
+      o.push('<line x1="' + X(opts.cursor).toFixed(1) + '" y1="' + mt + '" x2="' + X(opts.cursor).toFixed(1) +
+        '" y2="' + (H - mb) + '" stroke="var(--accent)" stroke-width="1.4"/>');
+    }
+    series.forEach(function (s) {
+      var dpath = s.pts.map(function (p, i) { return (i ? "L" : "M") + X(p[0]).toFixed(1) + " " + Y(p[1]).toFixed(1); }).join(" ");
+      o.push('<path d="' + dpath + '" fill="none" stroke="' + s.color + '" stroke-width="2" stroke-linejoin="round"' +
+        (s.dash ? ' stroke-dasharray="5 4"' : "") + "/>");
+      s.pts.forEach(function (p) {
+        o.push('<circle cx="' + X(p[0]).toFixed(1) + '" cy="' + Y(p[1]).toFixed(1) + '" r="3.1" fill="' + s.color +
+          '"><title>' + esc(s.name + " \u00b7 k=" + p[0] + " \u00b7 " + p[1].toFixed(4)) + "</title></circle>");
+      });
+    });
+    o.push("</svg>");
+    var key = series.map(function (s) {
+      return '<span class="chip"><i style="background:' + s.color + '"></i>' + esc(s.name) + "</span>";
+    }).join("");
+    return o.join("") + '<div class="legend">' + key + "</div>";
+  }
+
+  function barChart(items) {
+    if (!items.length) return '<p class="note">Tick a venom to start.</p>';
+    var W = 460, H = 172, ml = 44, mr = 10, mt = 10, mb = 40;
+    var hi = Math.max.apply(null, items.map(function (i) { return i.v; }));
+    var lo = 0; hi = Math.max(hi * 1.12, .05);
+    var bw = (W - ml - mr) / items.length;
+    var o = ['<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto" role="img" aria-label="National coverage after each change to the mixture">'];
+    for (var g = 0; g <= 3; g++) {
+      var yv = lo + (hi - lo) * g / 3, y = mt + (1 - (yv - lo) / (hi - lo)) * (H - mt - mb);
+      o.push('<line x1="' + ml + '" y1="' + y.toFixed(1) + '" x2="' + (W - mr) + '" y2="' + y.toFixed(1) +
+        '" stroke="var(--border)"/>');
+      o.push('<text x="' + (ml - 7) + '" y="' + (y + 3.5).toFixed(1) +
+        '" text-anchor="end" font-size="10" font-family="var(--mono)" fill="var(--ink-3)">' + yv.toFixed(2) + "</text>");
+    }
+    items.forEach(function (it, i) {
+      var h = (it.v - lo) / (hi - lo) * (H - mt - mb);
+      var x = ml + i * bw + bw * .16, w = bw * .68;
+      o.push('<rect x="' + x.toFixed(1) + '" y="' + (H - mb - h).toFixed(1) + '" width="' + w.toFixed(1) +
+        '" height="' + Math.max(h, 1).toFixed(1) + '" rx="3" fill="' + (it.down ? "var(--r5)" : "var(--accent)") +
+        '"><title>' + esc(it.label + " \u00b7 " + it.v.toFixed(4)) + "</title></rect>");
+      o.push('<text x="' + (x + w / 2).toFixed(1) + '" y="' + (H - mb + 13) +
+        '" text-anchor="middle" font-size="9.5" font-family="var(--mono)" fill="var(--ink-3)">' + esc(it.short) + "</text>");
+    });
+    o.push("</svg>");
+    return o.join("");
+  }
+
+  // ---------------------------------------------------------------- atlas render
+  var forced = RES.optimisation.forced_k_curve;
+  var baselineCov = RES.optimisation.baseline_national_coverage;
+
+  function renderAtlas() {
+    var k = +document.getElementById("k-slider").value;
+    var metric = document.getElementById("metric").value;
+    var row = forced.filter(function (r) { return r.k === k; })[0] || forced[0];
+    var pins = (row.sites || []).map(function (id) { return byPop[id]; }).filter(Boolean);
+
+    document.getElementById("k-val").textContent = k;
+    document.getElementById("t-cov").textContent = fmtPct(row.weighted);
+    document.getElementById("t-cov-sub").innerHTML = k === 0
+      ? "the antivenom India makes today"
+      : "current Big Four " + fmtPct(baselineCov) + " \u00b7 <b>" +
+        (row.weighted >= baselineCov ? "+" : "") + ((row.weighted - baselineCov) * 100).toFixed(1) + " points</b>";
+    document.getElementById("k-note").innerHTML = k === 0
+      ? "Drag to site new venom collection centres. <span class='hl'>k</span> counts sites added to the existing Big Four immunogen."
+      : pins.length + " site" + (pins.length === 1 ? "" : "s") + " \u00b7 uniform vial weights <span class='num'>" +
+        fmtPct(row.uniform) + "</span> \u00b7 re-optimised <span class='num'>" + fmtPct(row.weighted) + "</span>";
+
+    drawMap(metric, pins);
+    renderLegend(metric);
+
+    document.getElementById("kchart").innerHTML = lineChart([
+      { name: "uniform vial weights", color: "var(--accent)", pts: forced.map(function (r) { return [r.k, r.uniform]; }) },
+      { name: "re-optimised weights", color: "var(--r4)", dash: true, pts: forced.map(function (r) { return [r.k, r.weighted]; }) }
+    ], { x: "new collection sites k", label: "National coverage against number of new collection sites",
+         mark: RES.optimisation.turnover_k, cursor: k });
+  }
+
+  function renderDistrict() {
+    var el = document.getElementById("district-detail");
+    if (!selectedDistrict) { el.hidden = true; el.innerHTML = ""; return; }
+    var d = DISTRICTS.filter(function (x) { return x.id === selectedDistrict; })[0];
+    var di = DISTRICTS.indexOf(d);
+    var base = baseMixture();
+    var rows = [], prov = {}, seen = {};
+
+    for (var i = 0; i < CELLS.species.length; i++) {
+      if (CELLS.districtIndex[i] !== di) continue;
+      var comp = CELLS.compositions[i], sp = CELLS.species[i];
+      var nf = [], num = 0, den = 0;
+      for (var f = 0; f < NF; f++) {
+        var eff = 0;
+        for (var q = 0; q < base.comps.length; q++) {
+          eff += base.w[q] * base.comps[q][f] * D.crossreact[base.sp[q] + "|" + sp][f];
+        }
+        eff *= B;
+        var dem = DOSE * comp[f] * KAP[f];
+        var n = dem > 1e-12 ? Math.min(1, eff / dem) : 1;
+        nf.push(n);
+        var w = SIG[f] * comp[f];
+        num += w * n; den += w;
+      }
+      var cov = den > 1e-12 ? num / den : 1;
+      var lim = [];
+      for (var f2 = 0; f2 < NF; f2++) {
+        var share = den > 0 ? SIG[f2] * comp[f2] / den : 0;
+        if (nf[f2] < 1 - 1e-9 && share >= 0.02) lim.push({ f: F[f2], n: nf[f2], c: share * (1 - nf[f2]) });
+      }
+      lim.sort(function (a, b) { return a.n - b.n || b.c - a.c; });
+      rows.push({ sp: sp, cov: cov, comp: comp, nf: nf, lim: lim,
+                  share: CELLS.biteShare[i], near: CELLS.nearestKm[i], status: CELLS.status[i] });
+      POPS.forEach(function (p) {
+        if (p.species !== sp || seen[p.popId]) return;
+        seen[p.popId] = 1; prov[p.popId] = p;
+      });
+    }
+    rows.sort(function (a, b) { return a.cov - b.cov; });
+
+    var worst = rows[0];
+    var famRows = worst ? F.map(function (name, f) {
+      return { name: name, a: worst.comp[f], n: worst.nf[f] };
+    }).filter(function (r) { return r.a > 0.005; }).sort(function (a, b) { return b.a - a.a; }) : [];
+
+    var flagText = {
+      composition_imputed: "No proteome is published for this location. The composition is interpolated from the nearest sampled populations of the same species.",
+      no_nearby_proteome: "The nearest published proteome is further away than this model will extrapolate. The district is reported as unknown, not as covered.",
+      sequence_imputed: "Toxin sequences for this species and family are missing or very few, so cross-reactivity falls back to a genus-level or global estimate.",
+      single_study_basis: "Everything known about this population comes from one study.",
+      partial_table_renormalised: "The source study characterised only part of whole venom. The unreported remainder is assigned to \u201cother\u201d rather than redistributed."
+    };
+
+    el.hidden = false;
+    el.innerHTML =
+      '<div class="panel" style="margin-top:14px">' +
+      '<h2 class="sec">' + esc(d.name) + ", " + esc(d.state) + "</h2>" +
+      '<p class="lede">coverage <span class="num">' + fmtPct(d.coverage) + '</span> \u00b7 deficit <span class="num">' +
+        fmtPct(d.deficit) + '</span> \u00b7 uncertainty <span class="num">' + d.uncertainty.toFixed(2) +
+        '</span> \u00b7 nearest proteome <span class="num">' + d.nearestKm.toFixed(0) + ' km</span> \u00b7 status ' + d.status + "</p>" +
+      (d.status === "unknown"
+        ? '<div class="callout alert">The nearest published proteome is ' + d.nearestKm.toFixed(0) +
+          ' km away, beyond what this model will extrapolate. This district is reported as <b>unknown</b>, not as covered. Unknown is a finding, not a blank.</div>'
+        : "") +
+      '<div class="grid split" style="margin-top:13px">' +
+        "<div>" +
+        '<h3 class="sec" style="font-size:14px">Per species, and what limits each</h3>' +
+        '<div class="scroll"><table><thead><tr><th>Species</th><th class="n">Coverage</th><th class="n">Bite share</th><th>Limiting families, worst first</th></tr></thead><tbody>' +
+        rows.map(function (r) {
+          return "<tr><td><i>" + esc(r.sp) + '</i></td><td class="n"><span class="bar"><i style="width:' +
+            Math.max(2, r.cov * 100).toFixed(0) + '%"></i></span> ' + fmtPct(r.cov, 0) + '</td><td class="n">' +
+            r.share.toFixed(2) + "</td><td>" +
+            (r.lim.length ? r.lim.map(function (l) { return esc(l.f); }).join(" \u00b7 ") : "none") + "</td></tr>";
+        }).join("") + "</tbody></table></div>" +
+        (worst ? '<h3 class="sec" style="font-size:14px;margin-top:15px">Per-family neutralised fraction \u2014 <i>' +
+          esc(worst.sp) + "</i></h3>" +
+          '<div class="scroll"><table><thead><tr><th>Family</th><th class="n">Abundance</th><th class="n">Neutralised</th></tr></thead><tbody>' +
+          famRows.map(function (r) {
+            var limiting = worst.lim.some(function (l) { return l.f === r.name; });
+            return "<tr><td>" + esc(r.name) + (limiting ? ' <span class="pill flag">limiting</span>' : "") +
+              '</td><td class="n">' + fmtPct(r.a) + '</td><td class="n"><span class="bar"><i class="' +
+              (limiting ? "warn" : "") + '" style="width:' + Math.max(2, r.n * 100).toFixed(0) + '%"></i></span> ' +
+              fmtPct(r.n, 0) + "</td></tr>";
+          }).join("") + "</tbody></table></div>" : "") +
+        "</div>" +
+        "<div>" +
+        '<h3 class="sec" style="font-size:14px">What is assumed here</h3>' +
+        (d.flags.length ? d.flags.map(function (f) {
+          return '<p class="note" style="margin-bottom:8px"><span class="pill flag">' + esc(f.replace(/_/g, " ")) +
+            "</span><br>" + esc(flagText[f] || "No explanation recorded for this flag.") + "</p>";
+        }).join("") : '<p class="note">No caveats flagged for this district.</p>') +
+        '<h3 class="sec" style="font-size:14px;margin-top:15px">Proteomes informing this estimate</h3>' +
+        '<div class="scroll"><table><tbody>' +
+        Object.keys(prov).map(function (id) {
+          var p = prov[id];
+          return "<tr><td><i>" + esc(p.species) + "</i><br>" +
+            '<span class="note">' + esc(p.locality) + ", " + esc(p.state) + "</span></td><td>" +
+            '<span class="note num">' + esc(p.doi) + '</span><br><span class="note">' + esc(p.table) +
+            " \u00b7 " + esc(p.method) + " \u00b7 accessed " + esc(p.accessed) + "</span>" +
+            p.flags.map(function (f) { return '<span class="pill">' + esc(f.replace(/_/g, " ")) + "</span>"; }).join("") +
+            "</td></tr>";
+        }).join("") + "</tbody></table></div>" +
+        "</div>" +
+      "</div></div>";
+  }
+
+  document.getElementById("k-slider").addEventListener("input", renderAtlas);
+  document.getElementById("metric").addEventListener("change", renderAtlas);
+
+  // ---------------------------------------------------------------- mixture explorer
+  var selectedPops = [], history = [];
+  function defaultMix() {
+    var want = ["Naja naja", "Bungarus caeruleus", "Daboia russelii", "Echis carinatus"], out = [];
+    want.forEach(function (sp) {
+      var m = POPS.filter(function (p) { return p.species === sp && p.country === "India"; })[0];
+      if (m) out.push(m.popId);
+    });
+    return out;
+  }
+
+  function renderPopList() {
+    var q = document.getElementById("pop-filter").value.trim().toLowerCase();
+    var rows = POPS.filter(function (p) {
+      if (!q) return true;
+      return (p.species + " " + p.locality + " " + p.state + " " + p.country + " " + p.dominant)
+        .toLowerCase().indexOf(q) >= 0;
+    });
+    document.getElementById("poplist").innerHTML = rows.map(function (p) {
+      return '<div class="pop"><input type="checkbox" id="c-' + esc(p.popId) + '" data-pop="' + esc(p.popId) + '"' +
+        (selectedPops.indexOf(p.popId) >= 0 ? " checked" : "") + '><label for="c-' + esc(p.popId) + '">' +
+        '<span class="sp">' + esc(p.species) + "</span> \u2014 " + esc(p.locality) +
+        '<div class="meta">' + esc(p.state) + ", " + esc(p.country) + " \u00b7 dominant " + esc(p.dominant) +
+        " \u00b7 " + esc(p.doi) +
+        (p.holdout ? ' <span class="pill hold">holdout target</span>' : "") +
+        p.flags.map(function (f) { return '<span class="pill">' + esc(f.replace(/_/g, " ")) + "</span>"; }).join("") +
+        "</div></label></div>";
+    }).join("");
+  }
+
+  function renderMixture() {
+    var covEl = document.getElementById("m-cov"), subEl = document.getElementById("m-sub");
+    if (!selectedPops.length) {
+      covEl.textContent = "\u2014"; covEl.classList.remove("down");
+      subEl.textContent = "select at least one venom";
+      document.getElementById("m-alert").innerHTML = "";
+      return;
+    }
+    var mix = mixtureFromPopIds(selectedPops);
+    var cov = nationalCoverage(mix.comps, mix.sp, mix.w);
+    var delta = cov - baselineCov;
+    covEl.textContent = fmtPct(cov);
+    covEl.classList.toggle("down", delta < -1e-9);
+    subEl.innerHTML = selectedPops.length + " venom" + (selectedPops.length === 1 ? "" : "s") + " \u00b7 " +
+      (delta >= 0 ? "+" : "") + (delta * 100).toFixed(1) + " points vs the current Big Four immunogen";
+
+    var prev = history[history.length - 1];
+    var down = !!(prev && cov < prev.v - 1e-9 && selectedPops.length > prev.size);
+    history.push({ v: cov, size: selectedPops.length, down: down,
+                   label: "|S| = " + selectedPops.length + " \u00b7 " + fmtPct(cov),
+                   short: "|S|=" + selectedPops.length });
+    if (history.length > 14) history.shift();
+
+    document.getElementById("m-alert").innerHTML = down
+      ? '<div class="callout alert">Coverage just <b>fell</b> as a venom was added. The model was never told this happens \u2014 it follows from a finite antibody budget, and it is what an experimental study reported in 2021.</div>'
+      : "";
+    document.getElementById("mchart").innerHTML = barChart(history);
+  }
+
+  document.getElementById("poplist").addEventListener("change", function (e) {
+    var cb = e.target.closest("input[data-pop]");
+    if (!cb) return;
+    var id = cb.dataset.pop, i = selectedPops.indexOf(id);
+    if (i >= 0) selectedPops.splice(i, 1); else selectedPops.push(id);
+    renderMixture();
+  });
+  document.getElementById("pop-filter").addEventListener("input", renderPopList);
+  document.getElementById("clear-hist").addEventListener("click", function () {
+    history = []; document.getElementById("mchart").innerHTML = barChart(history);
+  });
+  document.getElementById("reset-mix").addEventListener("click", function () {
+    selectedPops = defaultMix(); history = []; renderPopList(); renderMixture();
+  });
+
+  // ---------------------------------------------------------------- retrodiction
+  function renderRetro() {
+    var R = RES.retrodiction;
+    document.getElementById("retro-head").textContent =
+      "Blinded retrodiction: " + R.targets_passed + " of " + R.targets_total + " targets passed";
+    document.getElementById("retro-notes").textContent = R.notes;
+    document.querySelector("#retro-table tbody").innerHTML = R.criteria.map(function (c) {
+      return "<tr><td><b>" + esc(c.criterion_id) + "</b></td><td style=\"max-width:420px\">" +
+        esc(c.statement) + '<div class="note" style="margin-top:3px">' + esc(c.detail) + "</div></td>" +
+        '<td class="n">' + (c.computed === null ? "\u2014" : c.computed.toFixed(4)) + "</td>" +
+        '<td class="n">' + (c.threshold === null ? "\u2014" : c.threshold.toFixed(4)) + "</td>" +
+        '<td><span class="' + (c.passed ? "pass" : "fail") + '">' + (c.passed ? "PASS" : "FAIL") + "</span></td></tr>";
+    }).join("");
+
+    var dg = R.diagnostics;
+    document.getElementById("diag").innerHTML =
+      '<p class="note">' + esc(dg.theta_scale_mismatch.consequence) + "</p>" +
+      '<div class="callout" style="margin-top:11px"><b>R2b in one line.</b> The sequence data does rank ' +
+      "<i>N. kaouthia</i> closer to <i>N. sagittifera</i> (identity <span class='num'>" +
+      dg.r2b.identity_3FTx_from_Naja_kaouthia.toFixed(3) + "</span>) than <i>N. naja</i> is (<span class='num'>" +
+      dg.r2b.identity_3FTx_from_Naja_naja.toFixed(3) + "</span>) \u2014 exactly what the held-out paper claims on " +
+      "phylogenetic grounds, arrived at independently. The recognition floor \u03b8 = <span class='num'>" +
+      dg.theta_scale_mismatch.theta.toFixed(2) + "</span> discards that ordering before it can act, so the " +
+      "substitution moves coverage by exactly zero.</div>" +
+      '<p class="note" style="margin-top:11px">' + esc(dg.data_sparsity.consequence) + "</p>";
+
+    var S = RES.sensitivity, C = S.controls;
+    var sens = [
+      ["Leave-one-study-out \u03c1", S.mean_spearman.toFixed(3) + " mean, " + S.min_spearman.toFixed(3) + " worst",
+       "Pre-registered falsification threshold is 0.5"],
+      ["B/D parameter sweep", S.sweep_min_spearman.toFixed(3) + " worst",
+       "Ranking survives a 5\u00d7 change in dose and vial assumptions"],
+      ["Sequence-free control", C.sequence_free_rho_vs_model.toFixed(3),
+       "x_f = 1 everywhere: the sequence layer carries the ranking signal"],
+      ["Cosine baseline", C.cosine_baseline_rho_vs_model.toFixed(3),
+       "Ranks populations in near-opposite order"],
+      ["Permutation null", C.permutation_rho_mean.toFixed(3) + " mean, " + C.permutation_rho_p95.toFixed(3) + " p95",
+       "Confirms the null level"]
+    ];
+    document.querySelector("#sens-table tbody").innerHTML = sens.map(function (r) {
+      return "<tr><td>" + esc(r[0]) + '</td><td class="n"><b>' + esc(r[1]) + '</b></td><td class="note">' +
+        esc(r[2]) + "</td></tr>";
+    }).join("");
+  }
+
+  // ---------------------------------------------------------------- method
+  function renderMethod() {
+    var fp = RES.retrodiction.fitted_parameters;
+    var params = [
+      ["\u03c3_f severity weights", "Fixed a priori", "Written rationale per family, set before any data was ingested. Never fitted."],
+      ["\u03ba_f shape", "Fixed a priori", "M_ab / M_family from molar equivalence: a 7 kDa three-finger toxin costs ~7\u00d7 more antibody mass per mg than a 47 kDa metalloproteinase."],
+      ["\u03ba_scale", "<b>Fitted: " + fp.kappa_scale.toFixed(4) + "</b>", "The only fitted parameter. Absorbs the venom-specific antibody fraction, which is unmeasured per batch."],
+      ["\u03b8_f recognition floors", "Not identified", "Data sensitivity is exactly zero for all six probed families, so each keeps its a priori 0.65. The calibration targets share species with the immunogen set, where cross-reactivity is 1 by construction."],
+      ["\u2113 spatial length scale", fp.ell_km.toFixed(0) + " km", "Fitted by leave-one-population-out CV on composition vectors only. No antivenom quantity enters it."],
+      ["B, D", B.toFixed(0) + " mg, " + DOSE.toFixed(0) + " mg", "Published vial protein content and a delivered-dose estimate. Swept in the sensitivity analysis."]
+    ];
+    document.querySelector("#param-table tbody").innerHTML = params.map(function (r) {
+      return "<tr><td>" + r[0] + '</td><td class="n">' + r[1] + '</td><td class="note">' + esc(r[2]) + "</td></tr>";
+    }).join("");
+
+    var order = F.map(function (n, i) { return [n, SIG[i], KAP[i]]; })
+      .sort(function (a, b) { return b[1] - a[1]; });
+    document.querySelector("#sigma-table tbody").innerHTML =
+      '<tr><th>Family</th><th class="n">\u03c3_f</th><th class="n">\u03ba_f</th></tr>' +
+      order.map(function (r) {
+        return "<tr><td>" + esc(r[0]) + '</td><td class="n">' + r[1].toFixed(2) +
+          '</td><td class="n">' + r[2].toFixed(2) + "</td></tr>";
+      }).join("");
+
+    var states = {}, studies = {}, spp = {};
+    POPS.forEach(function (p) { states[p.state] = 1; studies[p.doi] = 1; spp[p.species] = 1; });
+    document.getElementById("corpus-lede").innerHTML =
+      POPS.length + " population-level proteomes \u00b7 " + Object.keys(spp).length + " species \u00b7 " +
+      Object.keys(states).length + " states or regions \u00b7 " + Object.keys(studies).length +
+      " studies. Every row carries a DOI or PMC id, a table reference, an access date and a method.";
+    document.querySelector("#pop-table tbody").innerHTML = POPS.map(function (p) {
+      return "<tr><td><i>" + esc(p.species) + "</i><br><span class='note'>" + esc(p.locality) + ", " +
+        esc(p.state) + "</span>" + (p.holdout ? ' <span class="pill hold">holdout</span>' : "") +
+        "</td><td>" + esc(p.dominant) + "</td><td><span class='note num'>" + esc(p.doi) +
+        "</span><br><span class='note'>" + esc(p.table) + "</span>" +
+        p.flags.map(function (f) { return '<span class="pill">' + esc(f.replace(/_/g, " ")) + "</span>"; }).join("") +
+        "</td></tr>";
+    }).join("");
+  }
+
+  // ---------------------------------------------------------------- boot
+  var sp = RES.spatial, op = RES.optimisation, rt = RES.retrodiction;
+  document.getElementById("t-dist").textContent = sp.estimated;
+  document.getElementById("t-dist-sub").textContent = sp.unknown + " reported unknown, rendered grey";
+  document.getElementById("t-ell").innerHTML = sp.ell_km.toFixed(0) + '<span style="font-size:15px"> km</span>';
+  document.getElementById("t-ell-sub").textContent =
+    "plateau " + sp.ell_plateau_km[0].toFixed(0) + "\u2013" + sp.ell_plateau_km[1].toFixed(0) + " km";
+  document.getElementById("t-fit").textContent = "1";
+  document.getElementById("t-fit-sub").textContent = "\u03ba_scale = " + rt.fitted_parameters.kappa_scale.toFixed(3) +
+    "; everything else a priori";
+  document.getElementById("spatial-interp").textContent = sp.interpretation;
+  document.getElementById("k-lede").innerHTML =
+    "Turnover at <span class='num'>k = " + op.turnover_k + "</span>: past it, coverage falls as the next venoms " +
+    "dilute the vial. Re-optimising the mixture weights removes the dip.";
+  document.getElementById("k-foot").innerHTML = esc(op.submodularity_note) +
+    " Greedy plus local search matched exact enumeration over <span class='num'>" +
+    op.optimality_gap.subsets_evaluated.toLocaleString() + "</span> subsets: measured gap <span class='num'>" +
+    op.optimality_gap.optimality_gap.toFixed(4) + "</span>.";
+
+  var mixCurve = rt.mixture_size_curve, cosCurve = rt.cosine_baseline_curve;
+  var peak = mixCurve.coverages.indexOf(Math.max.apply(null, mixCurve.coverages));
+  document.getElementById("r4-lede").innerHTML =
+    "The stoichiometric model peaks at <span class='num'>|S| = " + mixCurve.sizes[peak] +
+    "</span> and falls by <span class='num'>" +
+    (Math.max.apply(null, mixCurve.coverages) - mixCurve.coverages[mixCurve.coverages.length - 1]).toFixed(4) +
+    "</span>. The cosine baseline, on identical inputs, rises monotonically and has no interior maximum at all.";
+  document.getElementById("r4chart").innerHTML = lineChart([
+    { name: "stoichiometric model", color: "var(--accent)",
+      pts: mixCurve.sizes.map(function (s, i) { return [s, mixCurve.coverages[i]]; }) },
+    { name: "cosine baseline (best match)", color: "var(--r4)", dash: true,
+      pts: cosCurve.sizes.map(function (s, i) { return [s, cosCurve.coverages[i]]; }) }
+  ], { x: "immunogen mixture size |S|", label: "Coverage against immunogen mixture size",
+       mark: mixCurve.sizes[peak] });
+
+  document.getElementById("tag-prereg").textContent =
+    rt.targets_passed + "/" + rt.targets_total + " pre-registered targets";
+  document.getElementById("foot-disclaimer").textContent = D.meta.disclaimer;
+  document.getElementById("foot-commit").textContent = D.meta.preregistration_commit.slice(0, 12);
+  document.getElementById("foot-data").textContent = D.meta.data_version.replace("compositions.csv ", "");
+
+  selectedPops = defaultMix();
+  renderPopList();
+  renderMixture();
+  renderAtlas();
+  renderRetro();
+  renderMethod();
+
+  var saved = null;
+  try { saved = localStorage.getItem("venomgap.tab"); } catch (e) { /* private window */ }
+  show(TABS.indexOf(saved) >= 0 ? saved : "atlas");
+})();
+</script>
