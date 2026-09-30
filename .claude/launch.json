@@ -4,14 +4,24 @@
     {
       "name": "venomgap-api",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "uvicorn", "venomgap.api.app:app", "--port", "8000"],
-      "port": 8000
+      "runtimeArgs": [
+        "-m",
+        "venomgap.api"
+      ],
+      "port": 8010,
+      "autoPort": true
     },
     {
       "name": "venomgap-web",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "web", "run", "dev"],
-      "port": 5173
+      "runtimeArgs": [
+        "--prefix",
+        "web",
+        "run",
+        "dev"
+      ],
+      "port": 5173,
+      "autoPort": true
     }
   ]
 }
